@@ -107,5 +107,11 @@ namespace SpaceMarket
         {
 
         }
+
+        private void danhMụcSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DanhMucSanPham danhMucSanPham = new DanhMucSanPham();
+            danhMucSanPham.ShowDialog();
+        }
     }
 }
