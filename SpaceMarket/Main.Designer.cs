@@ -43,9 +43,9 @@
             this.quảnLýTàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.danhMụcSảnPhẩmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sảnPhẩmToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.hỗTrợToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiệnÍchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bảoMậtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hỗTrợToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,9 +60,9 @@
             this.kháchHàngToolStripMenuItem,
             this.báoCáoToolStripMenuItem,
             this.quảnLíToolStripMenuItem,
-            this.hỗTrợToolStripMenuItem,
             this.tiệnÍchToolStripMenuItem,
-            this.bảoMậtToolStripMenuItem});
+            this.bảoMậtToolStripMenuItem,
+            this.hỗTrợToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1902, 46);
@@ -180,13 +180,6 @@
             this.sảnPhẩmToolStripMenuItem1.Size = new System.Drawing.Size(363, 42);
             this.sảnPhẩmToolStripMenuItem1.Text = "Sản phẩm";
             // 
-            // hỗTrợToolStripMenuItem
-            // 
-            this.hỗTrợToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("hỗTrợToolStripMenuItem.Image")));
-            this.hỗTrợToolStripMenuItem.Name = "hỗTrợToolStripMenuItem";
-            this.hỗTrợToolStripMenuItem.Size = new System.Drawing.Size(131, 42);
-            this.hỗTrợToolStripMenuItem.Text = "Hỗ trợ";
-            // 
             // tiệnÍchToolStripMenuItem
             // 
             this.tiệnÍchToolStripMenuItem.Name = "tiệnÍchToolStripMenuItem";
@@ -200,6 +193,13 @@
             this.bảoMậtToolStripMenuItem.Size = new System.Drawing.Size(132, 42);
             this.bảoMậtToolStripMenuItem.Text = "Bảo mật";
             this.bảoMậtToolStripMenuItem.Click += new System.EventHandler(this.bảoMậtToolStripMenuItem_Click);
+            // 
+            // hỗTrợToolStripMenuItem
+            // 
+            this.hỗTrợToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("hỗTrợToolStripMenuItem.Image")));
+            this.hỗTrợToolStripMenuItem.Name = "hỗTrợToolStripMenuItem";
+            this.hỗTrợToolStripMenuItem.Size = new System.Drawing.Size(131, 42);
+            this.hỗTrợToolStripMenuItem.Text = "Hỗ trợ";
             // 
             // Main
             // 

@@ -1,14 +1,15 @@
 namespace DAL.Database
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("THETHANHVIEN")]
     public partial class THETHANHVIEN
     {
         [Key]
-        [Column(Order = 0)]
         [StringLength(20)]
         public string MATHE { get; set; }
 
@@ -23,8 +24,7 @@ namespace DAL.Database
         [StringLength(20)]
         public string BACTHE { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
+        [Required]
         [StringLength(20)]
         public string MAKH { get; set; }
 
