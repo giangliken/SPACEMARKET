@@ -1,4 +1,7 @@
+using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
+using System.Linq;
 
 namespace DAL.Database
 {
@@ -22,6 +25,7 @@ namespace DAL.Database
         public virtual DbSet<PHIEUQUATANG> PHIEUQUATANG { get; set; }
         public virtual DbSet<PHIEUTRIETKHAUTHUONGMAI> PHIEUTRIETKHAUTHUONGMAI { get; set; }
         public virtual DbSet<SANPHAM> SANPHAM { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<THETHANHVIEN> THETHANHVIEN { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -94,7 +98,7 @@ namespace DAL.Database
                 .IsUnicode(false);
 
             modelBuilder.Entity<KHACHHANG>()
-                .HasMany(e => e.HOADON)
+                .HasMany(e => e.THETHANHVIEN)
                 .WithRequired(e => e.KHACHHANG)
                 .WillCascadeOnDelete(false);
 
@@ -159,11 +163,6 @@ namespace DAL.Database
             modelBuilder.Entity<NHANVIEN>()
                 .Property(e => e.PASSWORD)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<NHANVIEN>()
-                .HasMany(e => e.HOADON)
-                .WithRequired(e => e.NHANVIEN)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<NHANVIEN>()
                 .HasMany(e => e.PHIEUTRIETKHAUTHUONGMAI)

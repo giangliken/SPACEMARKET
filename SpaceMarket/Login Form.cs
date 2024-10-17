@@ -38,6 +38,7 @@ namespace SpaceMarket
             {
                 Main main = new Main();
                 main.SetUserRole(cv.ChucVu);
+                main.MANV = cv.Id;
                 main.Show();
                 this.Hide();
             }

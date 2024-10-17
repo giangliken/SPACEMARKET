@@ -6,6 +6,7 @@ namespace SpaceMarket
 {
     public partial class Main : Form
     {
+        public string MANV {  get; set; }  
         public Main()
         {
             InitializeComponent();
@@ -21,13 +22,15 @@ namespace SpaceMarket
         private void bánHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BanHang bh = new BanHang();
+            bh.MANV = MANV;
             bh.ShowDialog();
             //this.Hide();
         }
 
         private void sảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            QuanLySanPham ql = new QuanLySanPham();
+            ql.ShowDialog();
         }
 
         private void quảnLíToolStripMenuItem_Click(object sender, EventArgs e)
@@ -65,7 +68,7 @@ namespace SpaceMarket
 
         private void Main_Load(object sender, EventArgs e)
         {
-            
+
             Progress_Form progress = new Progress_Form();
             progress.StartPosition = FormStartPosition.Manual;
             progress.BackColor = this.BackColor;
@@ -73,6 +76,13 @@ namespace SpaceMarket
             progress.ShowDialog();
         }
 
+
+        //Nhận tham số mã NV truyền từ các hàm khác
+        public string GetMaNV(string ID)
+        {
+            MessageBox.Show("Form main da nhan voi ma NV la: " + ID);
+            return ID;
+        }
 
         private void fToolStripMenuItem_Click(object sender, EventArgs e)
         {
