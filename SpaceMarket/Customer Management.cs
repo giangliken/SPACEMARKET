@@ -1,4 +1,5 @@
 ﻿using BLL;
+using DAL.Database;
 using System;
 using System.Windows.Forms;
 
@@ -28,6 +29,11 @@ namespace SpaceMarket
         private void LoadData()
         {
             datadanhsachkhachhang.DataSource = khachHangService.GetAll();
+            // Định dạng cột NGAYSINH
+            if (datadanhsachkhachhang.Columns["NGAYSINH"] != null)
+            {
+                datadanhsachkhachhang.Columns["NGAYSINH"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            }
         }
 
         private void uiLabel1_Click(object sender, EventArgs e)
@@ -197,6 +203,33 @@ namespace SpaceMarket
                 MessageBox.Show("Vui lòng chọn khách hàng để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             Customer_Management_Load(sender, e);
+        }
+
+        private void txtSearchMAKH_TextChanged(object sender, EventArgs e)
+        {
+            SearchCustomers();
+        }
+
+        private void txtSearchTenKH_TextChanged(object sender, EventArgs e)
+        {
+            SearchCustomers();
+        }
+
+
+
+        private void SearchCustomers()
+        {
+            string maKhachHang = txtSearchMAKH.Text.Trim();
+            string tenKhachHang = txtSearchTenKH.Text.Trim();
+
+            // Tạo đối tượng dịch vụ khách hàng
+            KhachHangService khachHangService = new KhachHangService();
+
+            // Tìm kiếm khách hàng dựa trên mã hoặc tên
+            var results = khachHangService.SearchCustomers(maKhachHang, tenKhachHang);
+
+            // Cập nhật DataGridView với kết quả tìm kiếm
+            datadanhsachkhachhang.DataSource = results;
         }
     }
 }

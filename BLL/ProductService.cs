@@ -91,6 +91,12 @@ namespace BLL
                         return false; // Không tìm thấy sản phẩm
                     }
 
+                    // Ghi nhận lịch sử giá nếu giá có thay đổi
+                    if (product.GIABAN != giaban)
+                    {
+                        RecordPriceChange(masp, product.GIABAN, giaban);
+                    }
+
                     // Cập nhật thông tin sản phẩm
                     product.MANCC = mancc;
                     product.MADM = madm;
@@ -109,7 +115,7 @@ namespace BLL
                 }
             }
         }
-        
+
         //Hàm xóa sản phẩm
         public bool DeleteProduct(string masp)
         {
@@ -158,6 +164,34 @@ namespace BLL
             }
         }
 
+        // Phương thức ghi nhận lịch sử giá
+        public bool RecordPriceChange(string masp, decimal oldPrice, decimal newPrice)
+        {
+            using (Model1 context = new Model1())
+            {
+                try
+                {
+                    // Tạo một đối tượng LICHSUGIA mới
+                    var priceHistory = new LICHSUGIA()
+                    {
+                        MASP = masp,
+                        GIACU = oldPrice,
+                        GIAMOI = newPrice,
+                        NGAYTHAYDOI = DateTime.Now // Ghi lại thời gian thay đổi
+                    };
+
+                    context.LICHSUGIA.Add(priceHistory);
+                    context.SaveChanges();
+                    return true; // Ghi nhận thành công
+                }
+                catch (Exception ex)
+                {
+                    // Ghi log lỗi nếu cần
+                    Console.WriteLine(ex.Message);
+                    return false; // Ghi nhận thất bại
+                }
+            }
+        }
 
 
 

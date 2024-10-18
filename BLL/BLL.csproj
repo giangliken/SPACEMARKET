@@ -92,7 +92,9 @@
     <Compile Include="ApiRequest.cs" />
     <Compile Include="Bank.cs" />
     <Compile Include="DanhMucService.cs" />
+    <Compile Include="HoaDonService.cs" />
     <Compile Include="KhachHangService.cs" />
+    <Compile Include="KhoHangService.cs" />
     <Compile Include="LoginService.cs" />
     <Compile Include="ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

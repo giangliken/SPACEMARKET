@@ -74,10 +74,10 @@
             this.uiLabel8 = new Sunny.UI.UILabel();
             this.uiLabel9 = new Sunny.UI.UILabel();
             this.uiPanel2 = new Sunny.UI.UIPanel();
-            this.uiTextBox4 = new Sunny.UI.UITextBox();
-            this.uiTextBox3 = new Sunny.UI.UITextBox();
-            this.uiTextBox2 = new Sunny.UI.UITextBox();
-            this.uiTextBox1 = new Sunny.UI.UITextBox();
+            this.lblDiemTichLuy = new Sunny.UI.UILabel();
+            this.lblSDT = new Sunny.UI.UILabel();
+            this.lblTenKhachHang = new Sunny.UI.UILabel();
+            this.lblMaThe = new Sunny.UI.UILabel();
             this.uiLabel5 = new Sunny.UI.UILabel();
             this.uiLabel4 = new Sunny.UI.UILabel();
             this.uiLabel3 = new Sunny.UI.UILabel();
@@ -588,10 +588,10 @@
             // 
             // uiPanel2
             // 
-            this.uiPanel2.Controls.Add(this.uiTextBox4);
-            this.uiPanel2.Controls.Add(this.uiTextBox3);
-            this.uiPanel2.Controls.Add(this.uiTextBox2);
-            this.uiPanel2.Controls.Add(this.uiTextBox1);
+            this.uiPanel2.Controls.Add(this.lblDiemTichLuy);
+            this.uiPanel2.Controls.Add(this.lblSDT);
+            this.uiPanel2.Controls.Add(this.lblTenKhachHang);
+            this.uiPanel2.Controls.Add(this.lblMaThe);
             this.uiPanel2.Controls.Add(this.uiLabel5);
             this.uiPanel2.Controls.Add(this.uiLabel4);
             this.uiPanel2.Controls.Add(this.uiLabel3);
@@ -608,61 +608,49 @@
             this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.uiPanel2.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
-            // uiTextBox4
+            // lblDiemTichLuy
             // 
-            this.uiTextBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.uiTextBox4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uiTextBox4.Location = new System.Drawing.Point(126, 169);
-            this.uiTextBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiTextBox4.MinimumSize = new System.Drawing.Size(1, 16);
-            this.uiTextBox4.Name = "uiTextBox4";
-            this.uiTextBox4.ShowText = false;
-            this.uiTextBox4.Size = new System.Drawing.Size(270, 29);
-            this.uiTextBox4.TabIndex = 6;
-            this.uiTextBox4.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiTextBox4.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.lblDiemTichLuy.BackColor = System.Drawing.Color.Transparent;
+            this.lblDiemTichLuy.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblDiemTichLuy.Location = new System.Drawing.Point(126, 171);
+            this.lblDiemTichLuy.Name = "lblDiemTichLuy";
+            this.lblDiemTichLuy.Size = new System.Drawing.Size(270, 23);
+            this.lblDiemTichLuy.TabIndex = 10;
+            this.lblDiemTichLuy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblDiemTichLuy.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
-            // uiTextBox3
+            // lblSDT
             // 
-            this.uiTextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.uiTextBox3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uiTextBox3.Location = new System.Drawing.Point(126, 130);
-            this.uiTextBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiTextBox3.MinimumSize = new System.Drawing.Size(1, 16);
-            this.uiTextBox3.Name = "uiTextBox3";
-            this.uiTextBox3.ShowText = false;
-            this.uiTextBox3.Size = new System.Drawing.Size(270, 29);
-            this.uiTextBox3.TabIndex = 6;
-            this.uiTextBox3.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiTextBox3.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.lblSDT.BackColor = System.Drawing.Color.Transparent;
+            this.lblSDT.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblSDT.Location = new System.Drawing.Point(128, 132);
+            this.lblSDT.Name = "lblSDT";
+            this.lblSDT.Size = new System.Drawing.Size(270, 23);
+            this.lblSDT.TabIndex = 9;
+            this.lblSDT.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblSDT.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
-            // uiTextBox2
+            // lblTenKhachHang
             // 
-            this.uiTextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.uiTextBox2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uiTextBox2.Location = new System.Drawing.Point(126, 91);
-            this.uiTextBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiTextBox2.MinimumSize = new System.Drawing.Size(1, 16);
-            this.uiTextBox2.Name = "uiTextBox2";
-            this.uiTextBox2.ShowText = false;
-            this.uiTextBox2.Size = new System.Drawing.Size(270, 29);
-            this.uiTextBox2.TabIndex = 6;
-            this.uiTextBox2.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiTextBox2.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.lblTenKhachHang.BackColor = System.Drawing.Color.Transparent;
+            this.lblTenKhachHang.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblTenKhachHang.Location = new System.Drawing.Point(128, 97);
+            this.lblTenKhachHang.Name = "lblTenKhachHang";
+            this.lblTenKhachHang.Size = new System.Drawing.Size(270, 23);
+            this.lblTenKhachHang.TabIndex = 8;
+            this.lblTenKhachHang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTenKhachHang.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
-            // uiTextBox1
+            // lblMaThe
             // 
-            this.uiTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.uiTextBox1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uiTextBox1.Location = new System.Drawing.Point(126, 52);
-            this.uiTextBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiTextBox1.MinimumSize = new System.Drawing.Size(1, 16);
-            this.uiTextBox1.Name = "uiTextBox1";
-            this.uiTextBox1.ShowText = false;
-            this.uiTextBox1.Size = new System.Drawing.Size(270, 29);
-            this.uiTextBox1.TabIndex = 5;
-            this.uiTextBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiTextBox1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.lblMaThe.BackColor = System.Drawing.Color.Transparent;
+            this.lblMaThe.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblMaThe.Location = new System.Drawing.Point(126, 54);
+            this.lblMaThe.Name = "lblMaThe";
+            this.lblMaThe.Size = new System.Drawing.Size(270, 23);
+            this.lblMaThe.TabIndex = 7;
+            this.lblMaThe.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblMaThe.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // uiLabel5
             // 
@@ -949,10 +937,6 @@
         private Sunny.UI.UILabel uiLabel3;
         private Sunny.UI.UILabel uiLabel2;
         private Sunny.UI.UILabel uiLabel1;
-        private Sunny.UI.UITextBox uiTextBox4;
-        private Sunny.UI.UITextBox uiTextBox3;
-        private Sunny.UI.UITextBox uiTextBox2;
-        private Sunny.UI.UITextBox uiTextBox1;
         private Sunny.UI.UIPanel uiPanel3;
         private Sunny.UI.UILabel uiLabel6;
         private Sunny.UI.UILabel uiLabel7;
@@ -987,5 +971,9 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private Sunny.UI.UIPanel uiPanel6;
+        private Sunny.UI.UILabel lblTenKhachHang;
+        private Sunny.UI.UILabel lblMaThe;
+        private Sunny.UI.UILabel lblDiemTichLuy;
+        private Sunny.UI.UILabel lblSDT;
     }
 }

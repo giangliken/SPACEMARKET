@@ -11,6 +11,7 @@ namespace BLL
 {
     public class KhachHangService
     {
+        //Phương thức trả về danh sách khách hàng
         public List<KHACHHANGS> GetAll()
         {
             using (Model1 context = new Model1())
@@ -51,15 +52,21 @@ namespace BLL
                 context.KHACHHANG.Add(khachHang);
                 context.SaveChanges();
 
+                string newMathe;
+                do
+                {
+                    newMathe = GenerateMemberCardNumber(); // Gọi hàm tạo số thẻ
+                } while (context.THETHANHVIEN.Any(t => t.MATHE == newMathe)); // Kiểm tra xem mã thẻ đã tồn tại chưa
+
                 // Tạo thẻ thành viên cho khách hàng vừa thêm
                 var theThanhVien = new THETHANHVIEN
                 {
-                    MATHE = GenerateMemberCardNumber(), // Gọi hàm tạo số thẻ
+                    MATHE = newMathe,
                     NGAYCAP = DateTime.Now,
-                    HANSUDUNG = DateTime.Now.AddYears(1), // Ví dụ: thẻ có hiệu lực 1 năm
-                    DIEMTICHLUY = 0, // Khởi tạo điểm tích lũy
-                    BACTHE = "Mới", // Ví dụ: Trạng thái thẻ
-                    MAKH = khachHang.MAKH // Liên kết thẻ với khách hàng
+                    HANSUDUNG = DateTime.Now.AddYears(1),
+                    DIEMTICHLUY = 0,
+                    BACTHE = "Đồng",
+                    MAKH = khachHang.MAKH
                 };
 
                 // Thêm thẻ thành viên vào cơ sở dữ liệu
@@ -67,6 +74,7 @@ namespace BLL
                 context.SaveChanges();
             }
         }
+
 
 
         // Phương thức Sửa
@@ -89,9 +97,21 @@ namespace BLL
                     var theThanhVien = context.THETHANHVIEN.FirstOrDefault(t => t.MAKH == khachHang.MAKH);
                     if (theThanhVien != null)
                     {
-                        // Nếu thẻ thành viên đã tồn tại, có thể cập nhật thông tin thẻ nếu cần
-                        // Ví dụ: bạn có thể cập nhật trạng thái thẻ
-                        theThanhVien.BACTHE = "Cập nhật"; // Ví dụ
+                        // Không cập nhật ngày cấp và hạn sử dụng
+                        // Đánh giá hạng thẻ dựa trên điểm tích lũy
+                        if (theThanhVien.DIEMTICHLUY < 10000)
+                        {
+                            theThanhVien.BACTHE = "Đồng";
+                        }
+                        else if (theThanhVien.DIEMTICHLUY < 50000)
+                        {
+                            theThanhVien.BACTHE = "Bạc";
+                        }
+                        else
+                        {
+                            theThanhVien.BACTHE = "Vàng";
+                        }
+
                         context.Entry(theThanhVien).State = EntityState.Modified;
                     }
                     else
@@ -113,6 +133,7 @@ namespace BLL
                 }
             }
         }
+
 
         // Phương thức Xóa
         public void Delete(string maKhachHang)
@@ -168,14 +189,14 @@ namespace BLL
                 var existingIds = context.KHACHHANG.Select(kh => kh.MAKH).ToList();
 
                 // Tạo danh sách số thứ tự
-                int maxSequenceNumber = 0;
+                int maxSequenceNumber = 1; // Bắt đầu từ 0001
                 foreach (var id in existingIds)
                 {
                     // Kiểm tra nếu mã bắt đầu bằng "KH" + năm + tháng
                     if (id.StartsWith($"KH{year}{month}"))
                     {
                         // Lấy phần STT từ mã khách hàng
-                        string sequencePart = id.Substring(6); // Bỏ qua "KH" + "năm" + "tháng"
+                        string sequencePart = id.Substring(10); // Bỏ qua "KH" + "năm" + "tháng"
                         if (int.TryParse(sequencePart, out int sequenceNumber))
                         {
                             maxSequenceNumber = Math.Max(maxSequenceNumber, sequenceNumber);
@@ -195,8 +216,114 @@ namespace BLL
             }
         }
 
+        //Phương thức cập nhật điểm khách hàng
+        public void UpdateLoyaltyPoints(string maKhachHang, int pointsChange)
+        {
+            using (Model1 context = new Model1())
+            {
+                var theThanhVien = context.THETHANHVIEN.FirstOrDefault(t => t.MAKH == maKhachHang);
+                if (theThanhVien != null)
+                {
+                    // Cập nhật điểm tích lũy
+                    theThanhVien.DIEMTICHLUY += pointsChange;
 
+                    // Cập nhật hạng thẻ dựa trên điểm tích lũy
+                    if (theThanhVien.DIEMTICHLUY < 10000)
+                    {
+                        theThanhVien.BACTHE = "Đồng";
+                    }
+                    else if (theThanhVien.DIEMTICHLUY < 50000)
+                    {
+                        theThanhVien.BACTHE = "Bạc";
+                    }
+                    else
+                    {
+                        theThanhVien.BACTHE = "Vàng";
+                    }
 
+                    context.SaveChanges(); // Lưu thay đổi vào cơ sở dữ liệu
+                }
+            }
+        }
+
+        //Phương thức tìm khách hàng dựa vào mã KH hoặc tên KH
+        public List<KHACHHANGS> SearchCustomers(string maKhachHang, string tenKhachHang)
+        {
+            using (Model1 context = new Model1())
+            {
+                var query = context.KHACHHANG.AsQueryable();
+
+                // Kiểm tra mã khách hàng
+                if (!string.IsNullOrEmpty(maKhachHang))
+                {
+                    query = query.Where(kh => kh.MAKH.Contains(maKhachHang));
+                }
+
+                // Kiểm tra tên khách hàng
+                if (!string.IsNullOrEmpty(tenKhachHang))
+                {
+                    query = query.Where(kh => kh.TENKH.Contains(tenKhachHang));
+                }
+
+                return query.Select(kh => new KHACHHANGS
+                {
+                    MAKH = kh.MAKH,
+                    TENKH = kh.TENKH,
+                    NGAYSINH = kh.NGAYSINH,
+                    CCCD = kh.CCCD,
+                    DIACHI = kh.DIACHI,
+                    SDTKH = kh.SDTKH,
+                    EMAILKH = kh.EMAILKH
+                }).ToList();
+            }
+        }
+
+        //Phương thức trả về thông tin thẻ khách hàng khi truyền vào mã KH
+        public (string MATHE, string TENKH, string SDTKH, decimal DIEMTICHLUY) GetCustomerDetails(string maKhachHang)
+        {
+            using (Model1 context = new Model1())
+            {
+                var query = from kh in context.KHACHHANG
+                            join tv in context.THETHANHVIEN on kh.MAKH equals tv.MAKH
+                            where kh.MAKH == maKhachHang
+                            select new
+                            {
+                                tv.MATHE,
+                                kh.TENKH,
+                                kh.SDTKH,
+                                tv.DIEMTICHLUY
+                            };
+
+                var result = query.FirstOrDefault();
+
+                if (result != null)
+                {
+                    return (result.MATHE, result.TENKH, result.SDTKH, result.DIEMTICHLUY);
+                }
+                else
+                {
+                    return (null, null, null, 0); // Hoặc xử lý theo cách khác nếu không tìm thấy
+                }
+            }
+        }
+
+        // Phương thức trả về MAKH khi truyền vào MATHE
+        public string GetCustomerIdByCardNumber(string maThe)
+        {
+            using (Model1 context = new Model1())
+            {
+                var customer = context.THETHANHVIEN.FirstOrDefault(tv => tv.MATHE == maThe);
+
+                if (customer != null)
+                {
+                    return customer.MAKH; // Trả về MAKH tương ứng
+                }
+                else
+                {
+                    return null; // Hoặc xử lý theo cách khác nếu không tìm thấy
+                }
+            }
+        }
 
     }
 

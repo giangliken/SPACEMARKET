@@ -110,7 +110,8 @@ namespace SpaceMarket
 
         private void quảnLíKháchHàndToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Customer_Management customer_Management = new Customer_Management();
+            customer_Management.ShowDialog();
         }
 
         private void càiĐặtHệThốngToolStripMenuItem_Click(object sender, EventArgs e)
@@ -122,6 +123,23 @@ namespace SpaceMarket
         {
             DanhMucSanPham danhMucSanPham = new DanhMucSanPham();
             danhMucSanPham.ShowDialog();
+        }
+
+        private void kháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void quảnLýKhoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            KhoHang khoHang = new KhoHang();
+            khoHang.ShowDialog();
+        }
+
+        private void sảnPhẩmToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            QuanLySanPham ql = new QuanLySanPham();
+            ql.ShowDialog();
         }
     }
 }

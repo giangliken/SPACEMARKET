@@ -63,6 +63,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.uiLabel9 = new Sunny.UI.UILabel();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.txtSearchMAKH = new Sunny.UI.UITextBox();
+            this.txtSearchTenKH = new Sunny.UI.UITextBox();
             ((System.ComponentModel.ISupportInitialize)(this.datadanhsachkhachhang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -71,7 +73,7 @@
             // 
             this.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(217, 555);
+            this.txtEmail.Location = new System.Drawing.Point(217, 603);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtEmail.MinimumSize = new System.Drawing.Size(1, 16);
             this.txtEmail.Name = "txtEmail";
@@ -86,7 +88,7 @@
             // uiLabel8
             // 
             this.uiLabel8.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.uiLabel8.Location = new System.Drawing.Point(16, 555);
+            this.uiLabel8.Location = new System.Drawing.Point(16, 603);
             this.uiLabel8.Name = "uiLabel8";
             this.uiLabel8.Size = new System.Drawing.Size(194, 37);
             this.uiLabel8.Style = Sunny.UI.UIStyle.Custom;
@@ -99,7 +101,7 @@
             // 
             this.txtSDT.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtSDT.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSDT.Location = new System.Drawing.Point(217, 494);
+            this.txtSDT.Location = new System.Drawing.Point(217, 542);
             this.txtSDT.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtSDT.MinimumSize = new System.Drawing.Size(1, 16);
             this.txtSDT.Name = "txtSDT";
@@ -114,7 +116,7 @@
             // uiLabel7
             // 
             this.uiLabel7.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.uiLabel7.Location = new System.Drawing.Point(16, 494);
+            this.uiLabel7.Location = new System.Drawing.Point(16, 542);
             this.uiLabel7.Name = "uiLabel7";
             this.uiLabel7.Size = new System.Drawing.Size(194, 37);
             this.uiLabel7.Style = Sunny.UI.UIStyle.Custom;
@@ -127,7 +129,7 @@
             // 
             this.txtDiaChi.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtDiaChi.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiaChi.Location = new System.Drawing.Point(217, 435);
+            this.txtDiaChi.Location = new System.Drawing.Point(217, 483);
             this.txtDiaChi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDiaChi.MinimumSize = new System.Drawing.Size(1, 16);
             this.txtDiaChi.Name = "txtDiaChi";
@@ -142,7 +144,7 @@
             // uiLabel6
             // 
             this.uiLabel6.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.uiLabel6.Location = new System.Drawing.Point(16, 435);
+            this.uiLabel6.Location = new System.Drawing.Point(16, 483);
             this.uiLabel6.Name = "uiLabel6";
             this.uiLabel6.Size = new System.Drawing.Size(194, 37);
             this.uiLabel6.Style = Sunny.UI.UIStyle.Custom;
@@ -155,7 +157,7 @@
             // 
             this.txtCCCD.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtCCCD.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCCCD.Location = new System.Drawing.Point(217, 373);
+            this.txtCCCD.Location = new System.Drawing.Point(217, 421);
             this.txtCCCD.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCCCD.MinimumSize = new System.Drawing.Size(1, 16);
             this.txtCCCD.Name = "txtCCCD";
@@ -170,7 +172,7 @@
             // uiLabel5
             // 
             this.uiLabel5.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.uiLabel5.Location = new System.Drawing.Point(16, 373);
+            this.uiLabel5.Location = new System.Drawing.Point(16, 421);
             this.uiLabel5.Name = "uiLabel5";
             this.uiLabel5.Size = new System.Drawing.Size(194, 37);
             this.uiLabel5.Style = Sunny.UI.UIStyle.Custom;
@@ -193,7 +195,7 @@
             this.btnXoa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnXoa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnXoa.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.btnXoa.Location = new System.Drawing.Point(394, 620);
+            this.btnXoa.Location = new System.Drawing.Point(394, 668);
             this.btnXoa.MinimumSize = new System.Drawing.Size(1, 1);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(131, 35);
@@ -207,7 +209,7 @@
             // 
             this.txtTenKH.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTenKH.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenKH.Location = new System.Drawing.Point(217, 251);
+            this.txtTenKH.Location = new System.Drawing.Point(217, 299);
             this.txtTenKH.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTenKH.MinimumSize = new System.Drawing.Size(1, 16);
             this.txtTenKH.Name = "txtTenKH";
@@ -222,7 +224,7 @@
             // uiLabel4
             // 
             this.uiLabel4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.uiLabel4.Location = new System.Drawing.Point(16, 313);
+            this.uiLabel4.Location = new System.Drawing.Point(16, 361);
             this.uiLabel4.Name = "uiLabel4";
             this.uiLabel4.Size = new System.Drawing.Size(194, 37);
             this.uiLabel4.Style = Sunny.UI.UIStyle.Custom;
@@ -234,7 +236,7 @@
             // uiLabel3
             // 
             this.uiLabel3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.uiLabel3.Location = new System.Drawing.Point(16, 251);
+            this.uiLabel3.Location = new System.Drawing.Point(16, 299);
             this.uiLabel3.Name = "uiLabel3";
             this.uiLabel3.Size = new System.Drawing.Size(194, 37);
             this.uiLabel3.Style = Sunny.UI.UIStyle.Custom;
@@ -246,7 +248,7 @@
             // uiLabel2
             // 
             this.uiLabel2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.uiLabel2.Location = new System.Drawing.Point(16, 190);
+            this.uiLabel2.Location = new System.Drawing.Point(16, 238);
             this.uiLabel2.Name = "uiLabel2";
             this.uiLabel2.Size = new System.Drawing.Size(194, 37);
             this.uiLabel2.TabIndex = 43;
@@ -270,7 +272,7 @@
             // 
             this.btnSua.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSua.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.btnSua.Location = new System.Drawing.Point(204, 620);
+            this.btnSua.Location = new System.Drawing.Point(204, 668);
             this.btnSua.MinimumSize = new System.Drawing.Size(1, 1);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(131, 35);
@@ -285,7 +287,7 @@
             this.btnThem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnThem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnThem.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.btnThem.Location = new System.Drawing.Point(19, 620);
+            this.btnThem.Location = new System.Drawing.Point(19, 668);
             this.btnThem.MinimumSize = new System.Drawing.Size(1, 1);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(131, 35);
@@ -332,7 +334,7 @@
             this.datadanhsachkhachhang.EnableHeadersVisualStyles = false;
             this.datadanhsachkhachhang.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
             this.datadanhsachkhachhang.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            this.datadanhsachkhachhang.Location = new System.Drawing.Point(568, 129);
+            this.datadanhsachkhachhang.Location = new System.Drawing.Point(568, 177);
             this.datadanhsachkhachhang.Name = "datadanhsachkhachhang";
             dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
@@ -417,7 +419,7 @@
             // 
             this.txtMaKH.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMaKH.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaKH.Location = new System.Drawing.Point(217, 190);
+            this.txtMaKH.Location = new System.Drawing.Point(217, 238);
             this.txtMaKH.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtMaKH.MinimumSize = new System.Drawing.Size(1, 16);
             this.txtMaKH.Name = "txtMaKH";
@@ -444,7 +446,7 @@
             // uiLabel9
             // 
             this.uiLabel9.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.uiLabel9.Location = new System.Drawing.Point(16, 138);
+            this.uiLabel9.Location = new System.Drawing.Point(16, 186);
             this.uiLabel9.Name = "uiLabel9";
             this.uiLabel9.Size = new System.Drawing.Size(264, 37);
             this.uiLabel9.TabIndex = 62;
@@ -455,16 +457,50 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(217, 310);
+            this.dateTimePicker1.Location = new System.Drawing.Point(217, 358);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(344, 38);
             this.dateTimePicker1.TabIndex = 63;
+            // 
+            // txtSearchMAKH
+            // 
+            this.txtSearchMAKH.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearchMAKH.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchMAKH.Location = new System.Drawing.Point(638, 132);
+            this.txtSearchMAKH.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtSearchMAKH.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txtSearchMAKH.Name = "txtSearchMAKH";
+            this.txtSearchMAKH.ShowText = false;
+            this.txtSearchMAKH.Size = new System.Drawing.Size(189, 37);
+            this.txtSearchMAKH.Style = Sunny.UI.UIStyle.Custom;
+            this.txtSearchMAKH.TabIndex = 52;
+            this.txtSearchMAKH.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtSearchMAKH.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.txtSearchMAKH.TextChanged += new System.EventHandler(this.txtSearchMAKH_TextChanged);
+            // 
+            // txtSearchTenKH
+            // 
+            this.txtSearchTenKH.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearchTenKH.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchTenKH.Location = new System.Drawing.Point(835, 132);
+            this.txtSearchTenKH.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtSearchTenKH.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txtSearchTenKH.Name = "txtSearchTenKH";
+            this.txtSearchTenKH.ShowText = false;
+            this.txtSearchTenKH.Size = new System.Drawing.Size(243, 37);
+            this.txtSearchTenKH.Style = Sunny.UI.UIStyle.Custom;
+            this.txtSearchTenKH.TabIndex = 53;
+            this.txtSearchTenKH.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtSearchTenKH.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.txtSearchTenKH.TextChanged += new System.EventHandler(this.txtSearchTenKH_TextChanged);
             // 
             // Customer_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1501, 673);
+            this.ClientSize = new System.Drawing.Size(1501, 744);
+            this.Controls.Add(this.txtSearchTenKH);
+            this.Controls.Add(this.txtSearchMAKH);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.uiLabel9);
             this.Controls.Add(this.pictureBox1);
@@ -525,5 +561,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SDTKH;
         private System.Windows.Forms.DataGridViewTextBoxColumn EMAILKH;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private Sunny.UI.UITextBox txtSearchMAKH;
+        private Sunny.UI.UITextBox txtSearchTenKH;
     }
 }

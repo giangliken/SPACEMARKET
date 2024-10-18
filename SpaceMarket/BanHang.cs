@@ -10,6 +10,7 @@ using BLL;
 using DAL.Database;
 using System.Linq;
 using System.Globalization;
+using Sunny.UI;
 
 namespace SpaceMarket
 {
@@ -17,6 +18,8 @@ namespace SpaceMarket
     {
         public string MANV { get; set; }
         private readonly SaleService saleService = new SaleService();
+        private readonly KhachHangService khachHangService = new KhachHangService();
+        private readonly HoaDonService hoaDonService = new HoaDonService();
         public Image DisplayedImage { get; set; }
         public BanHang()
         {
@@ -168,6 +171,10 @@ namespace SpaceMarket
 
         private void BanHang_Load(object sender, EventArgs e)
         {
+            lblMaThe.Text = string.Empty;
+            lblSDT.Text = string.Empty;
+            lblDiemTichLuy.Text = string.Empty;
+            lblTenKhachHang.Text = "Khách vãng lai";
             this.txtSoHoaDon.Text = saleService.GenerateNewInvoiceID();
             // Hiển thị hình ảnh nếu có
             if (DisplayedImage != null)
@@ -315,84 +322,161 @@ namespace SpaceMarket
 
         private void btnLuuHoaDon_Click(object sender, EventArgs e)
         {
-            // Kiểm tra xem textbox có trống hay không, nếu trống thì truyền null
-            //string maKhachHang = string.IsNullOrEmpty(txtMaKhachHang.Text) ? null : txtMaKhachHang.Text;
+            string maKhachHang;
+
+            // Kiểm tra xem lblMaThe có trống hay không
+            if (string.IsNullOrEmpty(lblMaThe.Text))
+            {
+                // Nếu lblMaThe trống, sử dụng "None" cho mã khách hàng
+                maKhachHang = "None";
+            }
+            else
+            {
+                // Nếu lblMaThe không trống, lấy mã khách hàng từ mã thẻ
+                maKhachHang = khachHangService.GetCustomerIdByCardNumber(lblMaThe.Text);
+            }
 
             // Gọi phương thức LuuHoaDon với các giá trị từ textbox
-            saleService.LuuHoaDon(txtSoHoaDon.Text, "SPACE040701", "KH001","Chuyen tien", DateTime.Now, 0);
+            saleService.LuuHoaDon(txtSoHoaDon.Text, MANV, maKhachHang, "Chuyen tien", DateTime.Now, TongCong);
 
+
+            // Giả sử bạn đã có một danh sách các sản phẩm trong DataGridView
+            // và mỗi dòng chứa MASP, MAHD và SOLUONG.
+
+            string maHD = txtSoHoaDon.Text; // Lấy mã hóa đơn từ textbox
+
+            foreach (DataGridViewRow row in dgvDanhSachSanPham.Rows)
+            {
+                // Kiểm tra xem dòng có hợp lệ không
+                if (row.IsNewRow) continue; // Bỏ qua dòng mới
+
+                // Lấy dữ liệu từ từng cột
+                string maSP = row.Cells["MASP"].Value.ToString();
+                int soLuong = Convert.ToInt32(row.Cells["SOLUONG"].Value);
+
+                // Tạo một đối tượng CHITIETHOADON mới
+                var chiTietHoaDon = new CHITIETHOADON
+                {
+                    MASP = maSP,
+                    MAHD = maHD,
+                    SOLUONG = soLuong
+                };
+
+                // Gọi hàm AddDetail để thêm vào cơ sở dữ liệu
+                try
+                {
+                    hoaDonService.AddDetail(chiTietHoaDon);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
             // Thông báo thành công hoặc xử lý thêm nếu cần
             MessageBox.Show("Hóa đơn đã được lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // Giả sử bạn muốn làm trống dgvDanhSachSanPham
+            dgvDanhSachSanPham.DataSource = null; // Gán lại DataSource là null
+            dgvDanhSachSanPham.Rows.Clear(); // Xóa tất cả các dòng trong DataGridView
+
+            lblThanhTien.Text = string.Empty;
+            lblTongCong.Text = string.Empty;
 
             // Tải lại form để làm mới dữ liệu
             BanHang_Load(sender, e);
         }
 
+
         private void txtONhapMaVach_TextChanged_1(object sender, EventArgs e)
         {
             string maVach = txtONhapMaVach.Text; // Giả sử đây là ô nhập mã vạch
 
-            // Kiểm tra xem mã vạch có đúng 11 ký tự không
+            // Kiểm tra xem mã vạch có đúng 13 ký tự không
             if (maVach.Length == 13)
             {
-                // Gọi phương thức để lấy sản phẩm dựa vào mã vạch
-                SanPham sanPham = saleService.GetProductByCode(maVach);
-
-                if (sanPham != null)
+                // Kiểm tra ký tự đầu tiên
+                if (char.IsDigit(maVach[0]))
                 {
-                    // Kiểm tra số lượng từ txtSoLuong
-                    int quantityToAdd;
+                    // Nếu ký tự đầu tiên là số, gọi phương thức để lấy sản phẩm dựa vào mã vạch
+                    SanPham sanPham = saleService.GetProductByCode(maVach);
 
-                    // Nếu txtSoLuong không có giá trị hoặc không hợp lệ, sử dụng giá trị mặc định là 1
-                    if (string.IsNullOrWhiteSpace(txtSoLuong.Text) || !int.TryParse(txtSoLuong.Text, out quantityToAdd) || quantityToAdd <= 0)
+                    if (sanPham != null)
                     {
-                        quantityToAdd = 1; // Giá trị mặc định là 1
-                    }
+                        // Kiểm tra số lượng từ txtSoLuong
+                        int quantityToAdd;
 
-                    // Kiểm tra xem sản phẩm đã có trong DataGridView chưa
-                    bool productExists = false;
-
-                    foreach (DataGridViewRow row in dgvDanhSachSanPham.Rows)
-                    {
-                        // Kiểm tra sự tồn tại của cột "MASP"
-                        if (dgvDanhSachSanPham.Columns.Contains("MASP") && row.Cells["MASP"].Value != null)
+                        // Nếu txtSoLuong không có giá trị hoặc không hợp lệ, sử dụng giá trị mặc định là 1
+                        if (string.IsNullOrWhiteSpace(txtSoLuong.Text) || !int.TryParse(txtSoLuong.Text, out quantityToAdd) || quantityToAdd <= 0)
                         {
-                            if (row.Cells["MASP"].Value.ToString() == sanPham.MASP)
+                            quantityToAdd = 1; // Giá trị mặc định là 1
+                        }
+
+                        // Kiểm tra xem sản phẩm đã có trong DataGridView chưa
+                        bool productExists = false;
+
+                        foreach (DataGridViewRow row in dgvDanhSachSanPham.Rows)
+                        {
+                            // Kiểm tra sự tồn tại của cột "MASP"
+                            if (dgvDanhSachSanPham.Columns.Contains("MASP") && row.Cells["MASP"].Value != null)
                             {
-                                // Nếu sản phẩm đã tồn tại, tăng số lượng lên số lượng nhập vào
-                                int currentQuantity = Convert.ToInt32(row.Cells["SOLUONG"].Value);
-                                row.Cells["SOLUONG"].Value = currentQuantity + quantityToAdd;
-                                row.Cells["THANHTIEN"].Value = (currentQuantity + quantityToAdd) * sanPham.DONGIA;
-                                productExists = true;
-                                break;
+                                if (row.Cells["MASP"].Value.ToString() == sanPham.MASP)
+                                {
+                                    // Nếu sản phẩm đã tồn tại, tăng số lượng lên số lượng nhập vào
+                                    int currentQuantity = Convert.ToInt32(row.Cells["SOLUONG"].Value);
+                                    row.Cells["SOLUONG"].Value = currentQuantity + quantityToAdd;
+                                    row.Cells["THANHTIEN"].Value = (currentQuantity + quantityToAdd) * sanPham.DONGIA;
+                                    productExists = true;
+                                    break;
+                                }
                             }
                         }
-                    }
 
-                    // Nếu sản phẩm chưa tồn tại, thêm vào DataGridView
-                    if (!productExists)
+                        // Nếu sản phẩm chưa tồn tại, thêm vào DataGridView
+                        if (!productExists)
+                        {
+                            dgvDanhSachSanPham.Rows.Add(
+                                sanPham.MASP,
+                                sanPham.TENSP,
+                                sanPham.DVT,
+                                sanPham.DONGIA,
+                                quantityToAdd, // Sử dụng số lượng tính toán
+                                sanPham.DONGIA * quantityToAdd // Giá trị thành tiền
+                            );
+                        }
+
+                        // Làm trống ô nhập mã vạch và ô nhập số lượng sau khi thêm sản phẩm
+                        txtONhapMaVach.Text = string.Empty;
+                        txtSoLuong.Text = string.Empty;
+                        CalculateTotalAmount();
+                    }
+                    else
                     {
-                        dgvDanhSachSanPham.Rows.Add(
-                            sanPham.MASP,
-                            sanPham.TENSP,
-                            sanPham.DVT,
-                            sanPham.DONGIA,
-                            quantityToAdd, // Sử dụng số lượng tính toán
-                            sanPham.DONGIA * quantityToAdd // Giá trị thành tiền
-                        );
+                        MessageBox.Show("Sản phẩm không tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-
-                    // Làm trống ô nhập mã vạch và ô nhập số lượng sau khi thêm sản phẩm
-                    txtONhapMaVach.Text = string.Empty;
-                    txtSoLuong.Text = string.Empty;
-                    CalculateTotalAmount();
                 }
-                else
+                else if (maVach[0] == 'K') // Kiểm tra ký tự đầu tiên là 'K'
                 {
-                    MessageBox.Show("Sản phẩm không tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    // Hiển thị thông báo cho khách hàng
+                    MessageBox.Show("Khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Xóa ký tự 'K' và truyền tham số vào hàm
+                    var customerDetails = khachHangService.GetCustomerDetails(maVach.Substring(1)); // Xóa ký tự 'K'
+                    // Hiển thị thông tin ra GUI
+                    if (customerDetails.MATHE != null)
+                    {
+                        lblMaThe.Text = customerDetails.MATHE;
+                        lblTenKhachHang.Text = customerDetails.TENKH;
+                        lblSDT.Text = customerDetails.SDTKH;
+                        lblDiemTichLuy.Text = customerDetails.DIEMTICHLUY.ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy khách hàng với mã đã cho.");
+                    }
+                    // Nếu cần, bạn có thể làm thêm điều gì đó khác cho trường hợp khách hàng ở đây
+                    txtONhapMaVach.Text = string.Empty; // Xóa ô nhập mã vạch
                 }
             }
         }
+
 
 
 

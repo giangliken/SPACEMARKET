@@ -79,12 +79,25 @@ namespace BLL
                 // Thêm đối tượng hóa đơn mới vào DbSet HOADON
                 context.HOADON.Add(hoaDonMoi);
 
+                // Tích điểm cho thẻ thành viên (nếu có)
+                if (!string.IsNullOrEmpty(MAKH))
+                {
+                    // Lấy thẻ thành viên tương ứng với khách hàng
+                    var thẻThanhVien = context.THETHANHVIEN.FirstOrDefault(t => t.MAKH == MAKH);
+                    if (thẻThanhVien != null)
+                    {
+                        // Cập nhật điểm tích lũy
+                        thẻThanhVien.DIEMTICHLUY += THANHTIEN * 0.01m; // Đảm bảo sử dụng 0.01m cho kiểu decimal
+                    }
+                }
+
                 // Lưu thay đổi vào cơ sở dữ liệu
                 context.SaveChanges();
 
                 // Trả về hóa đơn vừa được lưu
                 return hoaDonMoi;
             }
+
         }
 
         public string GenerateNewInvoiceID()
