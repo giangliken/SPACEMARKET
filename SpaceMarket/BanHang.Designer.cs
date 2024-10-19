@@ -63,6 +63,8 @@
             this.btnPhieuChietKhau50 = new Sunny.UI.UIButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.uiPanel6 = new Sunny.UI.UIPanel();
+            this.uiLabel10 = new Sunny.UI.UILabel();
+            this.txtTruDiem = new Sunny.UI.UITextBox();
             this.uiPanel5 = new Sunny.UI.UIPanel();
             this.uiPanel3 = new Sunny.UI.UIPanel();
             this.lblChietKhau = new Sunny.UI.UILabel();
@@ -84,7 +86,7 @@
             this.uiLabel2 = new Sunny.UI.UILabel();
             this.uiLabel1 = new Sunny.UI.UILabel();
             this.btnLuuHoaDon = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.btnHuyHoaDon = new System.Windows.Forms.Button();
             this.uiTextBox6 = new Sunny.UI.UITextBox();
             this.uiTextBox5 = new Sunny.UI.UITextBox();
             this.txtSoHoaDon = new Sunny.UI.UITextBox();
@@ -101,6 +103,7 @@
             this.tabPage1.SuspendLayout();
             this.uiPanel4.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.uiPanel6.SuspendLayout();
             this.uiPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.uiPanel2.SuspendLayout();
@@ -127,6 +130,7 @@
             this.sảnPhẩmToolStripMenuItem.Name = "sảnPhẩmToolStripMenuItem";
             this.sảnPhẩmToolStripMenuItem.Size = new System.Drawing.Size(174, 42);
             this.sảnPhẩmToolStripMenuItem.Text = "Sản phẩm";
+            this.sảnPhẩmToolStripMenuItem.Click += new System.EventHandler(this.sảnPhẩmToolStripMenuItem_Click);
             // 
             // đơnHàngToolStripMenuItem
             // 
@@ -134,6 +138,7 @@
             this.đơnHàngToolStripMenuItem.Name = "đơnHàngToolStripMenuItem";
             this.đơnHàngToolStripMenuItem.Size = new System.Drawing.Size(174, 42);
             this.đơnHàngToolStripMenuItem.Text = "Đơn hàng";
+            this.đơnHàngToolStripMenuItem.Click += new System.EventHandler(this.đơnHàngToolStripMenuItem_Click);
             // 
             // hỗTrợToolStripMenuItem
             // 
@@ -266,6 +271,7 @@
             this.dgvDanhSachSanPham.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dgvDanhSachSanPham.TabIndex = 12;
             this.dgvDanhSachSanPham.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.dgvDanhSachSanPham.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachSanPham_CellContentClick);
             this.dgvDanhSachSanPham.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachSanPham_CellDoubleClick);
             // 
             // Column1
@@ -317,7 +323,7 @@
             this.uiPanel1.Controls.Add(this.uiPanel3);
             this.uiPanel1.Controls.Add(this.uiPanel2);
             this.uiPanel1.Controls.Add(this.btnLuuHoaDon);
-            this.uiPanel1.Controls.Add(this.button9);
+            this.uiPanel1.Controls.Add(this.btnHuyHoaDon);
             this.uiPanel1.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
             this.uiPanel1.Location = new System.Drawing.Point(1135, 168);
             this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -445,6 +451,8 @@
             // 
             // uiPanel6
             // 
+            this.uiPanel6.Controls.Add(this.uiLabel10);
+            this.uiPanel6.Controls.Add(this.txtTruDiem);
             this.uiPanel6.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
             this.uiPanel6.Location = new System.Drawing.Point(6, 4);
             this.uiPanel6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -452,9 +460,35 @@
             this.uiPanel6.Name = "uiPanel6";
             this.uiPanel6.Size = new System.Drawing.Size(398, 124);
             this.uiPanel6.TabIndex = 0;
-            this.uiPanel6.Text = "uiPanel6";
+            this.uiPanel6.Text = null;
             this.uiPanel6.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.uiPanel6.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiLabel10
+            // 
+            this.uiLabel10.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiLabel10.Location = new System.Drawing.Point(65, 86);
+            this.uiLabel10.Name = "uiLabel10";
+            this.uiLabel10.Size = new System.Drawing.Size(295, 23);
+            this.uiLabel10.TabIndex = 1;
+            this.uiLabel10.Text = "Điểm sử dụng phải là bội số của 10";
+            this.uiLabel10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel10.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // txtTruDiem
+            // 
+            this.txtTruDiem.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTruDiem.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTruDiem.Location = new System.Drawing.Point(120, 28);
+            this.txtTruDiem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtTruDiem.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txtTruDiem.Name = "txtTruDiem";
+            this.txtTruDiem.ShowText = false;
+            this.txtTruDiem.Size = new System.Drawing.Size(170, 42);
+            this.txtTruDiem.TabIndex = 0;
+            this.txtTruDiem.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtTruDiem.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.txtTruDiem.TextChanged += new System.EventHandler(this.txtTruDiem_TextChanged);
             // 
             // uiPanel5
             // 
@@ -725,17 +759,17 @@
             this.btnLuuHoaDon.UseVisualStyleBackColor = false;
             this.btnLuuHoaDon.Click += new System.EventHandler(this.btnLuuHoaDon_Click);
             // 
-            // button9
+            // btnHuyHoaDon
             // 
-            this.button9.BackColor = System.Drawing.Color.RosyBrown;
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.button9.Location = new System.Drawing.Point(187, 591);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(116, 36);
-            this.button9.TabIndex = 36;
-            this.button9.Text = "HỦY HD";
-            this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.btnHuyHoaDon.BackColor = System.Drawing.Color.RosyBrown;
+            this.btnHuyHoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnHuyHoaDon.Location = new System.Drawing.Point(187, 591);
+            this.btnHuyHoaDon.Name = "btnHuyHoaDon";
+            this.btnHuyHoaDon.Size = new System.Drawing.Size(116, 36);
+            this.btnHuyHoaDon.TabIndex = 36;
+            this.btnHuyHoaDon.Text = "HỦY HD";
+            this.btnHuyHoaDon.UseVisualStyleBackColor = false;
+            this.btnHuyHoaDon.Click += new System.EventHandler(this.btnHuyHoaDon_Click);
             // 
             // uiTextBox6
             // 
@@ -893,6 +927,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "BanHang";
             this.Text = "Bán Hàng";
@@ -906,6 +941,7 @@
             this.tabPage1.ResumeLayout(false);
             this.uiPanel4.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.uiPanel6.ResumeLayout(false);
             this.uiPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.uiPanel2.ResumeLayout(false);
@@ -930,7 +966,7 @@
         private Sunny.UI.UIDataGridView dgvDanhSachSanPham;
         private Sunny.UI.UIPanel uiPanel1;
         private System.Windows.Forms.Button btnLuuHoaDon;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btnHuyHoaDon;
         private Sunny.UI.UIPanel uiPanel2;
         private Sunny.UI.UILabel uiLabel5;
         private Sunny.UI.UILabel uiLabel4;
@@ -975,5 +1011,7 @@
         private Sunny.UI.UILabel lblMaThe;
         private Sunny.UI.UILabel lblDiemTichLuy;
         private Sunny.UI.UILabel lblSDT;
+        private Sunny.UI.UITextBox txtTruDiem;
+        private Sunny.UI.UILabel uiLabel10;
     }
 }

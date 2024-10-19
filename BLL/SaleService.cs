@@ -61,7 +61,7 @@ namespace BLL
 
 
         // Phương thức tạo hóa đơn 
-        public HOADON LuuHoaDon(string MAHD, string MANV, string MAKH, string PTTT, DateTime dateTime,decimal THANHTIEN)
+        public HOADON LuuHoaDon(string MAHD, string MANV, string MAKH, string PTTT, DateTime dateTime, decimal THANHTIEN, decimal discount)
         {
             using (Model1 context = new Model1())
             {
@@ -83,11 +83,23 @@ namespace BLL
                 if (!string.IsNullOrEmpty(MAKH))
                 {
                     // Lấy thẻ thành viên tương ứng với khách hàng
-                    var thẻThanhVien = context.THETHANHVIEN.FirstOrDefault(t => t.MAKH == MAKH);
-                    if (thẻThanhVien != null)
+                    var theThanhVien = context.THETHANHVIEN.FirstOrDefault(t => t.MAKH == MAKH);
+                    if (theThanhVien != null)
                     {
-                        // Cập nhật điểm tích lũy
-                        thẻThanhVien.DIEMTICHLUY += THANHTIEN * 0.01m; // Đảm bảo sử dụng 0.01m cho kiểu decimal
+                        // Cập nhật điểm tích lũy, trừ điểm đã sử dụng
+                        decimal diemTichLuy = THANHTIEN * 0.01m; // Tính điểm tích lũy mới
+                        decimal diemDaSuDung = discount; // Điểm đã sử dụng
+
+                        // Đảm bảo điểm tích lũy không âm
+                        if (theThanhVien.DIEMTICHLUY + diemTichLuy - diemDaSuDung >= 0)
+                        {
+                            theThanhVien.DIEMTICHLUY += diemTichLuy - diemDaSuDung; // Cập nhật điểm tích lũy
+                        }
+                        else
+                        {
+                            // Nếu không đủ điểm, có thể xử lý theo yêu cầu của bạn
+                            // Ví dụ: Không cập nhật điểm tích lũy, hoặc thông báo cho người dùng
+                        }
                     }
                 }
 
@@ -97,8 +109,8 @@ namespace BLL
                 // Trả về hóa đơn vừa được lưu
                 return hoaDonMoi;
             }
-
         }
+
 
         public string GenerateNewInvoiceID()
         {

@@ -19,6 +19,15 @@ namespace SpaceMarket
             InitializeComponent();
         }
 
+        // Trong lớp QuanLySanPham
+        public void DisableAddButton()
+        {
+            btnThem.Visible = false; // Vô hiệu hóa button thêm
+            btnSua.Visible = false;
+            btnXoa.Visible = false;
+        }
+
+
         private void QuanLySanPham_Load(object sender, EventArgs e)
         {
             //Đổ dữ liệu vào cbb Nhà cung cấp

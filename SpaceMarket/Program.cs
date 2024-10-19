@@ -13,9 +13,9 @@ namespace SpaceMarket
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Login());
+            Application.Run(new Login());
             //Application.Run(new BanHang());
-            Application.Run(new Main());
+            //Application.Run(new Main());
             //Application.Run(new Account_Management());
             //Application.Run(new Staff_Management());    
             //Application.Run(new Progress_Form());
@@ -24,6 +24,7 @@ namespace SpaceMarket
             //Application.Run(new QuanLySanPham());
             //Application.Run(new Customer_Management());
             //Application.Run(new KhoHang());
+            //Application.Run(new HoaDon());
 
             
         }

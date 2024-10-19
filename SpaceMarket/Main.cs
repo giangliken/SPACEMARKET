@@ -21,10 +21,22 @@ namespace SpaceMarket
 
         private void bánHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //BanHang bh = new BanHang();
+            //bh.MANV = MANV;
+            //bh.ShowDialog();
+            ////this.Hide();
+            ///
+            // Ẩn Form hiện tại trước khi mở Form Bán Hàng
+            this.Hide();
+
+            // Tạo và hiển thị Form Bán Hàng
             BanHang bh = new BanHang();
             bh.MANV = MANV;
-            bh.ShowDialog();
-            //this.Hide();
+
+            // Đăng ký sự kiện FormClosed
+            bh.FormClosed += (s, args) => this.Show(); // Khi Form Bán Hàng bị đóng, mở lại Form hiện tại
+
+            bh.Show(); // Sử dụng Show thay vì ShowDialog
         }
 
         private void sảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
@@ -54,7 +66,7 @@ namespace SpaceMarket
             {
                 //HệThốngToolStripMenuItem.Visible = false;
                 quảnLíToolStripMenuItem.Visible = false;
-                bánHàngToolStripMenuItem.Visible = false;
+                //bánHàngToolStripMenuItem.Visible = false;
                 sảnPhẩmToolStripMenuItem.Visible = false;
                 tiệnÍchToolStripMenuItem.Visible = false;
                 bảoMậtToolStripMenuItem.Visible = false;

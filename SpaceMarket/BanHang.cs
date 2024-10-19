@@ -35,7 +35,7 @@ namespace SpaceMarket
 
         private void txtTime_TextChanged(object sender, EventArgs e)
         {
-           // this.txtTime.Text = string.Format(DateTime.Now.ToString("HH:mm:ss"));
+            // this.txtTime.Text = string.Format(DateTime.Now.ToString("HH:mm:ss"));
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -50,7 +50,7 @@ namespace SpaceMarket
         {
             // Lấy thời gian hiện tại
             DateTime currentTime = DateTime.Now;
-            
+
             // Xác định ca làm việc dựa trên thời gian hiện tại
             string ca;
             if (currentTime.Hour >= 7 && currentTime.Hour < 12)
@@ -70,7 +70,7 @@ namespace SpaceMarket
                 ca = "Ngoài giờ làm"; // Nếu không thuộc bất kỳ ca nào
             }
 
-            
+
             // Cập nhật giá trị vào TextBox
             txtCa.Text = ca;
 
@@ -82,7 +82,7 @@ namespace SpaceMarket
 
         private void txtCa_TextChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void txtDate_TextChanged(object sender, EventArgs e)
@@ -157,12 +157,8 @@ namespace SpaceMarket
 
         }
 
-        private void button9_Click(object sender, EventArgs e)
-        {
 
-        }
 
-      
 
         private void uiPanel5_Click(object sender, EventArgs e)
         {
@@ -303,7 +299,7 @@ namespace SpaceMarket
                 MessageBox.Show("Lỗi trong khi gửi yêu cầu: " + response.ErrorMessage);
             }
         }
-        
+
 
 
         public Image Base64ToImage(string base64String)
@@ -337,7 +333,7 @@ namespace SpaceMarket
             }
 
             // Gọi phương thức LuuHoaDon với các giá trị từ textbox
-            saleService.LuuHoaDon(txtSoHoaDon.Text, MANV, maKhachHang, "Chuyen tien", DateTime.Now, TongCong);
+            saleService.LuuHoaDon(txtSoHoaDon.Text, MANV, maKhachHang, "Chuyen tien", DateTime.Now, TongCong, discountUsed);
 
 
             // Giả sử bạn đã có một danh sách các sản phẩm trong DataGridView
@@ -530,11 +526,11 @@ namespace SpaceMarket
                 }
             }
         }
-        
+
         private void CalculateTotalAmount()
         {
-
             decimal totalAmount = 0;
+
             // Duyệt qua từng dòng trong DataGridView
             foreach (DataGridViewRow row in dgvDanhSachSanPham.Rows)
             {
@@ -545,15 +541,56 @@ namespace SpaceMarket
                     totalAmount += Convert.ToDecimal(row.Cells["THANHTIEN"].Value);
                 }
             }
+
             // Cập nhật giá trị tổng vào một TextBox hoặc Label
             lblThanhTien.Text = totalAmount.ToString("C2"); // Định dạng tiền tệ
 
+            // Khai báo biến để lưu giá trị trừ từ txtTruDiem
+            decimal discountFromTxt = 0;
+
+            // Kiểm tra xem txtTruDiem có giá trị hay không
+            if (!string.IsNullOrEmpty(txtTruDiem.Text))
+            {
+                // Chuyển đổi giá trị trong txtTruDiem sang decimal
+                discountFromTxt = Convert.ToDecimal(txtTruDiem.Text);
+            }
+
+            // Kiểm tra xem lblDiemTichLuy có giá trị hay không và điểm trừ có hợp lệ không
+            decimal diemTichLuy = 0;
+            if (!string.IsNullOrEmpty(lblDiemTichLuy.Text))
+            {
+                diemTichLuy = Convert.ToDecimal(lblDiemTichLuy.Text);
+            }
+
+            // Kiểm tra xem điểm trừ có lớn hơn điểm tích lũy không
+            if (discountFromTxt > diemTichLuy)
+            {
+                MessageBox.Show("Điểm trừ không được lớn hơn điểm tích lũy!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                discountFromTxt = 0; // Đặt lại điểm trừ về 0 nếu không hợp lệ
+                txtTruDiem.Text = ""; // Xóa nội dung trong ô txtTruDiem
+            }
+
+            // Kiểm tra xem lblThanhTien có lớn hơn điểm trừ không
+            if (totalAmount < discountFromTxt)
+            {
+                MessageBox.Show("Thành tiền không đủ để trừ điểm!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                discountFromTxt = 0; // Đặt lại điểm trừ về 0 nếu không hợp lệ
+                txtTruDiem.Text = ""; // Xóa nội dung trong ô txtTruDiem
+            }
+
+            // Cập nhật biến discountUsed
+            discountUsed = discountFromTxt; // Lưu điểm trừ vào biến
+
             // Cập nhật giá trị TongCong
-            TongCong = (int)(totalAmount - totalDiscount); // Lưu ý: phần thập phân sẽ bị mất
-            lblTongCong.Text = TongCong.ToString("C2");// Cập nhật lblTongCong mà không cần ép kiểu
+            TongCong = (int)(totalAmount - totalDiscount - discountFromTxt); // Lưu ý: phần thập phân sẽ bị mất
+            lblTongCong.Text = TongCong.ToString("C2"); // Cập nhật lblTongCong mà không cần ép kiểu
         }
 
+
+
         public int TongCong;
+        private decimal discountUsed = 0; // Biến để lưu giá trị điểm trừ
+
         private void lblThanhTien_Click(object sender, EventArgs e)
         {
 
@@ -561,7 +598,7 @@ namespace SpaceMarket
 
         private void lblTongCong_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         // Khai báo biến toàn cục để lưu giá trị chiết khấu
@@ -593,7 +630,7 @@ namespace SpaceMarket
         // Phương thức để cập nhật tổng chiết khấu
         private void UpdateTotalDiscount(decimal discountToAdd)
         {
-            if (discountToAdd > TongCong) 
+            if (discountToAdd > TongCong)
             {
                 MessageBox.Show("Không thể thêm triết khẩu!", "Thông báo", MessageBoxButtons.OK);
                 return;
@@ -608,5 +645,43 @@ namespace SpaceMarket
             lblChietKhau.Text = totalDiscount.ToString("C2"); // Định dạng không có phần thập phân
         }
 
+        private void sảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuanLySanPham quanLySanPham = new QuanLySanPham();
+            quanLySanPham.DisableAddButton();
+            quanLySanPham.ShowDialog();
+        }
+
+        private void txtTruDiem_TextChanged(object sender, EventArgs e)
+        {
+            CalculateTotalAmount();
+        }
+
+        private void btnHuyHoaDon_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Xác nhận hủy hóa đơn ?","Thông báo",MessageBoxButtons.YesNo,MessageBoxIcon.Question);    
+            if(dr == DialogResult.Yes)
+            {
+                // Làm trống DataGridView bằng cách đặt DataSource thành null
+                dgvDanhSachSanPham.DataSource = null;
+
+                // Xóa tất cả các dòng trong DataGridView
+                dgvDanhSachSanPham.Rows.Clear();
+                lblThanhTien.Text = string.Empty;
+                lblTongCong.Text = string.Empty;
+                TongCong = 0;
+            }
+        }
+
+        private void dgvDanhSachSanPham_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void đơnHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HoaDon hoaDon = new HoaDon();
+            hoaDon.ShowDialog();
+        }
     }
 }
