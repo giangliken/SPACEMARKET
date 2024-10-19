@@ -11,6 +11,8 @@ using DAL.Database;
 using System.Linq;
 using System.Globalization;
 using Sunny.UI;
+using SpaceMarket.Bao_cao;
+using System.Threading.Tasks;
 
 namespace SpaceMarket
 {
@@ -252,56 +254,6 @@ namespace SpaceMarket
         }
 
 
-
-
-
-        private void GenerateQRCode()
-        {
-            var apiRequest = new ApiRequest
-            {
-                acqId = 970423,
-                accountNo = 1234,
-                accountName = "NGUYEN TRUONG GIANG",
-                amount = TongCong, // Lấy số tiền từ textbox
-                format = "text",
-                template = "qr_only",
-                addInfo = "SPACEMARKET HD 0004007" // Thêm mô tả vào đây
-            };
-
-            var jsonRequest = JsonConvert.SerializeObject(apiRequest);
-
-            var client = new RestClient("https://api.vietqr.io/v2/generate");
-            var request = new RestRequest(Method.Post.ToString());
-            request.AddHeader("Accept", "application/json");
-            request.AddParameter("application/json", jsonRequest, ParameterType.RequestBody);
-
-            // Gửi yêu cầu và nhận phản hồi
-            var response = client.Execute(request);
-            if (response.IsSuccessful)
-            {
-                var content = response.Content;
-
-                // Phân tích dữ liệu trả về
-                var dataResult = JsonConvert.DeserializeObject<ApiResponse>(content);
-                if (dataResult?.data?.qrDataURL != null)
-                {
-                    // Chuyển đổi Base64 sang hình ảnh
-                    var image = Base64ToImage(dataResult.data.qrDataURL.Replace("data:image/png;base64,", ""));
-                    pictureBox2.Image = image; // Hiển thị hình ảnh trong pictureBox2
-                }
-                else
-                {
-                    MessageBox.Show("Không nhận được mã QR từ API.");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Lỗi trong khi gửi yêu cầu: " + response.ErrorMessage);
-            }
-        }
-
-
-
         public Image Base64ToImage(string base64String)
         {
             byte[] imageBytes = Convert.FromBase64String(base64String);
@@ -358,6 +310,7 @@ namespace SpaceMarket
                     SOLUONG = soLuong
                 };
 
+
                 // Gọi hàm AddDetail để thêm vào cơ sở dữ liệu
                 try
                 {
@@ -368,6 +321,9 @@ namespace SpaceMarket
                     MessageBox.Show(ex.Message);
                 }
             }
+            InHoaDon inHoaDon = new InHoaDon();
+            inHoaDon.MaHoaDon = txtSoHoaDon.Text;
+            inHoaDon.ShowDialog();
             // Thông báo thành công hoặc xử lý thêm nếu cần
             MessageBox.Show("Hóa đơn đã được lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             // Giả sử bạn muốn làm trống dgvDanhSachSanPham
@@ -376,6 +332,7 @@ namespace SpaceMarket
 
             lblThanhTien.Text = string.Empty;
             lblTongCong.Text = string.Empty;
+            pictureBox2.Image = null;
 
             // Tải lại form để làm mới dữ liệu
             BanHang_Load(sender, e);
@@ -670,6 +627,7 @@ namespace SpaceMarket
                 lblThanhTien.Text = string.Empty;
                 lblTongCong.Text = string.Empty;
                 TongCong = 0;
+                pictureBox2.Image = null;
             }
         }
 

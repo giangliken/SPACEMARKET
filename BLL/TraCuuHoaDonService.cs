@@ -32,6 +32,29 @@ namespace BLL
             }
         }
 
+        //Phương thức trả về ReportCHITIETHOADON
+        public List<ReportCHITIETHOADON> GetReportCTHD(string mahoadon)
+        {
+            using (Model1 context = new Model1())
+            {
+                var hoadon = from cthd in context.CHITIETHOADON
+                             join hd in context.HOADON on cthd.MAHD equals hd.MAHD
+                             join sp in context.SANPHAM on cthd.MASP equals sp.MASP
+                             join dm in context.DANHMUC on sp.MADM equals dm.MADM
+                             where cthd.MAHD == mahoadon
+                             select new ReportCHITIETHOADON
+                             {
+                                 MASP = cthd.MASP,
+                                 TENSP = sp.TENSP,
+                                 DVT = dm.TENDM,
+                                 DONGIA = sp.GIABAN,
+                                 SOLUONG = cthd.SOLUONG,
+                                 THANHTIEN = sp.GIABAN * cthd.SOLUONG
+                             };
+                return hoadon.ToList();
+            }
+        }
+
         public string GetNgayTao(string mahoadon)
         {
             using (Model1 context = new Model1())

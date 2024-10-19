@@ -1,4 +1,5 @@
 ﻿using BLL;
+using SpaceMarket.Bao_cao;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,6 +42,13 @@ namespace SpaceMarket
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            InHoaDon inHoaDon = new InHoaDon();
+            inHoaDon.MaHoaDon = txtMaHoaDon.Text;
+            inHoaDon.ShowDialog();
         }
     }
 }

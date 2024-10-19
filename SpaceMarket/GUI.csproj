@@ -151,6 +151,12 @@
     <Compile Include="BanHang.Designer.cs">
       <DependentUpon>BanHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bao cao\InHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bao cao\InHoaDon.Designer.cs">
+      <DependentUpon>InHoaDon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Customer Management.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,6 +220,12 @@
     <EmbeddedResource Include="BanHang.resx">
       <DependentUpon>BanHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Bao cao\InHoaDon.resx">
+      <DependentUpon>InHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bao cao\ReportHoaDon.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Customer Management.resx">
       <DependentUpon>Customer Management.cs</DependentUpon>
     </EmbeddedResource>
@@ -251,6 +263,11 @@
       <DependentUpon>Staff Management.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\DAL.Database.CHITIETHOADON.datasource" />
+    <None Include="Properties\DataSources\DAL.Database.DANHMUC.datasource" />
+    <None Include="Properties\DataSources\DAL.Database.HOADON.datasource" />
+    <None Include="Properties\DataSources\DAL.Database.ReportCHITIETHOADON.datasource" />
+    <None Include="Properties\DataSources\DAL.Database.SANPHAM.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
