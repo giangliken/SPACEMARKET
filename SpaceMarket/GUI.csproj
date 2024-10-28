@@ -151,11 +151,29 @@
     <Compile Include="BanHang.Designer.cs">
       <DependentUpon>BanHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bao cao\InDoanhThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bao cao\InDoanhThu.Designer.cs">
+      <DependentUpon>InDoanhThu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bao cao\InHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Bao cao\InHoaDon.Designer.cs">
       <DependentUpon>InHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bao cao\InNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bao cao\InNhanVien.Designer.cs">
+      <DependentUpon>InNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bao cao\InSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bao cao\InSanPham.Designer.cs">
+      <DependentUpon>InSanPham.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer Management.cs">
       <SubType>Form</SubType>
@@ -168,6 +186,18 @@
     </Compile>
     <Compile Include="DanhMucSanPham.Designer.cs">
       <DependentUpon>DanhMucSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoHang.Designer.cs">
+      <DependentUpon>GiaoHang.cs</DependentUpon>
     </Compile>
     <Compile Include="HoaDon.cs">
       <SubType>Form</SubType>
@@ -220,17 +250,37 @@
     <EmbeddedResource Include="BanHang.resx">
       <DependentUpon>BanHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Bao cao\InDoanhThu.resx">
+      <DependentUpon>InDoanhThu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Bao cao\InHoaDon.resx">
       <DependentUpon>InHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bao cao\InNhanVien.resx">
+      <DependentUpon>InNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bao cao\InSanPham.resx">
+      <DependentUpon>InSanPham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bao cao\ReportHoaDon.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Bao cao\ReportDoanhThu.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bao cao\ReportNhanVien.rdlc" />
+    <EmbeddedResource Include="Bao cao\ReportSanPham.rdlc" />
     <EmbeddedResource Include="Customer Management.resx">
       <DependentUpon>Customer Management.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMucSanPham.resx">
       <DependentUpon>DanhMucSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoHang.resx">
+      <DependentUpon>GiaoHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HoaDon.resx">
       <DependentUpon>HoaDon.cs</DependentUpon>
@@ -267,6 +317,7 @@
     <None Include="Properties\DataSources\DAL.Database.DANHMUC.datasource" />
     <None Include="Properties\DataSources\DAL.Database.HOADON.datasource" />
     <None Include="Properties\DataSources\DAL.Database.ReportCHITIETHOADON.datasource" />
+    <None Include="Properties\DataSources\DAL.Database.ReportDOANHTHU.datasource" />
     <None Include="Properties\DataSources\DAL.Database.SANPHAM.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

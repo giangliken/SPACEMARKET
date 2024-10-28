@@ -52,14 +52,14 @@
             this.txtMaNVSearch = new Sunny.UI.UITextBox();
             this.txtFullNameSearch = new Sunny.UI.UITextBox();
             this.txtCCCDSearch = new Sunny.UI.UITextBox();
-            this.btnSearchNV = new System.Windows.Forms.PictureBox();
             this.txtcccd = new Sunny.UI.UITextBox();
             this.uiLabel6 = new Sunny.UI.UILabel();
             this.uiLabel7 = new Sunny.UI.UILabel();
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
+            this.btnIn = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.datagwdanhsachnhanvien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSearchNV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnIn)).BeginInit();
             this.SuspendLayout();
             // 
             // uiContextMenuStrip1
@@ -340,17 +340,6 @@
             this.txtCCCDSearch.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtCCCDSearch.TextChanged += new System.EventHandler(this.txtCCCDSearch_TextChanged);
             // 
-            // btnSearchNV
-            // 
-            this.btnSearchNV.Image = ((System.Drawing.Image)(resources.GetObject("btnSearchNV.Image")));
-            this.btnSearchNV.Location = new System.Drawing.Point(1241, 146);
-            this.btnSearchNV.Name = "btnSearchNV";
-            this.btnSearchNV.Size = new System.Drawing.Size(40, 40);
-            this.btnSearchNV.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnSearchNV.TabIndex = 25;
-            this.btnSearchNV.TabStop = false;
-            this.btnSearchNV.Click += new System.EventHandler(this.btnSearchNV_Click);
-            // 
             // txtcccd
             // 
             this.txtcccd.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -400,16 +389,27 @@
             this.dtpNgaySinh.TabIndex = 3;
             this.dtpNgaySinh.ValueChanged += new System.EventHandler(this.dtpNgaySinh_ValueChanged);
             // 
+            // btnIn
+            // 
+            this.btnIn.Image = ((System.Drawing.Image)(resources.GetObject("btnIn.Image")));
+            this.btnIn.Location = new System.Drawing.Point(1403, 151);
+            this.btnIn.Name = "btnIn";
+            this.btnIn.Size = new System.Drawing.Size(40, 40);
+            this.btnIn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnIn.TabIndex = 45;
+            this.btnIn.TabStop = false;
+            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
+            // 
             // Staff_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1455, 673);
+            this.Controls.Add(this.btnIn);
             this.Controls.Add(this.dtpNgaySinh);
             this.Controls.Add(this.uiLabel7);
             this.Controls.Add(this.txtcccd);
             this.Controls.Add(this.uiLabel6);
-            this.Controls.Add(this.btnSearchNV);
             this.Controls.Add(this.txtCCCDSearch);
             this.Controls.Add(this.txtFullNameSearch);
             this.Controls.Add(this.txtMaNVSearch);
@@ -427,13 +427,14 @@
             this.Controls.Add(this.datagwdanhsachnhanvien);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.uiLabel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Staff_Management";
             this.Text = "Staff_Management";
             this.Load += new System.EventHandler(this.Staff_Management_Load);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Staff_Management_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.datagwdanhsachnhanvien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSearchNV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnIn)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -458,10 +459,10 @@
         private Sunny.UI.UITextBox txtMaNVSearch;
         private Sunny.UI.UITextBox txtFullNameSearch;
         private Sunny.UI.UITextBox txtCCCDSearch;
-        private System.Windows.Forms.PictureBox btnSearchNV;
         private Sunny.UI.UITextBox txtcccd;
         private Sunny.UI.UILabel uiLabel6;
         private Sunny.UI.UILabel uiLabel7;
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
+        private System.Windows.Forms.PictureBox btnIn;
     }
 }

@@ -245,5 +245,34 @@ namespace BLL
             }
         }
 
+        private static StaffService instance;
+        public static StaffService Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new StaffService();
+                }
+                return instance;
+            }
+        }
+        
+        //Trả về Username dựa vào MANV
+        public string GetCurrentUsername(string manv)
+        {
+            using (var context = new Model1())
+            {
+                var username = context.NHANVIEN.FirstOrDefault(x => x.MANV == manv).USERNAME;
+                return username;
+            }
+        }
+        public NHANVIEN GetStaffByUsername(string username)
+        {
+            using (var context = new Model1())
+            {
+                return context.NHANVIEN.FirstOrDefault(x => x.USERNAME == username);
+            }
+        }
     }
 }

@@ -174,11 +174,6 @@ namespace DAL.Database
                 .IsUnicode(false);
 
             modelBuilder.Entity<PHIEUGIAOHANG>()
-                .Property(e => e.DIACHIGIAOHANG)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<PHIEUGIAOHANG>()
                 .Property(e => e.SDTNGUOINHANHANG)
                 .IsUnicode(false);
 

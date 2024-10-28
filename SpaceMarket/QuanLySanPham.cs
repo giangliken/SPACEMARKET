@@ -222,11 +222,6 @@ namespace SpaceMarket
 
         private void txtsearchsp_TextChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnsearchsp_Click(object sender, EventArgs e)
-        {
             string keyword = txtsearchsp.Text.Trim(); // Lấy từ khóa tìm kiếm
 
             if (string.IsNullOrEmpty(keyword))
@@ -237,6 +232,32 @@ namespace SpaceMarket
             {
                 datagwdanhsachsanpham.DataSource = productService.SearchProducts(keyword);
             }
+
+        }
+
+        private void txtsearchsp_Enter(object sender, EventArgs e)
+        {
+            if (txtsearchsp.Text == "Tìm kiếm theo mã, theo tên, theo nhà cung cấp,...")
+            {
+                txtsearchsp.Text = string.Empty;
+                txtsearchsp.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtsearchsp_Leave(object sender, EventArgs e)
+        {
+            if (txtsearchsp.Text == string.Empty)
+            {
+                txtsearchsp.Text = "Tìm kiếm theo mã, theo tên, theo nhà cung cấp,...";
+                txtsearchsp.ForeColor = Color.Silver;
+            }
+            LoadData();
+        }
+
+        private void btnIn_Click(object sender, EventArgs e)
+        {
+            InSanPham inSanPham = new InSanPham();
+            inSanPham.ShowDialog();
         }
     }
 }

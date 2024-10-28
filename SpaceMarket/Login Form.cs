@@ -1,6 +1,7 @@
 ﻿
 using BLL;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace SpaceMarket
@@ -59,6 +60,42 @@ namespace SpaceMarket
             if (dr == DialogResult.OK)
             {
                 this.Close();
+            }
+        }
+
+        private void txtusername_Enter(object sender, EventArgs e)
+        {
+            if (txtusername.Text == "Username")
+            {
+                txtusername.Text = string.Empty;
+                txtusername.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtusername_Leave(object sender, EventArgs e)
+        {
+            if(txtusername.Text == string.Empty)
+            {
+                txtusername.Text = "Username";
+                txtusername.ForeColor = Color.Silver;
+            }
+        }
+
+        private void txtpass_Enter(object sender, EventArgs e)
+        {
+            if(txtpass.Text == "Password")
+            {
+                txtpass.Text = string.Empty;
+                txtpass.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtpass_Leave(object sender, EventArgs e)
+        {
+            if(txtpass.Text == string.Empty)
+            {
+                txtpass.Text = "Password";
+                txtpass.ForeColor= Color.Silver;
             }
         }
     }

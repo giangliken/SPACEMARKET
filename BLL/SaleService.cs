@@ -145,9 +145,28 @@ namespace BLL
             }
         }
 
+        public List<ReportDOANHTHU> GetDoanhThu()
+        {
+            using (Model1 context = new Model1())
+            {
+                var doanhThu = from hoadon in context.HOADON
+                               select new ReportDOANHTHU
+                               {
+                                   MAHD = hoadon.MAHD,
+                                   THANHTIEN = (decimal)hoadon.THANHTIEN,
+                                   MAKH = hoadon.MAKH,
+                                   MANV = hoadon.MANV,
+                                   NGAYLAP = hoadon.NGAYLAP,
+                               };
 
-
+                return doanhThu.ToList();
+            }
+        }
     }
+
+
+
+}
 
     public class HoaDon
     {
@@ -169,4 +188,3 @@ namespace BLL
         public decimal THANHTIEN { get; set; }
     }
 
-}

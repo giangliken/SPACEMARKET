@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLySanPham));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuanLySanPham));
             this.uiContextMenuStrip1 = new Sunny.UI.UIContextMenuStrip();
-            this.btnsearchsp = new System.Windows.Forms.PictureBox();
             this.txtsearchsp = new Sunny.UI.UITextBox();
             this.txtTenSanPham = new Sunny.UI.UITextBox();
             this.txtMaSanPham = new Sunny.UI.UITextBox();
@@ -59,9 +58,11 @@
             this.uiLabel7 = new Sunny.UI.UILabel();
             this.cbbNhaCungCap = new Sunny.UI.UIComboBox();
             this.cbbDanhMuc = new Sunny.UI.UIComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.btnsearchsp)).BeginInit();
+            this.uiLabel9 = new Sunny.UI.UILabel();
+            this.btnIn = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.datagwdanhsachsanpham)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnIn)).BeginInit();
             this.SuspendLayout();
             // 
             // uiContextMenuStrip1
@@ -73,17 +74,6 @@
             this.uiContextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             this.uiContextMenuStrip1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
-            // btnsearchsp
-            // 
-            this.btnsearchsp.Image = ((System.Drawing.Image)(resources.GetObject("btnsearchsp.Image")));
-            this.btnsearchsp.Location = new System.Drawing.Point(831, 132);
-            this.btnsearchsp.Name = "btnsearchsp";
-            this.btnsearchsp.Size = new System.Drawing.Size(40, 40);
-            this.btnsearchsp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnsearchsp.TabIndex = 37;
-            this.btnsearchsp.TabStop = false;
-            this.btnsearchsp.Click += new System.EventHandler(this.btnsearchsp_Click);
-            // 
             // txtsearchsp
             // 
             this.txtsearchsp.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -93,11 +83,14 @@
             this.txtsearchsp.MinimumSize = new System.Drawing.Size(1, 16);
             this.txtsearchsp.Name = "txtsearchsp";
             this.txtsearchsp.ShowText = false;
-            this.txtsearchsp.Size = new System.Drawing.Size(260, 39);
+            this.txtsearchsp.Size = new System.Drawing.Size(298, 39);
             this.txtsearchsp.TabIndex = 35;
+            this.txtsearchsp.Text = "Tìm kiếm theo mã, theo tên, theo nhà cung cấp,...";
             this.txtsearchsp.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtsearchsp.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtsearchsp.TextChanged += new System.EventHandler(this.txtsearchsp_TextChanged);
+            this.txtsearchsp.Leave += new System.EventHandler(this.txtsearchsp_Leave);
+            this.txtsearchsp.Enter += new System.EventHandler(this.txtsearchsp_Enter);
             // 
             // txtTenSanPham
             // 
@@ -416,11 +409,37 @@
             this.cbbDanhMuc.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.cbbDanhMuc.SelectedIndexChanged += new System.EventHandler(this.cbbDanhMuc_SelectedIndexChanged);
             // 
+            // uiLabel9
+            // 
+            this.uiLabel9.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiLabel9.ForeColor = System.Drawing.Color.Red;
+            this.uiLabel9.Location = new System.Drawing.Point(962, 148);
+            this.uiLabel9.Name = "uiLabel9";
+            this.uiLabel9.Size = new System.Drawing.Size(459, 23);
+            this.uiLabel9.Style = Sunny.UI.UIStyle.Custom;
+            this.uiLabel9.TabIndex = 44;
+            this.uiLabel9.Text = "Bấm vào biẻu tượng in để in danh sách sản phẩm hiện có";
+            this.uiLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel9.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // btnIn
+            // 
+            this.btnIn.Image = ((System.Drawing.Image)(resources.GetObject("btnIn.Image")));
+            this.btnIn.Location = new System.Drawing.Point(1427, 133);
+            this.btnIn.Name = "btnIn";
+            this.btnIn.Size = new System.Drawing.Size(40, 40);
+            this.btnIn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnIn.TabIndex = 43;
+            this.btnIn.TabStop = false;
+            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
+            // 
             // QuanLySanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1578, 673);
+            this.Controls.Add(this.uiLabel9);
+            this.Controls.Add(this.btnIn);
             this.Controls.Add(this.txtGia);
             this.Controls.Add(this.uiLabel7);
             this.Controls.Add(this.cbbDanhMuc);
@@ -428,7 +447,6 @@
             this.Controls.Add(this.cbbNhaCungCap);
             this.Controls.Add(this.uiLabel5);
             this.Controls.Add(this.uiLabel4);
-            this.Controls.Add(this.btnsearchsp);
             this.Controls.Add(this.txtsearchsp);
             this.Controls.Add(this.txtTenSanPham);
             this.Controls.Add(this.txtMaSanPham);
@@ -440,12 +458,13 @@
             this.Controls.Add(this.datagwdanhsachsanpham);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.uiLabel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "QuanLySanPham";
             this.Text = "QUẢN LÝ SẢN PHẨM";
             this.Load += new System.EventHandler(this.QuanLySanPham_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.btnsearchsp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datagwdanhsachsanpham)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnIn)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -453,7 +472,6 @@
         #endregion
 
         private Sunny.UI.UIContextMenuStrip uiContextMenuStrip1;
-        private System.Windows.Forms.PictureBox btnsearchsp;
         private Sunny.UI.UITextBox txtsearchsp;
         private Sunny.UI.UITextBox txtTenSanPham;
         private Sunny.UI.UITextBox txtMaSanPham;
@@ -477,5 +495,7 @@
         private Sunny.UI.UILabel uiLabel7;
         private Sunny.UI.UIComboBox cbbNhaCungCap;
         private Sunny.UI.UIComboBox cbbDanhMuc;
+        private Sunny.UI.UILabel uiLabel9;
+        private System.Windows.Forms.PictureBox btnIn;
     }
 }

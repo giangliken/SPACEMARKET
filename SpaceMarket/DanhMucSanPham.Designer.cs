@@ -46,10 +46,10 @@
             this.btnSua = new Sunny.UI.UIButton();
             this.btnThem = new Sunny.UI.UIButton();
             this.datagwdanhsachdanhmuc = new Sunny.UI.UIDataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.uiLabel1 = new Sunny.UI.UILabel();
             this.madanhmuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tendanhmuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.uiLabel1 = new Sunny.UI.UILabel();
             ((System.ComponentModel.ISupportInitialize)(this.btnsearchdanhmuc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datagwdanhsachdanhmuc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -260,6 +260,18 @@
             this.datagwdanhsachdanhmuc.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.datagwdanhsachdanhmuc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagwdanhsachdanhmuc_CellClick);
             // 
+            // madanhmuc
+            // 
+            this.madanhmuc.HeaderText = "Mã danh mục";
+            this.madanhmuc.MinimumWidth = 6;
+            this.madanhmuc.Name = "madanhmuc";
+            // 
+            // tendanhmuc
+            // 
+            this.tendanhmuc.HeaderText = "Tên danh mục";
+            this.tendanhmuc.MinimumWidth = 6;
+            this.tendanhmuc.Name = "tendanhmuc";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
@@ -282,18 +294,6 @@
             this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.uiLabel1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
-            // madanhmuc
-            // 
-            this.madanhmuc.HeaderText = "Mã danh mục";
-            this.madanhmuc.MinimumWidth = 6;
-            this.madanhmuc.Name = "madanhmuc";
-            // 
-            // tendanhmuc
-            // 
-            this.tendanhmuc.HeaderText = "Tên danh mục";
-            this.tendanhmuc.MinimumWidth = 6;
-            this.tendanhmuc.Name = "tendanhmuc";
-            // 
             // DanhMucSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -312,6 +312,7 @@
             this.Controls.Add(this.datagwdanhsachdanhmuc);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.uiLabel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DanhMucSanPham";
             this.Text = "DanhMucSanPham";
             this.Load += new System.EventHandler(this.DanhMucSanPham_Load);

@@ -38,45 +38,46 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KhoHang));
             this.uiTabControl1 = new Sunny.UI.UITabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.uiLabel1 = new Sunny.UI.UILabel();
-            this.dataDanhSachKhoHang = new Sunny.UI.UIDataGridView();
-            this.uiLabel2 = new Sunny.UI.UILabel();
-            this.uiLabel3 = new Sunny.UI.UILabel();
-            this.uiLabel4 = new Sunny.UI.UILabel();
+            this.txtSearchDiaChi = new Sunny.UI.UITextBox();
+            this.txtSearchTen = new Sunny.UI.UITextBox();
+            this.txtSearchMa = new Sunny.UI.UITextBox();
+            this.txtDiaChiKho = new Sunny.UI.UITextBox();
+            this.txtTenKho = new Sunny.UI.UITextBox();
+            this.txtMakho = new Sunny.UI.UITextBox();
+            this.uiLabel5 = new Sunny.UI.UILabel();
             this.btnXoa = new Sunny.UI.UIButton();
             this.btnSua = new Sunny.UI.UIButton();
             this.btnThem = new Sunny.UI.UIButton();
-            this.uiLabel5 = new Sunny.UI.UILabel();
-            this.txtMakho = new Sunny.UI.UITextBox();
-            this.txtTenKho = new Sunny.UI.UITextBox();
-            this.txtDiaChiKho = new Sunny.UI.UITextBox();
-            this.txtSearchMa = new Sunny.UI.UITextBox();
-            this.txtSearchTen = new Sunny.UI.UITextBox();
-            this.txtSearchDiaChi = new Sunny.UI.UITextBox();
+            this.uiLabel4 = new Sunny.UI.UILabel();
+            this.uiLabel3 = new Sunny.UI.UILabel();
+            this.uiLabel2 = new Sunny.UI.UILabel();
+            this.dataDanhSachKhoHang = new Sunny.UI.UIDataGridView();
             this.MAKHO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENKHO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DIACHIKHO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uiLabel6 = new Sunny.UI.UILabel();
-            this.dataDanhSachNhapKho = new Sunny.UI.UIDataGridView();
-            this.uiLabel7 = new Sunny.UI.UILabel();
-            this.uiLabel8 = new Sunny.UI.UILabel();
-            this.uiLabel9 = new Sunny.UI.UILabel();
-            this.uiLabel10 = new Sunny.UI.UILabel();
-            this.cbbKhoCanNhap = new Sunny.UI.UIComboBox();
-            this.cbbHangCanNhap = new Sunny.UI.UIComboBox();
-            this.txtSoLuongNhap = new Sunny.UI.UITextBox();
+            this.uiLabel1 = new Sunny.UI.UILabel();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnNhapKho = new Sunny.UI.UIButton();
+            this.txtSoLuongNhap = new Sunny.UI.UITextBox();
+            this.cbbHangCanNhap = new Sunny.UI.UIComboBox();
+            this.cbbKhoCanNhap = new Sunny.UI.UIComboBox();
+            this.uiLabel10 = new Sunny.UI.UILabel();
+            this.uiLabel9 = new Sunny.UI.UILabel();
+            this.uiLabel8 = new Sunny.UI.UILabel();
+            this.uiLabel7 = new Sunny.UI.UILabel();
+            this.dataDanhSachNhapKho = new Sunny.UI.UIDataGridView();
             this.TENKHONHAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENSANPHAMNHAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SOLUONGTON = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uiLabel6 = new Sunny.UI.UILabel();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.uiTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataDanhSachKhoHang)).BeginInit();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataDanhSachNhapKho)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,44 +125,184 @@
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click_1);
             this.tabPage1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tabPage1_MouseClick);
             // 
-            // tabPage2
+            // txtSearchDiaChi
             // 
-            this.tabPage2.Controls.Add(this.btnNhapKho);
-            this.tabPage2.Controls.Add(this.txtSoLuongNhap);
-            this.tabPage2.Controls.Add(this.cbbHangCanNhap);
-            this.tabPage2.Controls.Add(this.cbbKhoCanNhap);
-            this.tabPage2.Controls.Add(this.uiLabel10);
-            this.tabPage2.Controls.Add(this.uiLabel9);
-            this.tabPage2.Controls.Add(this.uiLabel8);
-            this.tabPage2.Controls.Add(this.uiLabel7);
-            this.tabPage2.Controls.Add(this.dataDanhSachNhapKho);
-            this.tabPage2.Controls.Add(this.uiLabel6);
-            this.tabPage2.Location = new System.Drawing.Point(0, 40);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(1474, 661);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "NHẬP KHO";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.txtSearchDiaChi.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearchDiaChi.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchDiaChi.Location = new System.Drawing.Point(1196, 87);
+            this.txtSearchDiaChi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtSearchDiaChi.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txtSearchDiaChi.Name = "txtSearchDiaChi";
+            this.txtSearchDiaChi.ShowText = false;
+            this.txtSearchDiaChi.Size = new System.Drawing.Size(263, 38);
+            this.txtSearchDiaChi.TabIndex = 34;
+            this.txtSearchDiaChi.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtSearchDiaChi.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.txtSearchDiaChi.TextChanged += new System.EventHandler(this.txtSearchDiaChi_TextChanged);
             // 
-            // tabPage3
+            // txtSearchTen
             // 
-            this.tabPage3.Location = new System.Drawing.Point(0, 40);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1474, 608);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "XUẤT KHO";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.txtSearchTen.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearchTen.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchTen.Location = new System.Drawing.Point(925, 87);
+            this.txtSearchTen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtSearchTen.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txtSearchTen.Name = "txtSearchTen";
+            this.txtSearchTen.ShowText = false;
+            this.txtSearchTen.Size = new System.Drawing.Size(263, 38);
+            this.txtSearchTen.TabIndex = 33;
+            this.txtSearchTen.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtSearchTen.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.txtSearchTen.TextChanged += new System.EventHandler(this.txtSearchTen_TextChanged);
             // 
-            // uiLabel1
+            // txtSearchMa
             // 
-            this.uiLabel1.Font = new System.Drawing.Font("Segoe UI", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.uiLabel1.Location = new System.Drawing.Point(512, 17);
-            this.uiLabel1.Name = "uiLabel1";
-            this.uiLabel1.Size = new System.Drawing.Size(517, 65);
-            this.uiLabel1.TabIndex = 0;
-            this.uiLabel1.Text = "QUẢN LÝ KHO HÀNG";
-            this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiLabel1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.txtSearchMa.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearchMa.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchMa.Location = new System.Drawing.Point(654, 87);
+            this.txtSearchMa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtSearchMa.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txtSearchMa.Name = "txtSearchMa";
+            this.txtSearchMa.ShowText = false;
+            this.txtSearchMa.Size = new System.Drawing.Size(263, 38);
+            this.txtSearchMa.TabIndex = 32;
+            this.txtSearchMa.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtSearchMa.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.txtSearchMa.TextChanged += new System.EventHandler(this.txtSearchMa_TextChanged);
+            // 
+            // txtDiaChiKho
+            // 
+            this.txtDiaChiKho.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtDiaChiKho.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiaChiKho.Location = new System.Drawing.Point(197, 316);
+            this.txtDiaChiKho.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtDiaChiKho.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txtDiaChiKho.Name = "txtDiaChiKho";
+            this.txtDiaChiKho.ShowText = false;
+            this.txtDiaChiKho.Size = new System.Drawing.Size(450, 38);
+            this.txtDiaChiKho.TabIndex = 31;
+            this.txtDiaChiKho.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtDiaChiKho.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.txtDiaChiKho.TextChanged += new System.EventHandler(this.txtDiaChiKho_TextChanged);
+            // 
+            // txtTenKho
+            // 
+            this.txtTenKho.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTenKho.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenKho.Location = new System.Drawing.Point(197, 262);
+            this.txtTenKho.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtTenKho.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txtTenKho.Name = "txtTenKho";
+            this.txtTenKho.ShowText = false;
+            this.txtTenKho.Size = new System.Drawing.Size(450, 38);
+            this.txtTenKho.TabIndex = 31;
+            this.txtTenKho.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtTenKho.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.txtTenKho.TextChanged += new System.EventHandler(this.txtTenKho_TextChanged);
+            // 
+            // txtMakho
+            // 
+            this.txtMakho.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtMakho.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMakho.Location = new System.Drawing.Point(197, 204);
+            this.txtMakho.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtMakho.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txtMakho.Name = "txtMakho";
+            this.txtMakho.ReadOnly = true;
+            this.txtMakho.ShowText = false;
+            this.txtMakho.Size = new System.Drawing.Size(450, 38);
+            this.txtMakho.TabIndex = 30;
+            this.txtMakho.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtMakho.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.txtMakho.TextChanged += new System.EventHandler(this.txtMakho_TextChanged);
+            // 
+            // uiLabel5
+            // 
+            this.uiLabel5.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiLabel5.Location = new System.Drawing.Point(37, 313);
+            this.uiLabel5.Name = "uiLabel5";
+            this.uiLabel5.Size = new System.Drawing.Size(164, 41);
+            this.uiLabel5.TabIndex = 29;
+            this.uiLabel5.Text = "Địa chỉ kho";
+            this.uiLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel5.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnXoa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnXoa.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.btnXoa.Location = new System.Drawing.Point(445, 529);
+            this.btnXoa.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(131, 35);
+            this.btnXoa.Style = Sunny.UI.UIStyle.Custom;
+            this.btnXoa.TabIndex = 28;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
+            // btnSua
+            // 
+            this.btnSua.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSua.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.btnSua.Location = new System.Drawing.Point(255, 529);
+            this.btnSua.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(131, 35);
+            this.btnSua.TabIndex = 27;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            // 
+            // btnThem
+            // 
+            this.btnThem.BackColor = System.Drawing.Color.White;
+            this.btnThem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnThem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnThem.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.btnThem.Location = new System.Drawing.Point(70, 529);
+            this.btnThem.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(131, 35);
+            this.btnThem.Style = Sunny.UI.UIStyle.Custom;
+            this.btnThem.TabIndex = 26;
+            this.btnThem.Text = "Thêm mới";
+            this.btnThem.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // uiLabel4
+            // 
+            this.uiLabel4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiLabel4.Location = new System.Drawing.Point(37, 259);
+            this.uiLabel4.Name = "uiLabel4";
+            this.uiLabel4.Size = new System.Drawing.Size(164, 41);
+            this.uiLabel4.TabIndex = 4;
+            this.uiLabel4.Text = "Tên kho";
+            this.uiLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel4.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiLabel3
+            // 
+            this.uiLabel3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiLabel3.Location = new System.Drawing.Point(37, 204);
+            this.uiLabel3.Name = "uiLabel3";
+            this.uiLabel3.Size = new System.Drawing.Size(164, 41);
+            this.uiLabel3.TabIndex = 3;
+            this.uiLabel3.Text = "Mã kho";
+            this.uiLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel3.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiLabel2
+            // 
+            this.uiLabel2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiLabel2.Location = new System.Drawing.Point(24, 131);
+            this.uiLabel2.Name = "uiLabel2";
+            this.uiLabel2.Size = new System.Drawing.Size(245, 44);
+            this.uiLabel2.TabIndex = 2;
+            this.uiLabel2.Text = "Thông tin kho hàng";
+            this.uiLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel2.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // dataDanhSachKhoHang
             // 
@@ -221,185 +362,6 @@
             this.dataDanhSachKhoHang.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.dataDanhSachKhoHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataDanhSachKhoHang_CellClick);
             // 
-            // uiLabel2
-            // 
-            this.uiLabel2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uiLabel2.Location = new System.Drawing.Point(24, 131);
-            this.uiLabel2.Name = "uiLabel2";
-            this.uiLabel2.Size = new System.Drawing.Size(245, 44);
-            this.uiLabel2.TabIndex = 2;
-            this.uiLabel2.Text = "Thông tin kho hàng";
-            this.uiLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiLabel2.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // uiLabel3
-            // 
-            this.uiLabel3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uiLabel3.Location = new System.Drawing.Point(37, 204);
-            this.uiLabel3.Name = "uiLabel3";
-            this.uiLabel3.Size = new System.Drawing.Size(164, 41);
-            this.uiLabel3.TabIndex = 3;
-            this.uiLabel3.Text = "Mã kho";
-            this.uiLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiLabel3.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // uiLabel4
-            // 
-            this.uiLabel4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uiLabel4.Location = new System.Drawing.Point(37, 259);
-            this.uiLabel4.Name = "uiLabel4";
-            this.uiLabel4.Size = new System.Drawing.Size(164, 41);
-            this.uiLabel4.TabIndex = 4;
-            this.uiLabel4.Text = "Tên kho";
-            this.uiLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiLabel4.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnXoa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnXoa.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.btnXoa.Location = new System.Drawing.Point(445, 529);
-            this.btnXoa.MinimumSize = new System.Drawing.Size(1, 1);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(131, 35);
-            this.btnXoa.Style = Sunny.UI.UIStyle.Custom;
-            this.btnXoa.TabIndex = 28;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
-            // 
-            // btnSua
-            // 
-            this.btnSua.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSua.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.btnSua.Location = new System.Drawing.Point(255, 529);
-            this.btnSua.MinimumSize = new System.Drawing.Size(1, 1);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(131, 35);
-            this.btnSua.TabIndex = 27;
-            this.btnSua.Text = "Sửa";
-            this.btnSua.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
-            // 
-            // btnThem
-            // 
-            this.btnThem.BackColor = System.Drawing.Color.White;
-            this.btnThem.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnThem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnThem.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.btnThem.Location = new System.Drawing.Point(70, 529);
-            this.btnThem.MinimumSize = new System.Drawing.Size(1, 1);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(131, 35);
-            this.btnThem.Style = Sunny.UI.UIStyle.Custom;
-            this.btnThem.TabIndex = 26;
-            this.btnThem.Text = "Thêm mới";
-            this.btnThem.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // uiLabel5
-            // 
-            this.uiLabel5.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uiLabel5.Location = new System.Drawing.Point(37, 313);
-            this.uiLabel5.Name = "uiLabel5";
-            this.uiLabel5.Size = new System.Drawing.Size(164, 41);
-            this.uiLabel5.TabIndex = 29;
-            this.uiLabel5.Text = "Địa chỉ kho";
-            this.uiLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiLabel5.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // txtMakho
-            // 
-            this.txtMakho.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtMakho.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMakho.Location = new System.Drawing.Point(197, 204);
-            this.txtMakho.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtMakho.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txtMakho.Name = "txtMakho";
-            this.txtMakho.ReadOnly = true;
-            this.txtMakho.ShowText = false;
-            this.txtMakho.Size = new System.Drawing.Size(450, 38);
-            this.txtMakho.TabIndex = 30;
-            this.txtMakho.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtMakho.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.txtMakho.TextChanged += new System.EventHandler(this.txtMakho_TextChanged);
-            // 
-            // txtTenKho
-            // 
-            this.txtTenKho.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTenKho.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenKho.Location = new System.Drawing.Point(197, 262);
-            this.txtTenKho.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtTenKho.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txtTenKho.Name = "txtTenKho";
-            this.txtTenKho.ShowText = false;
-            this.txtTenKho.Size = new System.Drawing.Size(450, 38);
-            this.txtTenKho.TabIndex = 31;
-            this.txtTenKho.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtTenKho.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.txtTenKho.TextChanged += new System.EventHandler(this.txtTenKho_TextChanged);
-            // 
-            // txtDiaChiKho
-            // 
-            this.txtDiaChiKho.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtDiaChiKho.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiaChiKho.Location = new System.Drawing.Point(197, 316);
-            this.txtDiaChiKho.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtDiaChiKho.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txtDiaChiKho.Name = "txtDiaChiKho";
-            this.txtDiaChiKho.ShowText = false;
-            this.txtDiaChiKho.Size = new System.Drawing.Size(450, 38);
-            this.txtDiaChiKho.TabIndex = 31;
-            this.txtDiaChiKho.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtDiaChiKho.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.txtDiaChiKho.TextChanged += new System.EventHandler(this.txtDiaChiKho_TextChanged);
-            // 
-            // txtSearchMa
-            // 
-            this.txtSearchMa.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSearchMa.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchMa.Location = new System.Drawing.Point(654, 87);
-            this.txtSearchMa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtSearchMa.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txtSearchMa.Name = "txtSearchMa";
-            this.txtSearchMa.ShowText = false;
-            this.txtSearchMa.Size = new System.Drawing.Size(263, 38);
-            this.txtSearchMa.TabIndex = 32;
-            this.txtSearchMa.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtSearchMa.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.txtSearchMa.TextChanged += new System.EventHandler(this.txtSearchMa_TextChanged);
-            // 
-            // txtSearchTen
-            // 
-            this.txtSearchTen.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSearchTen.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchTen.Location = new System.Drawing.Point(925, 87);
-            this.txtSearchTen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtSearchTen.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txtSearchTen.Name = "txtSearchTen";
-            this.txtSearchTen.ShowText = false;
-            this.txtSearchTen.Size = new System.Drawing.Size(263, 38);
-            this.txtSearchTen.TabIndex = 33;
-            this.txtSearchTen.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtSearchTen.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.txtSearchTen.TextChanged += new System.EventHandler(this.txtSearchTen_TextChanged);
-            // 
-            // txtSearchDiaChi
-            // 
-            this.txtSearchDiaChi.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSearchDiaChi.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchDiaChi.Location = new System.Drawing.Point(1196, 87);
-            this.txtSearchDiaChi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtSearchDiaChi.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txtSearchDiaChi.Name = "txtSearchDiaChi";
-            this.txtSearchDiaChi.ShowText = false;
-            this.txtSearchDiaChi.Size = new System.Drawing.Size(263, 38);
-            this.txtSearchDiaChi.TabIndex = 34;
-            this.txtSearchDiaChi.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtSearchDiaChi.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.txtSearchDiaChi.TextChanged += new System.EventHandler(this.txtSearchDiaChi_TextChanged);
-            // 
             // MAKHO
             // 
             this.MAKHO.DataPropertyName = "MAKHO";
@@ -424,16 +386,142 @@
             this.DIACHIKHO.Name = "DIACHIKHO";
             this.DIACHIKHO.Width = 144;
             // 
-            // uiLabel6
+            // uiLabel1
             // 
-            this.uiLabel6.Font = new System.Drawing.Font("Segoe UI", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uiLabel6.Location = new System.Drawing.Point(526, 22);
-            this.uiLabel6.Name = "uiLabel6";
-            this.uiLabel6.Size = new System.Drawing.Size(474, 66);
-            this.uiLabel6.TabIndex = 0;
-            this.uiLabel6.Text = "NHẬP KHO";
-            this.uiLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.uiLabel6.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.uiLabel1.Font = new System.Drawing.Font("Segoe UI", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.uiLabel1.Location = new System.Drawing.Point(512, 17);
+            this.uiLabel1.Name = "uiLabel1";
+            this.uiLabel1.Size = new System.Drawing.Size(517, 65);
+            this.uiLabel1.TabIndex = 0;
+            this.uiLabel1.Text = "QUẢN LÝ KHO HÀNG";
+            this.uiLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.btnNhapKho);
+            this.tabPage2.Controls.Add(this.txtSoLuongNhap);
+            this.tabPage2.Controls.Add(this.cbbHangCanNhap);
+            this.tabPage2.Controls.Add(this.cbbKhoCanNhap);
+            this.tabPage2.Controls.Add(this.uiLabel10);
+            this.tabPage2.Controls.Add(this.uiLabel9);
+            this.tabPage2.Controls.Add(this.uiLabel8);
+            this.tabPage2.Controls.Add(this.uiLabel7);
+            this.tabPage2.Controls.Add(this.dataDanhSachNhapKho);
+            this.tabPage2.Controls.Add(this.uiLabel6);
+            this.tabPage2.Location = new System.Drawing.Point(0, 40);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(1474, 661);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "NHẬP KHO";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnNhapKho
+            // 
+            this.btnNhapKho.BackColor = System.Drawing.Color.White;
+            this.btnNhapKho.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNhapKho.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnNhapKho.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.btnNhapKho.Location = new System.Drawing.Point(273, 482);
+            this.btnNhapKho.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btnNhapKho.Name = "btnNhapKho";
+            this.btnNhapKho.Size = new System.Drawing.Size(131, 35);
+            this.btnNhapKho.Style = Sunny.UI.UIStyle.Custom;
+            this.btnNhapKho.TabIndex = 26;
+            this.btnNhapKho.Text = "Nhập kho";
+            this.btnNhapKho.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.btnNhapKho.Click += new System.EventHandler(this.btnNhapKho_Click);
+            // 
+            // txtSoLuongNhap
+            // 
+            this.txtSoLuongNhap.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSoLuongNhap.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSoLuongNhap.Location = new System.Drawing.Point(232, 311);
+            this.txtSoLuongNhap.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtSoLuongNhap.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txtSoLuongNhap.Name = "txtSoLuongNhap";
+            this.txtSoLuongNhap.ShowText = false;
+            this.txtSoLuongNhap.Size = new System.Drawing.Size(412, 36);
+            this.txtSoLuongNhap.TabIndex = 8;
+            this.txtSoLuongNhap.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtSoLuongNhap.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.txtSoLuongNhap.TextChanged += new System.EventHandler(this.txtSoLuongNhap_TextChanged);
+            // 
+            // cbbHangCanNhap
+            // 
+            this.cbbHangCanNhap.DataSource = null;
+            this.cbbHangCanNhap.FillColor = System.Drawing.Color.White;
+            this.cbbHangCanNhap.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbHangCanNhap.Location = new System.Drawing.Point(232, 256);
+            this.cbbHangCanNhap.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbbHangCanNhap.MinimumSize = new System.Drawing.Size(63, 0);
+            this.cbbHangCanNhap.Name = "cbbHangCanNhap";
+            this.cbbHangCanNhap.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
+            this.cbbHangCanNhap.Size = new System.Drawing.Size(412, 36);
+            this.cbbHangCanNhap.TabIndex = 7;
+            this.cbbHangCanNhap.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cbbHangCanNhap.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.cbbHangCanNhap.SelectedIndexChanged += new System.EventHandler(this.cbbHangCanNhap_SelectedIndexChanged);
+            // 
+            // cbbKhoCanNhap
+            // 
+            this.cbbKhoCanNhap.DataSource = null;
+            this.cbbKhoCanNhap.FillColor = System.Drawing.Color.White;
+            this.cbbKhoCanNhap.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbKhoCanNhap.Location = new System.Drawing.Point(232, 202);
+            this.cbbKhoCanNhap.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbbKhoCanNhap.MinimumSize = new System.Drawing.Size(63, 0);
+            this.cbbKhoCanNhap.Name = "cbbKhoCanNhap";
+            this.cbbKhoCanNhap.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
+            this.cbbKhoCanNhap.Size = new System.Drawing.Size(412, 36);
+            this.cbbKhoCanNhap.TabIndex = 6;
+            this.cbbKhoCanNhap.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cbbKhoCanNhap.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.cbbKhoCanNhap.SelectedIndexChanged += new System.EventHandler(this.cbbKhoCanNhap_SelectedIndexChanged);
+            // 
+            // uiLabel10
+            // 
+            this.uiLabel10.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiLabel10.Location = new System.Drawing.Point(32, 311);
+            this.uiLabel10.Name = "uiLabel10";
+            this.uiLabel10.Size = new System.Drawing.Size(239, 36);
+            this.uiLabel10.TabIndex = 5;
+            this.uiLabel10.Text = "Số lượng";
+            this.uiLabel10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel10.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiLabel9
+            // 
+            this.uiLabel9.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiLabel9.Location = new System.Drawing.Point(32, 256);
+            this.uiLabel9.Name = "uiLabel9";
+            this.uiLabel9.Size = new System.Drawing.Size(184, 36);
+            this.uiLabel9.TabIndex = 4;
+            this.uiLabel9.Text = "Hàng cần nhập";
+            this.uiLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel9.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiLabel8
+            // 
+            this.uiLabel8.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiLabel8.Location = new System.Drawing.Point(32, 202);
+            this.uiLabel8.Name = "uiLabel8";
+            this.uiLabel8.Size = new System.Drawing.Size(184, 36);
+            this.uiLabel8.TabIndex = 3;
+            this.uiLabel8.Text = "Kho cần nhập";
+            this.uiLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel8.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiLabel7
+            // 
+            this.uiLabel7.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiLabel7.Location = new System.Drawing.Point(16, 146);
+            this.uiLabel7.Name = "uiLabel7";
+            this.uiLabel7.Size = new System.Drawing.Size(264, 41);
+            this.uiLabel7.TabIndex = 2;
+            this.uiLabel7.Text = "Thông tin nhập kho";
+            this.uiLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel7.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
             // dataDanhSachNhapKho
             // 
@@ -493,113 +581,6 @@
             this.dataDanhSachNhapKho.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.dataDanhSachNhapKho.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataDanhSachNhapKho_CellClick);
             // 
-            // uiLabel7
-            // 
-            this.uiLabel7.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uiLabel7.Location = new System.Drawing.Point(16, 146);
-            this.uiLabel7.Name = "uiLabel7";
-            this.uiLabel7.Size = new System.Drawing.Size(264, 41);
-            this.uiLabel7.TabIndex = 2;
-            this.uiLabel7.Text = "Thông tin nhập kho";
-            this.uiLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiLabel7.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // uiLabel8
-            // 
-            this.uiLabel8.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uiLabel8.Location = new System.Drawing.Point(32, 202);
-            this.uiLabel8.Name = "uiLabel8";
-            this.uiLabel8.Size = new System.Drawing.Size(184, 36);
-            this.uiLabel8.TabIndex = 3;
-            this.uiLabel8.Text = "Kho cần nhập";
-            this.uiLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiLabel8.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // uiLabel9
-            // 
-            this.uiLabel9.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uiLabel9.Location = new System.Drawing.Point(32, 256);
-            this.uiLabel9.Name = "uiLabel9";
-            this.uiLabel9.Size = new System.Drawing.Size(184, 36);
-            this.uiLabel9.TabIndex = 4;
-            this.uiLabel9.Text = "Hàng cần nhập";
-            this.uiLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiLabel9.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // uiLabel10
-            // 
-            this.uiLabel10.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uiLabel10.Location = new System.Drawing.Point(32, 311);
-            this.uiLabel10.Name = "uiLabel10";
-            this.uiLabel10.Size = new System.Drawing.Size(239, 36);
-            this.uiLabel10.TabIndex = 5;
-            this.uiLabel10.Text = "Số lượng";
-            this.uiLabel10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiLabel10.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            // 
-            // cbbKhoCanNhap
-            // 
-            this.cbbKhoCanNhap.DataSource = null;
-            this.cbbKhoCanNhap.FillColor = System.Drawing.Color.White;
-            this.cbbKhoCanNhap.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbKhoCanNhap.Location = new System.Drawing.Point(232, 202);
-            this.cbbKhoCanNhap.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cbbKhoCanNhap.MinimumSize = new System.Drawing.Size(63, 0);
-            this.cbbKhoCanNhap.Name = "cbbKhoCanNhap";
-            this.cbbKhoCanNhap.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
-            this.cbbKhoCanNhap.Size = new System.Drawing.Size(412, 36);
-            this.cbbKhoCanNhap.TabIndex = 6;
-            this.cbbKhoCanNhap.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cbbKhoCanNhap.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.cbbKhoCanNhap.SelectedIndexChanged += new System.EventHandler(this.cbbKhoCanNhap_SelectedIndexChanged);
-            // 
-            // cbbHangCanNhap
-            // 
-            this.cbbHangCanNhap.DataSource = null;
-            this.cbbHangCanNhap.FillColor = System.Drawing.Color.White;
-            this.cbbHangCanNhap.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbHangCanNhap.Location = new System.Drawing.Point(232, 256);
-            this.cbbHangCanNhap.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cbbHangCanNhap.MinimumSize = new System.Drawing.Size(63, 0);
-            this.cbbHangCanNhap.Name = "cbbHangCanNhap";
-            this.cbbHangCanNhap.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
-            this.cbbHangCanNhap.Size = new System.Drawing.Size(412, 36);
-            this.cbbHangCanNhap.TabIndex = 7;
-            this.cbbHangCanNhap.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cbbHangCanNhap.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.cbbHangCanNhap.SelectedIndexChanged += new System.EventHandler(this.cbbHangCanNhap_SelectedIndexChanged);
-            // 
-            // txtSoLuongNhap
-            // 
-            this.txtSoLuongNhap.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSoLuongNhap.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSoLuongNhap.Location = new System.Drawing.Point(232, 311);
-            this.txtSoLuongNhap.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtSoLuongNhap.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txtSoLuongNhap.Name = "txtSoLuongNhap";
-            this.txtSoLuongNhap.ShowText = false;
-            this.txtSoLuongNhap.Size = new System.Drawing.Size(412, 36);
-            this.txtSoLuongNhap.TabIndex = 8;
-            this.txtSoLuongNhap.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtSoLuongNhap.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.txtSoLuongNhap.TextChanged += new System.EventHandler(this.txtSoLuongNhap_TextChanged);
-            // 
-            // btnNhapKho
-            // 
-            this.btnNhapKho.BackColor = System.Drawing.Color.White;
-            this.btnNhapKho.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNhapKho.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnNhapKho.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.btnNhapKho.Location = new System.Drawing.Point(273, 482);
-            this.btnNhapKho.MinimumSize = new System.Drawing.Size(1, 1);
-            this.btnNhapKho.Name = "btnNhapKho";
-            this.btnNhapKho.Size = new System.Drawing.Size(131, 35);
-            this.btnNhapKho.Style = Sunny.UI.UIStyle.Custom;
-            this.btnNhapKho.TabIndex = 26;
-            this.btnNhapKho.Text = "Nhập kho";
-            this.btnNhapKho.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
-            this.btnNhapKho.Click += new System.EventHandler(this.btnNhapKho_Click);
-            // 
             // TENKHONHAP
             // 
             this.TENKHONHAP.DataPropertyName = "TENKHONHAP";
@@ -621,19 +602,40 @@
             this.SOLUONGTON.MinimumWidth = 6;
             this.SOLUONGTON.Name = "SOLUONGTON";
             // 
+            // uiLabel6
+            // 
+            this.uiLabel6.Font = new System.Drawing.Font("Segoe UI", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiLabel6.Location = new System.Drawing.Point(526, 22);
+            this.uiLabel6.Name = "uiLabel6";
+            this.uiLabel6.Size = new System.Drawing.Size(474, 66);
+            this.uiLabel6.TabIndex = 0;
+            this.uiLabel6.Text = "NHẬP KHO";
+            this.uiLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uiLabel6.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(0, 40);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(1474, 661);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "XUẤT KHO";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
             // KhoHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1499, 726);
             this.Controls.Add(this.uiTabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "KhoHang";
             this.Text = "QUẢN LÝ KHO HÀNG";
             this.Load += new System.EventHandler(this.KhoHang_Load);
             this.uiTabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataDanhSachKhoHang)).EndInit();
+            this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataDanhSachNhapKho)).EndInit();
             this.ResumeLayout(false);
 

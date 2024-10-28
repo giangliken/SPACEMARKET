@@ -189,6 +189,8 @@ namespace SpaceMarket
             dgvDanhSachSanPham.Columns[5].DataPropertyName = "THANHTIEN";
             //Đổ dữ liệu và datagridview
             //dgvDanhSachSanPham.DataSource = saleService.GetAll();
+            this.KeyPreview = true; // Bắt sự kiện phím trước khi gửi đến điều khiển khác
+            this.KeyDown += new KeyEventHandler(BanHang_KeyDown);
 
         }
 
@@ -225,32 +227,39 @@ namespace SpaceMarket
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Tong tien: " + TongCong);
-            var apiRequest = new ApiRequest();
-            apiRequest.acqId = 970418;
-            apiRequest.accountNo = 6150556382;
-            apiRequest.accountName = "NGUYEN NGOC THANH BA";
-            apiRequest.amount = TongCong;
-            apiRequest.format = "text";
-            apiRequest.template = "qr_only";
-            apiRequest.addInfo = "SPACEGO HD:" + txtSoHoaDon.Text; // Thêm mô tả vào đây
-            var jsonRequest = JsonConvert.SerializeObject(apiRequest);
-            // use restsharp for request api.
-            var client = new RestClient("https://api.vietqr.io/v2/generate");
-            var request = new RestRequest();
+            //MessageBox.Show("Tong tien: " + TongCong);
+            if(TongCong > 0)
+            {
+                var apiRequest = new ApiRequest();
+                apiRequest.acqId = 970418;
+                apiRequest.accountNo = 6150556382;
+                apiRequest.accountName = "NGUYEN NGOC THANH BA";
+                apiRequest.amount = TongCong;
+                apiRequest.format = "text";
+                apiRequest.template = "qr_only";
+                apiRequest.addInfo = "SPACEGO HD:" + txtSoHoaDon.Text; // Thêm mô tả vào đây
+                var jsonRequest = JsonConvert.SerializeObject(apiRequest);
+                // use restsharp for request api.
+                var client = new RestClient("https://api.vietqr.io/v2/generate");
+                var request = new RestRequest();
 
-            request.Method = Method.Post;
-            request.AddHeader("Accept", "application/json");
+                request.Method = Method.Post;
+                request.AddHeader("Accept", "application/json");
 
-            request.AddParameter("application/json", jsonRequest, ParameterType.RequestBody);
+                request.AddParameter("application/json", jsonRequest, ParameterType.RequestBody);
 
-            var response = client.Execute(request);
-            var content = response.Content;
-            var dataResult = JsonConvert.DeserializeObject<ApiResponse>(content);
+                var response = client.Execute(request);
+                var content = response.Content;
+                var dataResult = JsonConvert.DeserializeObject<ApiResponse>(content);
 
 
-            var image = Base64ToImage(dataResult.data.qrDataURL.Replace("data:image/png;base64,", ""));
-            pictureBox2.Image = image;
+                var image = Base64ToImage(dataResult.data.qrDataURL.Replace("data:image/png;base64,", ""));
+                pictureBox2.Image = image;
+            }
+            else
+            {
+                MessageBox.Show("Không thể tạo mã QR chuyển khoản!. Vui lòng xem lại hóa đơn!","Lỗi!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
 
 
@@ -270,72 +279,90 @@ namespace SpaceMarket
 
         private void btnLuuHoaDon_Click(object sender, EventArgs e)
         {
-            string maKhachHang;
-
-            // Kiểm tra xem lblMaThe có trống hay không
-            if (string.IsNullOrEmpty(lblMaThe.Text))
+            if (dgvDanhSachSanPham != null && dgvDanhSachSanPham.Rows.Count > 0)
             {
-                // Nếu lblMaThe trống, sử dụng "None" cho mã khách hàng
-                maKhachHang = "None";
+                string maKhachHang;
+
+                // Kiểm tra xem lblMaThe có trống hay không
+                if (string.IsNullOrEmpty(lblMaThe.Text))
+                {
+                    // Nếu lblMaThe trống, sử dụng "None" cho mã khách hàng
+                    maKhachHang = "None";
+                }
+                else
+                {
+                    // Nếu lblMaThe không trống, lấy mã khách hàng từ mã thẻ
+                    maKhachHang = khachHangService.GetCustomerIdByCardNumber(lblMaThe.Text);
+                }
+
+                // Gọi phương thức LuuHoaDon với các giá trị từ textbox
+                saleService.LuuHoaDon(txtSoHoaDon.Text, MANV, maKhachHang, "Chuyen tien", DateTime.Now, TongCong, discountUsed);
+
+
+                // Giả sử bạn đã có một danh sách các sản phẩm trong DataGridView
+                // và mỗi dòng chứa MASP, MAHD và SOLUONG.
+
+                string maHD = txtSoHoaDon.Text; // Lấy mã hóa đơn từ textbox
+
+                foreach (DataGridViewRow row in dgvDanhSachSanPham.Rows)
+                {
+                    // Kiểm tra xem dòng có hợp lệ không
+                    if (row.IsNewRow) continue; // Bỏ qua dòng mới
+
+                    // Lấy dữ liệu từ từng cột
+                    string maSP = row.Cells["MASP"].Value.ToString();
+                    int soLuong = Convert.ToInt32(row.Cells["SOLUONG"].Value);
+
+                    // Tạo một đối tượng CHITIETHOADON mới
+                    var chiTietHoaDon = new CHITIETHOADON
+                    {
+                        MASP = maSP,
+                        MAHD = maHD,
+                        SOLUONG = soLuong
+                    };
+
+
+                    // Gọi hàm AddDetail để thêm vào cơ sở dữ liệu
+                    try
+                    {
+                        hoaDonService.AddDetail(chiTietHoaDon);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                InHoaDon inHoaDon = new InHoaDon();
+                inHoaDon.MaHoaDon = txtSoHoaDon.Text;
+                inHoaDon.ShowDialog();
+
+                //Hỏi nhân viên có yêu cầu in phiếu giao hàng không
+                DialogResult dr =  MessageBox.Show("Khách hàng yêu cầu giao hàng ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(dr == DialogResult.Yes)
+                {
+                    GiaoHang giaoHang = new GiaoHang();
+                    giaoHang.MaDonHang = txtSoHoaDon.Text;
+                    giaoHang.ShowDialog();
+                }
+                // Thông báo thành công hoặc xử lý thêm nếu cần
+                MessageBox.Show("Hóa đơn đã được lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                pictureBox2.Image = Image.FromFile("D:\\Tai Lieu Hoc Tap\\Lap Trinh Tren Moi Truong Windows\\Do an\\Image\\TOWKTEAM.png");
+
+                // Giả sử bạn muốn làm trống dgvDanhSachSanPham
+                dgvDanhSachSanPham.DataSource = null; // Gán lại DataSource là null
+                dgvDanhSachSanPham.Rows.Clear(); // Xóa tất cả các dòng trong DataGridView
+
+                lblThanhTien.Text = string.Empty;
+                lblTongCong.Text = string.Empty;
+                pictureBox2.Image = null;
+
+                // Tải lại form để làm mới dữ liệu
+                BanHang_Load(sender, e);
             }
             else
             {
-                // Nếu lblMaThe không trống, lấy mã khách hàng từ mã thẻ
-                maKhachHang = khachHangService.GetCustomerIdByCardNumber(lblMaThe.Text);
+                MessageBox.Show("Hóa đơn trống!. Không thể lưu!","Thông báo",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            // Gọi phương thức LuuHoaDon với các giá trị từ textbox
-            saleService.LuuHoaDon(txtSoHoaDon.Text, MANV, maKhachHang, "Chuyen tien", DateTime.Now, TongCong, discountUsed);
-
-
-            // Giả sử bạn đã có một danh sách các sản phẩm trong DataGridView
-            // và mỗi dòng chứa MASP, MAHD và SOLUONG.
-
-            string maHD = txtSoHoaDon.Text; // Lấy mã hóa đơn từ textbox
-
-            foreach (DataGridViewRow row in dgvDanhSachSanPham.Rows)
-            {
-                // Kiểm tra xem dòng có hợp lệ không
-                if (row.IsNewRow) continue; // Bỏ qua dòng mới
-
-                // Lấy dữ liệu từ từng cột
-                string maSP = row.Cells["MASP"].Value.ToString();
-                int soLuong = Convert.ToInt32(row.Cells["SOLUONG"].Value);
-
-                // Tạo một đối tượng CHITIETHOADON mới
-                var chiTietHoaDon = new CHITIETHOADON
-                {
-                    MASP = maSP,
-                    MAHD = maHD,
-                    SOLUONG = soLuong
-                };
-
-
-                // Gọi hàm AddDetail để thêm vào cơ sở dữ liệu
-                try
-                {
-                    hoaDonService.AddDetail(chiTietHoaDon);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-            InHoaDon inHoaDon = new InHoaDon();
-            inHoaDon.MaHoaDon = txtSoHoaDon.Text;
-            inHoaDon.ShowDialog();
-            // Thông báo thành công hoặc xử lý thêm nếu cần
-            MessageBox.Show("Hóa đơn đã được lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            // Giả sử bạn muốn làm trống dgvDanhSachSanPham
-            dgvDanhSachSanPham.DataSource = null; // Gán lại DataSource là null
-            dgvDanhSachSanPham.Rows.Clear(); // Xóa tất cả các dòng trong DataGridView
-
-            lblThanhTien.Text = string.Empty;
-            lblTongCong.Text = string.Empty;
-            pictureBox2.Image = null;
-
-            // Tải lại form để làm mới dữ liệu
-            BanHang_Load(sender, e);
         }
 
 
@@ -616,18 +643,23 @@ namespace SpaceMarket
 
         private void btnHuyHoaDon_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Xác nhận hủy hóa đơn ?","Thông báo",MessageBoxButtons.YesNo,MessageBoxIcon.Question);    
-            if(dr == DialogResult.Yes)
+            if (dgvDanhSachSanPham != null && dgvDanhSachSanPham.Rows.Count > 0)
             {
-                // Làm trống DataGridView bằng cách đặt DataSource thành null
-                dgvDanhSachSanPham.DataSource = null;
+                DialogResult dr = MessageBox.Show("Xác nhận hủy hóa đơn ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
+                {
+                    // Làm trống DataGridView bằng cách đặt DataSource thành null
+                    dgvDanhSachSanPham.DataSource = null;
 
-                // Xóa tất cả các dòng trong DataGridView
-                dgvDanhSachSanPham.Rows.Clear();
-                lblThanhTien.Text = string.Empty;
-                lblTongCong.Text = string.Empty;
-                TongCong = 0;
-                pictureBox2.Image = null;
+                    // Xóa tất cả các dòng trong DataGridView
+                    dgvDanhSachSanPham.Rows.Clear();
+                    lblThanhTien.Text = string.Empty;
+                    lblTongCong.Text = string.Empty;
+                    TongCong = 0;
+                    //pictureBox2.Image = null;
+                    // Đặt hình ảnh mặc định cho PictureBox từ file
+                    pictureBox2.Image = Image.FromFile("D:\\Tai Lieu Hoc Tap\\Lap Trinh Tren Moi Truong Windows\\Do an\\Image\\TOWKTEAM.png");
+                }
             }
         }
 
@@ -640,6 +672,84 @@ namespace SpaceMarket
         {
             HoaDon hoaDon = new HoaDon();
             hoaDon.ShowDialog();
+        }
+
+        private void txtONhapMaVach_Enter(object sender, EventArgs e)
+        {
+            if (txtONhapMaVach.Text == "Nhập mã vạch sản phẩm hoặc thẻ khách hàng")
+            {
+                txtONhapMaVach.Text = string.Empty;
+                txtONhapMaVach.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtONhapMaVach_Leave(object sender, EventArgs e)
+        {
+            if(txtONhapMaVach.Text == string.Empty)
+            {
+                txtONhapMaVach.Text = "Nhập mã vạch sản phẩm hoặc thẻ khách hàng";
+                txtONhapMaVach.ForeColor = Color.Silver;
+            }
+        }
+
+        private void txtSoLuong_Enter(object sender, EventArgs e)
+        {
+            if (txtSoLuong.Text == "Số lượng")
+            {
+                txtSoLuong.Text = string.Empty;
+                txtSoLuong.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtSoLuong_Leave(object sender, EventArgs e)
+        {
+            if (txtSoLuong.Text == string.Empty)
+            {
+                txtSoLuong.Text = "Số lượng";
+                txtSoLuong.ForeColor= Color.Silver;
+            }
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Xác nhận đăng xuất ?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (dr == DialogResult.OK)
+            {
+                this.Close();
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            btnLuuHoaDon_Click(sender, e);
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hỗTrợToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About about = new About();
+            about.ShowDialog();
+        }
+
+        private void BanHang_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F10) // Gán phím F1
+            {
+                btnLuuHoaDon.PerformClick(); // Kích hoạt button btnSave
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                btnHuyHoaDon.PerformClick();
+            }
+            else if (e.KeyCode == Keys.F12) // Gán phím 12
+            {
+                đăngXuấtToolStripMenuItem.PerformClick();
+            }
+            // Bạn có thể thêm các phím F khác tương tự
         }
     }
 }

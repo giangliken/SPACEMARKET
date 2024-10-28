@@ -118,36 +118,38 @@ namespace SpaceMarket
 
         private void txtMaNVSearch_TextChanged(object sender, EventArgs e)
         {
-
+            TimKiem();
         }
 
         private void txtFullNameSearch_TextChanged(object sender, EventArgs e)
         {
-
+            TimKiem();
         }
 
         private void txtCCCDSearch_TextChanged(object sender, EventArgs e)
         {
-
+            TimKiem();
         }
 
-
-        private void btnSearchNV_Click(object sender, EventArgs e)
+        private void TimKiem()
         {
             // Gọi hàm tìm kiếm và lấy kết quả
             var result = staffService.SearchStaff(txtMaNVSearch.Text, txtFullNameSearch.Text, txtCCCDSearch.Text);
+
             // Cập nhật lại DataGridView
             datagwdanhsachnhanvien.DataSource = result;
-            // Kiểm tra kết quả tìm kiếm
-            if (result.Count == 0)
-            {
-                MessageBox.Show("Không tìm thấy nhân viên nào!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                MessageBox.Show("Tìm kiếm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+
+            //// Kiểm tra kết quả tìm kiếm
+            //if (result.Count == 0)
+            //{
+            //    MessageBox.Show("Không tìm thấy nhân viên nào!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Tìm kiếm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
         }
+
 
 
         private void datagwdanhsachnhanvien_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -296,6 +298,10 @@ namespace SpaceMarket
 
         }
 
-
+        private void btnIn_Click(object sender, EventArgs e)
+        {
+            InNhanVien inNhanVien = new InNhanVien();  
+            inNhanVien.ShowDialog();
+        }
     }
 }

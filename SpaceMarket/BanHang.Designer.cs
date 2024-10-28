@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BanHang));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.sảnPhẩmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đơnHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,6 +54,8 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uiPanel1 = new Sunny.UI.UIPanel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.uiTabControl1 = new Sunny.UI.UITabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.uiPanel4 = new Sunny.UI.UIPanel();
@@ -99,6 +101,8 @@
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachSanPham)).BeginInit();
             this.uiPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.uiTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.uiPanel4.SuspendLayout();
@@ -145,8 +149,9 @@
             this.hỗTrợToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("hỗTrợToolStripMenuItem.Image")));
             this.hỗTrợToolStripMenuItem.Name = "hỗTrợToolStripMenuItem";
             this.hỗTrợToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
-            this.hỗTrợToolStripMenuItem.Size = new System.Drawing.Size(253, 42);
-            this.hỗTrợToolStripMenuItem.Text = "Hỗ trợ (Ctrl + H)";
+            this.hỗTrợToolStripMenuItem.Size = new System.Drawing.Size(126, 42);
+            this.hỗTrợToolStripMenuItem.Text = "About";
+            this.hỗTrợToolStripMenuItem.Click += new System.EventHandler(this.hỗTrợToolStripMenuItem_Click);
             // 
             // đăngXuấtToolStripMenuItem
             // 
@@ -155,6 +160,7 @@
             this.đăngXuấtToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F12;
             this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(245, 42);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất (F12)";
+            this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
             // timer1
             // 
@@ -214,20 +220,20 @@
             // 
             // dgvDanhSachSanPham
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.dgvDanhSachSanPham.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.dgvDanhSachSanPham.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvDanhSachSanPham.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDanhSachSanPham.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvDanhSachSanPham.BackgroundColor = System.Drawing.Color.White;
             this.dgvDanhSachSanPham.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDanhSachSanPham.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDanhSachSanPham.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvDanhSachSanPham.ColumnHeadersHeight = 32;
             this.dgvDanhSachSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDanhSachSanPham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -237,32 +243,32 @@
             this.Column4,
             this.Column5,
             this.Column6});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDanhSachSanPham.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDanhSachSanPham.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvDanhSachSanPham.EnableHeadersVisualStyles = false;
             this.dgvDanhSachSanPham.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
             this.dgvDanhSachSanPham.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.dgvDanhSachSanPham.Location = new System.Drawing.Point(12, 168);
             this.dgvDanhSachSanPham.Name = "dgvDanhSachSanPham";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDanhSachSanPham.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDanhSachSanPham.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvDanhSachSanPham.RowHeadersWidth = 51;
             this.dgvDanhSachSanPham.RowHeight = 0;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.dgvDanhSachSanPham.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.dgvDanhSachSanPham.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvDanhSachSanPham.RowTemplate.Height = 24;
             this.dgvDanhSachSanPham.SelectedIndex = -1;
             this.dgvDanhSachSanPham.ShowGridLine = false;
@@ -318,6 +324,8 @@
             // 
             // uiPanel1
             // 
+            this.uiPanel1.Controls.Add(this.pictureBox3);
+            this.uiPanel1.Controls.Add(this.pictureBox1);
             this.uiPanel1.Controls.Add(this.uiTabControl1);
             this.uiPanel1.Controls.Add(this.uiPanel5);
             this.uiPanel1.Controls.Add(this.uiPanel3);
@@ -325,7 +333,7 @@
             this.uiPanel1.Controls.Add(this.btnLuuHoaDon);
             this.uiPanel1.Controls.Add(this.btnHuyHoaDon);
             this.uiPanel1.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.uiPanel1.Location = new System.Drawing.Point(1135, 168);
+            this.uiPanel1.Location = new System.Drawing.Point(1133, 168);
             this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel1.Name = "uiPanel1";
@@ -335,6 +343,28 @@
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.uiPanel1.ZoomScaleDisabled = true;
             this.uiPanel1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(117, 598);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(22, 22);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 42;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(313, 599);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(22, 22);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 41;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // uiTabControl1
             // 
@@ -467,7 +497,7 @@
             // uiLabel10
             // 
             this.uiLabel10.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uiLabel10.Location = new System.Drawing.Point(65, 86);
+            this.uiLabel10.Location = new System.Drawing.Point(71, 86);
             this.uiLabel10.Name = "uiLabel10";
             this.uiLabel10.Size = new System.Drawing.Size(295, 23);
             this.uiLabel10.TabIndex = 1;
@@ -562,7 +592,9 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(492, 7);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
@@ -668,7 +700,7 @@
             // 
             this.lblTenKhachHang.BackColor = System.Drawing.Color.Transparent;
             this.lblTenKhachHang.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblTenKhachHang.Location = new System.Drawing.Point(128, 97);
+            this.lblTenKhachHang.Location = new System.Drawing.Point(128, 94);
             this.lblTenKhachHang.Name = "lblTenKhachHang";
             this.lblTenKhachHang.Size = new System.Drawing.Size(270, 23);
             this.lblTenKhachHang.TabIndex = 8;
@@ -679,7 +711,7 @@
             // 
             this.lblMaThe.BackColor = System.Drawing.Color.Transparent;
             this.lblMaThe.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblMaThe.Location = new System.Drawing.Point(126, 54);
+            this.lblMaThe.Location = new System.Drawing.Point(126, 52);
             this.lblMaThe.Name = "lblMaThe";
             this.lblMaThe.Size = new System.Drawing.Size(270, 23);
             this.lblMaThe.TabIndex = 7;
@@ -749,25 +781,27 @@
             // 
             // btnLuuHoaDon
             // 
-            this.btnLuuHoaDon.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnLuuHoaDon.BackColor = System.Drawing.Color.Transparent;
             this.btnLuuHoaDon.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnLuuHoaDon.Location = new System.Drawing.Point(326, 591);
+            this.btnLuuHoaDon.Location = new System.Drawing.Point(302, 591);
             this.btnLuuHoaDon.Name = "btnLuuHoaDon";
-            this.btnLuuHoaDon.Size = new System.Drawing.Size(234, 36);
+            this.btnLuuHoaDon.Size = new System.Drawing.Size(222, 36);
             this.btnLuuHoaDon.TabIndex = 37;
             this.btnLuuHoaDon.Text = "F10 - LƯU HÓA ĐƠN";
+            this.btnLuuHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLuuHoaDon.UseVisualStyleBackColor = false;
             this.btnLuuHoaDon.Click += new System.EventHandler(this.btnLuuHoaDon_Click);
             // 
             // btnHuyHoaDon
             // 
-            this.btnHuyHoaDon.BackColor = System.Drawing.Color.RosyBrown;
+            this.btnHuyHoaDon.BackColor = System.Drawing.Color.Transparent;
             this.btnHuyHoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnHuyHoaDon.Location = new System.Drawing.Point(187, 591);
+            this.btnHuyHoaDon.Location = new System.Drawing.Point(101, 591);
             this.btnHuyHoaDon.Name = "btnHuyHoaDon";
-            this.btnHuyHoaDon.Size = new System.Drawing.Size(116, 36);
+            this.btnHuyHoaDon.Size = new System.Drawing.Size(173, 36);
             this.btnHuyHoaDon.TabIndex = 36;
-            this.btnHuyHoaDon.Text = "HỦY HD";
+            this.btnHuyHoaDon.Text = "ESC - HỦY HD";
+            this.btnHuyHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnHuyHoaDon.UseVisualStyleBackColor = false;
             this.btnHuyHoaDon.Click += new System.EventHandler(this.btnHuyHoaDon_Click);
             // 
@@ -888,9 +922,12 @@
             this.txtONhapMaVach.ShowText = false;
             this.txtONhapMaVach.Size = new System.Drawing.Size(741, 35);
             this.txtONhapMaVach.TabIndex = 15;
-            this.txtONhapMaVach.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.txtONhapMaVach.Text = "Nhập mã vạch sản phẩm hoặc thẻ khách hàng";
+            this.txtONhapMaVach.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.txtONhapMaVach.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtONhapMaVach.TextChanged += new System.EventHandler(this.txtONhapMaVach_TextChanged_1);
+            this.txtONhapMaVach.Leave += new System.EventHandler(this.txtONhapMaVach_Leave);
+            this.txtONhapMaVach.Enter += new System.EventHandler(this.txtONhapMaVach_Enter);
             // 
             // txtSoLuong
             // 
@@ -903,9 +940,12 @@
             this.txtSoLuong.ShowText = false;
             this.txtSoLuong.Size = new System.Drawing.Size(185, 35);
             this.txtSoLuong.TabIndex = 16;
-            this.txtSoLuong.TextAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.txtSoLuong.Text = "Số lượng";
+            this.txtSoLuong.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.txtSoLuong.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtSoLuong.TextChanged += new System.EventHandler(this.txtSoLuong_TextChanged);
+            this.txtSoLuong.Leave += new System.EventHandler(this.txtSoLuong_Leave);
+            this.txtSoLuong.Enter += new System.EventHandler(this.txtSoLuong_Enter);
             // 
             // BanHang
             // 
@@ -933,10 +973,13 @@
             this.Text = "Bán Hàng";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.BanHang_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BanHang_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachSanPham)).EndInit();
             this.uiPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.uiTabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.uiPanel4.ResumeLayout(false);
@@ -1013,5 +1056,7 @@
         private Sunny.UI.UILabel lblSDT;
         private Sunny.UI.UITextBox txtTruDiem;
         private Sunny.UI.UILabel uiLabel10;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

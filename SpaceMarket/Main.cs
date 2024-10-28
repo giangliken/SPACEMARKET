@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -152,6 +153,36 @@ namespace SpaceMarket
         {
             QuanLySanPham ql = new QuanLySanPham();
             ql.ShowDialog();
+        }
+
+        public string TENNV { get; set; }
+        public string CHUCVU { get; set; }
+        public DateTime? NGAYSINH { get; set; }
+        private void báoCáoDoanhThuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InDoanhThu formInDoanhThu = new InDoanhThu();
+            var username = StaffService.Instance.GetCurrentUsername(MANV); // lấy thông tin username từ bảng NHANVIEN
+            var staff = StaffService.Instance.GetStaffByUsername(username); // sử dụng username của nhân viên đang truy cập
+            if (staff != null)
+            {
+                formInDoanhThu.TENNV = staff.TENNV;
+                formInDoanhThu.CHUCVU = staff.CV;
+                formInDoanhThu.NGAYSINH = staff.NGAYSINH;
+            }
+            formInDoanhThu.ShowDialog();
+
+
+        }
+
+        private void hỗTrợToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About about = new About();
+            about.ShowDialog();
+        }
+
+        private void quảnLýGiaoHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

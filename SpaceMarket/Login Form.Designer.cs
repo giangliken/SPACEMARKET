@@ -84,6 +84,9 @@
             this.txtusername.Name = "txtusername";
             this.txtusername.Size = new System.Drawing.Size(399, 38);
             this.txtusername.TabIndex = 1;
+            this.txtusername.Text = "Username";
+            this.txtusername.Enter += new System.EventHandler(this.txtusername_Enter);
+            this.txtusername.Leave += new System.EventHandler(this.txtusername_Leave);
             // 
             // txtpass
             // 
@@ -93,6 +96,9 @@
             this.txtpass.PasswordChar = '*';
             this.txtpass.Size = new System.Drawing.Size(399, 38);
             this.txtpass.TabIndex = 2;
+            this.txtpass.Text = "Password";
+            this.txtpass.Enter += new System.EventHandler(this.txtpass_Enter);
+            this.txtpass.Leave += new System.EventHandler(this.txtpass_Leave);
             // 
             // btnDangNhap
             // 

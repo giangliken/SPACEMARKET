@@ -205,9 +205,12 @@
             this.txtMaHoaDon.ShowText = false;
             this.txtMaHoaDon.Size = new System.Drawing.Size(267, 39);
             this.txtMaHoaDon.TabIndex = 9;
+            this.txtMaHoaDon.Text = "Nhập mã hóa đơn";
             this.txtMaHoaDon.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtMaHoaDon.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtMaHoaDon.TextChanged += new System.EventHandler(this.txtMaHoaDon_TextChanged);
+            this.txtMaHoaDon.Leave += new System.EventHandler(this.txtMaHoaDon_Leave);
+            this.txtMaHoaDon.Enter += new System.EventHandler(this.txtMaHoaDon_Enter);
             // 
             // lblNgayTao
             // 
@@ -244,6 +247,7 @@
             this.lblMaNhanVien.TabIndex = 12;
             this.lblMaNhanVien.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblMaNhanVien.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.lblMaNhanVien.Click += new System.EventHandler(this.lblMaNhanVien_Click);
             // 
             // lblMaKhachHang
             // 
@@ -303,6 +307,7 @@
             this.Controls.Add(this.uiLabel2);
             this.Controls.Add(this.uiLabel1);
             this.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "HoaDon";
             this.Text = "TRA CỨU HÓA ĐƠN";

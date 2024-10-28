@@ -1,6 +1,7 @@
 ﻿using BLL;
 using DAL.Database;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace SpaceMarket
@@ -219,17 +220,56 @@ namespace SpaceMarket
 
         private void SearchCustomers()
         {
-            string maKhachHang = txtSearchMAKH.Text.Trim();
-            string tenKhachHang = txtSearchTenKH.Text.Trim();
+            //string maKhachHang = txtSearchMAKH.Text.Trim();
+            //string tenKhachHang = txtSearchTenKH.Text.Trim();
 
             // Tạo đối tượng dịch vụ khách hàng
-            KhachHangService khachHangService = new KhachHangService();
+            //KhachHangService khachHangService = new KhachHangService();
 
             // Tìm kiếm khách hàng dựa trên mã hoặc tên
-            var results = khachHangService.SearchCustomers(maKhachHang, tenKhachHang);
+            var results = khachHangService.SearchCustomers(txtSearchMAKH.Text, txtSearchTenKH.Text);
 
             // Cập nhật DataGridView với kết quả tìm kiếm
             datadanhsachkhachhang.DataSource = results;
+        }
+
+        private void txtSearchMAKH_Enter(object sender, EventArgs e)
+        {
+            if (txtSearchMAKH.Text == "Tìm kiếm theo mã")
+            {
+                txtSearchMAKH.Text = string.Empty;
+                txtSearchMAKH.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtSearchMAKH_Leave(object sender, EventArgs e)
+        {
+            if (txtSearchMAKH.Text == string.Empty)
+            {
+                txtSearchMAKH.Text = "Tìm kiếm theo mã";
+                txtSearchMAKH.ForeColor = Color.Silver;
+            }
+            LoadData();
+        }
+
+        private void txtSearchTenKH_Enter(object sender, EventArgs e)
+        {
+            if(txtSearchTenKH.Text == "Tìm kiếm theo tên")
+            {
+                txtSearchTenKH.Text= string.Empty;
+                txtSearchTenKH.ForeColor = Color.Black;
+
+            }
+        }
+
+        private void txtSearchTenKH_Leave(object sender, EventArgs e)
+        {
+            if(txtSearchTenKH.Text== string.Empty)
+            {
+                txtSearchTenKH.Text = "Tìm kiếm theo tên";
+                txtSearchTenKH.ForeColor= Color.Silver;
+            }
+            LoadData();
         }
     }
 }

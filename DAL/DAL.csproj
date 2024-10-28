@@ -89,6 +89,7 @@
     <Compile Include="Database\PHIEUQUATANG.cs" />
     <Compile Include="Database\PHIEUTRIETKHAUTHUONGMAI.cs" />
     <Compile Include="Database\ReportCHITIETHOADON.cs" />
+    <Compile Include="Database\ReportDOANHTHU.cs" />
     <Compile Include="Database\SANPHAM.cs" />
     <Compile Include="Database\sysdiagrams.cs" />
     <Compile Include="Database\THETHANHVIEN.cs" />

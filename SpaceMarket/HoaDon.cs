@@ -22,6 +22,7 @@ namespace SpaceMarket
 
         private void HoaDon_Load(object sender, EventArgs e)
         {
+
         }
 
         private void txtMaHoaDon_TextChanged(object sender, EventArgs e)
@@ -29,7 +30,6 @@ namespace SpaceMarket
             LoadChiTietHoaDon(txtMaHoaDon.Text);
         }
 
-        private string MaHoaDon;
         private void LoadChiTietHoaDon(string MaHoaDon)
         {
             dataChiTietHoaDon.DataSource = traCuuHoaDonService.GetAll(MaHoaDon);
@@ -46,9 +46,40 @@ namespace SpaceMarket
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            InHoaDon inHoaDon = new InHoaDon();
-            inHoaDon.MaHoaDon = txtMaHoaDon.Text;
-            inHoaDon.ShowDialog();
+            if (dataChiTietHoaDon != null && dataChiTietHoaDon.Rows.Count > 0)
+            {
+                InHoaDon inHoaDon = new InHoaDon();
+                inHoaDon.MaHoaDon = txtMaHoaDon.Text;
+                inHoaDon.MaHoaDon = txtMaHoaDon.Text.Trim();
+                inHoaDon.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Thông tin hóa đơn bị trống! Vui lòng thử lại sau!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtMaHoaDon_Enter(object sender, EventArgs e)
+        {
+            if (txtMaHoaDon.Text == "Nhập mã hóa đơn")
+            {
+                txtMaHoaDon.Text = string.Empty;
+                txtMaHoaDon.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtMaHoaDon_Leave(object sender, EventArgs e)
+        {
+            if (txtMaHoaDon.Text == string.Empty)
+            {
+                txtMaHoaDon.Text = "Nhập mã hóa đơn";
+                txtMaHoaDon.ForeColor = Color.Silver;
+            }
+        }
+
+        private void lblMaNhanVien_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

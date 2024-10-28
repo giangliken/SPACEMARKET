@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Customer_Management));
             this.txtEmail = new Sunny.UI.UITextBox();
             this.uiLabel8 = new Sunny.UI.UILabel();
@@ -299,20 +299,20 @@
             // 
             // datadanhsachkhachhang
             // 
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.datadanhsachkhachhang.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.datadanhsachkhachhang.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.datadanhsachkhachhang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.datadanhsachkhachhang.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.datadanhsachkhachhang.BackgroundColor = System.Drawing.Color.White;
             this.datadanhsachkhachhang.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datadanhsachkhachhang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datadanhsachkhachhang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.datadanhsachkhachhang.ColumnHeadersHeight = 32;
             this.datadanhsachkhachhang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.datadanhsachkhachhang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -323,32 +323,32 @@
             this.DIACHI,
             this.SDTKH,
             this.EMAILKH});
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datadanhsachkhachhang.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.datadanhsachkhachhang.DefaultCellStyle = dataGridViewCellStyle3;
             this.datadanhsachkhachhang.EnableHeadersVisualStyles = false;
             this.datadanhsachkhachhang.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
             this.datadanhsachkhachhang.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.datadanhsachkhachhang.Location = new System.Drawing.Point(568, 177);
             this.datadanhsachkhachhang.Name = "datadanhsachkhachhang";
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datadanhsachkhachhang.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datadanhsachkhachhang.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.datadanhsachkhachhang.RowHeadersWidth = 51;
             this.datadanhsachkhachhang.RowHeight = 0;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.datadanhsachkhachhang.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.datadanhsachkhachhang.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.datadanhsachkhachhang.RowTemplate.Height = 24;
             this.datadanhsachkhachhang.SelectedIndex = -1;
             this.datadanhsachkhachhang.ShowGridLine = false;
@@ -474,9 +474,12 @@
             this.txtSearchMAKH.Size = new System.Drawing.Size(189, 37);
             this.txtSearchMAKH.Style = Sunny.UI.UIStyle.Custom;
             this.txtSearchMAKH.TabIndex = 52;
+            this.txtSearchMAKH.Text = "Tìm kiếm theo mã";
             this.txtSearchMAKH.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtSearchMAKH.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtSearchMAKH.TextChanged += new System.EventHandler(this.txtSearchMAKH_TextChanged);
+            this.txtSearchMAKH.Leave += new System.EventHandler(this.txtSearchMAKH_Leave);
+            this.txtSearchMAKH.Enter += new System.EventHandler(this.txtSearchMAKH_Enter);
             // 
             // txtSearchTenKH
             // 
@@ -490,9 +493,12 @@
             this.txtSearchTenKH.Size = new System.Drawing.Size(243, 37);
             this.txtSearchTenKH.Style = Sunny.UI.UIStyle.Custom;
             this.txtSearchTenKH.TabIndex = 53;
+            this.txtSearchTenKH.Text = "Tìm kiếm theo tên";
             this.txtSearchTenKH.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtSearchTenKH.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.txtSearchTenKH.TextChanged += new System.EventHandler(this.txtSearchTenKH_TextChanged);
+            this.txtSearchTenKH.Leave += new System.EventHandler(this.txtSearchTenKH_Leave);
+            this.txtSearchTenKH.Enter += new System.EventHandler(this.txtSearchTenKH_Enter);
             // 
             // Customer_Management
             // 
@@ -522,6 +528,7 @@
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.datadanhsachkhachhang);
             this.Controls.Add(this.txtMaKH);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Customer_Management";
             this.Text = "QUẢN LÝ KHÁCH HÀNG";
             this.Load += new System.EventHandler(this.Customer_Management_Load);
