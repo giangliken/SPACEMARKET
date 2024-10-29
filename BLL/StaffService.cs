@@ -305,5 +305,34 @@ namespace BLL
                 return "Đổi mật khẩu thành công!";
             }
         }
+
+        //Lấy tên nhân viên dựa vào MAHD
+        public string GetStaffNameByInvoiceId(string mahd)
+        {
+            using (var context = new Model1())
+            {
+                // Tìm hóa đơn theo mã hóa đơn
+                var hoaDon = context.HOADON.FirstOrDefault(hd => hd.MAHD == mahd);
+
+                if (hoaDon == null)
+                {
+                    return "Mã hóa đơn không tồn tại!";
+                }
+
+                // Lấy mã nhân viên từ hóa đơn
+                string manv = hoaDon.MANV;
+
+                // Tìm nhân viên theo mã nhân viên
+                var nhanVien = context.NHANVIEN.FirstOrDefault(nv => nv.MANV == manv);
+
+                if (nhanVien == null)
+                {
+                    return "Nhân viên không tồn tại!";
+                }
+
+                // Trả về tên nhân viên
+                return nhanVien.TENNV;
+            }
+        }
     }
 }

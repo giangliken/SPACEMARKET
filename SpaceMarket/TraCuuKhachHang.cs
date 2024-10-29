@@ -40,6 +40,10 @@ namespace SpaceMarket
                 // Gọi phương thức tìm kiếm
                 TimKiemKhachHang();
             }
+            if (e.KeyCode == Keys.F4)
+            {
+                this.Close();
+            }
         }
         private void TimKiemKhachHang()
         {

@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DAL.Database;
+using SpaceMarket.Bao_cao;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -332,6 +333,12 @@ namespace SpaceMarket
         private void Customer_Management_MouseClick(object sender, MouseEventArgs e)
         {
             LoadData();
+        }
+
+        private void btnIn_Click(object sender, EventArgs e)
+        {
+            InKhachHang inKhachHang = new InKhachHang();
+            inKhachHang.ShowDialog();
         }
     }
 }

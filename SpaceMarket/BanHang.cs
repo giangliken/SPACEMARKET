@@ -167,6 +167,16 @@ namespace SpaceMarket
 
         }
 
+        private void txtTruDiem_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Kiểm tra nếu ký tự không phải là số và không phải là phím Backspace thì chặn lại
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+
         private void BanHang_Load(object sender, EventArgs e)
         {
             lblMaThe.Text = string.Empty;
@@ -750,6 +760,12 @@ namespace SpaceMarket
                 đăngXuấtToolStripMenuItem.PerformClick();
             }
             // Bạn có thể thêm các phím F khác tương tự
+        }
+
+        private void kháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TraCuuKhachHang traCuuKhachHang = new TraCuuKhachHang();
+            traCuuKhachHang.ShowDialog();
         }
     }
 }

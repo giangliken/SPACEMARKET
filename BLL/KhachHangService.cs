@@ -355,6 +355,19 @@ namespace BLL
             }
 
         }
+
+        public string GetCustomerNameByInvoiceId(string maHoaDon)
+        {
+            using (Model1 context = new Model1())
+            {
+                var query = from hd in context.HOADON
+                            join kh in context.KHACHHANG on hd.MAKH equals kh.MAKH
+                            where hd.MAHD == maHoaDon
+                            select kh.TENKH;
+
+                return query.FirstOrDefault(); // Trả về tên khách hàng hoặc null nếu không tìm thấy
+            }
+        }
     }
 
     public class KHACHHANGS

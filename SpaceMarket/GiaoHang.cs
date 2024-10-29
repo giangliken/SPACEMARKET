@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -153,7 +154,12 @@ namespace SpaceMarket
             // Thông báo kết quả
             if (isAdded)
             {
+                // Khởi tạo form InPhieuGiaoHang và truyền mã phiếu giao hàng
+                InPhieuGiaoHang inPhieuForm = new InPhieuGiaoHang(maPhieuGiaoHang);
+                inPhieuForm.ShowDialog();
                 MessageBox.Show("Thêm phiếu giao hàng thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
                 LoadData();
             }
             else

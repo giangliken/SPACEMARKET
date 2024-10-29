@@ -69,10 +69,10 @@ namespace SpaceMarket
                 quảnLíToolStripMenuItem.Visible = false;
                 //bánHàngToolStripMenuItem.Visible = false;
                 sảnPhẩmToolStripMenuItem.Visible = false;
-                bảoMậtToolStripMenuItem.Visible = false;
+                //bảoMậtToolStripMenuItem.Visible = false;
                 kháchHàngToolStripMenuItem.Visible = false;
                 báoCáoToolStripMenuItem.Visible = false;
-                hỗTrợToolStripMenuItem.Visible = false;
+                //hỗTrợToolStripMenuItem.Visible = false;
 
 
             }
@@ -208,6 +208,11 @@ namespace SpaceMarket
         {
             TraCuuKhachHang traCuuKhachHang = new TraCuuKhachHang();
             traCuuKhachHang.ShowDialog();   
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

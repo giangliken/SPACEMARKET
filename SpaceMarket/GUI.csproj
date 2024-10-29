@@ -128,6 +128,7 @@
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -163,11 +164,23 @@
     <Compile Include="Bao cao\InHoaDon.Designer.cs">
       <DependentUpon>InHoaDon.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bao cao\InKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bao cao\InKhachHang.Designer.cs">
+      <DependentUpon>InKhachHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bao cao\InNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Bao cao\InNhanVien.Designer.cs">
       <DependentUpon>InNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bao cao\InPhieuGiaoHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bao cao\InPhieuGiaoHang.Designer.cs">
+      <DependentUpon>InPhieuGiaoHang.cs</DependentUpon>
     </Compile>
     <Compile Include="Bao cao\InSanPham.cs">
       <SubType>Form</SubType>
@@ -268,20 +281,34 @@
     <EmbeddedResource Include="Bao cao\InHoaDon.resx">
       <DependentUpon>InHoaDon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Bao cao\InKhachHang.resx">
+      <DependentUpon>InKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Bao cao\InNhanVien.resx">
       <DependentUpon>InNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bao cao\InPhieuGiaoHang.resx">
+      <DependentUpon>InPhieuGiaoHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bao cao\InSanPham.resx">
       <DependentUpon>InSanPham.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Bao cao\ReportGiaoHang.rdlc" />
     <EmbeddedResource Include="Bao cao\ReportHoaDon.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Bao cao\ReportDoanhThu.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Bao cao\ReportNhanVien.rdlc" />
-    <EmbeddedResource Include="Bao cao\ReportSanPham.rdlc" />
+    <EmbeddedResource Include="Bao cao\ReportKhachHang.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bao cao\ReportNhanVien.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bao cao\ReportSanPham.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Customer Management.resx">
       <DependentUpon>Customer Management.cs</DependentUpon>
     </EmbeddedResource>
