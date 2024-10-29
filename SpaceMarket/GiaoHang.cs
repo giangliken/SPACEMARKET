@@ -140,7 +140,7 @@ namespace SpaceMarket
             var phieuGiaoHang = new PHIEUGIAOHANG
             {
                 MAPGH = maPhieuGiaoHang,
-                MAHD = MaDonHang,
+                MAHD = maPhieuGiaoHang.Substring(3),
                 NGAYDUKIENGH = dateTimePicker1.Value,
                 DIACHIGIAOHANG = txtDiaChiGiao.Text,
                 SDTNGUOINHANHANG = txtSDT.Text,

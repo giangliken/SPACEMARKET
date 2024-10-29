@@ -246,7 +246,6 @@ namespace BLL
             }
         }
 
-        //Phương thức tìm khách hàng dựa vào mã KH hoặc tên KH
         public List<KHACHHANGS> SearchCustomers(string maKhachHang, string tenKhachHang)
         {
             using (Model1 context = new Model1())
@@ -265,6 +264,12 @@ namespace BLL
                     query = query.Where(kh => kh.TENKH.Contains(tenKhachHang));
                 }
 
+                // Nếu không có điều kiện tìm kiếm nào, trả về danh sách rỗng
+                if (string.IsNullOrEmpty(maKhachHang) && string.IsNullOrEmpty(tenKhachHang))
+                {
+                    return new List<KHACHHANGS>();
+                }
+
                 return query.Select(kh => new KHACHHANGS
                 {
                     MAKH = kh.MAKH,
@@ -277,6 +282,8 @@ namespace BLL
                 }).ToList();
             }
         }
+
+
 
         //Phương thức trả về thông tin thẻ khách hàng khi truyền vào mã KH
         public (string MATHE, string TENKH, string SDTKH, decimal DIEMTICHLUY) GetCustomerDetails(string maKhachHang)
@@ -325,6 +332,29 @@ namespace BLL
             }
         }
 
+        //Phương thức tìm kiếm thẻ khách hàng dựa vào mã thẻ, mã khach hang, SDT
+        public List<THETHANHVIENS> TimKiemTheThanhVien(string mathe, string makh, string sdt)
+        {
+            using(Model1 context = new Model1())
+            {
+                var ketqua = from ttv in context.THETHANHVIEN
+                             join kh in context.KHACHHANG on ttv.MAKH equals kh.MAKH
+                             where (string.IsNullOrEmpty(mathe) || ttv.MATHE == mathe)
+                               && (string.IsNullOrEmpty(makh) || kh.MAKH == makh)
+                               && (string.IsNullOrEmpty(sdt) || kh.SDTKH == sdt)
+                             select new THETHANHVIENS
+                             {
+                                 TENKH = kh.TENKH,
+                                 HANGTHE = ttv.BACTHE,
+                                 DIEMTICHLUY = ttv.DIEMTICHLUY.ToString(),
+                             };
+                return ketqua.ToList();
+
+
+
+            }
+
+        }
     }
 
     public class KHACHHANGS
@@ -338,5 +368,13 @@ namespace BLL
         public string EMAILKH { get; set; }
 
     }
+
+    public class THETHANHVIENS
+    {
+        public string TENKH { set; get; }
+        public string HANGTHE { set; get; } 
+        public string DIEMTICHLUY { set; get; }
+    }
+
 
 }

@@ -193,6 +193,12 @@
     <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="DoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoiMatKhau.Designer.cs">
+      <DependentUpon>DoiMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="GiaoHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,6 +250,12 @@
     <Compile Include="Staff Management.Designer.cs">
       <DependentUpon>Staff Management.cs</DependentUpon>
     </Compile>
+    <Compile Include="TraCuuKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TraCuuKhachHang.Designer.cs">
+      <DependentUpon>TraCuuKhachHang.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Account Management.resx">
       <DependentUpon>Account Management.cs</DependentUpon>
     </EmbeddedResource>
@@ -279,6 +291,9 @@
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DoiMatKhau.resx">
+      <DependentUpon>DoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GiaoHang.resx">
       <DependentUpon>GiaoHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -311,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Staff Management.resx">
       <DependentUpon>Staff Management.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TraCuuKhachHang.resx">
+      <DependentUpon>TraCuuKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DAL.Database.CHITIETHOADON.datasource" />

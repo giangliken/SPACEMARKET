@@ -274,5 +274,36 @@ namespace BLL
                 return context.NHANVIEN.FirstOrDefault(x => x.USERNAME == username);
             }
         }
+
+        //Đổi mật khẩu của nhân viên
+        public string ChangePassword(string username, string oldPassword, string newPassword)
+        {
+            using (var context = new Model1())
+            {
+                // Tìm nhân viên theo username
+                var nhanVien = context.NHANVIEN.FirstOrDefault(nv => nv.USERNAME == username);
+
+                // Kiểm tra nếu nhân viên không tồn tại
+                if (nhanVien == null)
+                {
+                    return "Nhân viên không tồn tại!";
+                }
+
+                // Kiểm tra mật khẩu cũ
+                if (nhanVien.PASSWORD != oldPassword)
+                {
+                    return "Mật khẩu cũ không đúng!";
+                }
+
+                // Cập nhật mật khẩu mới
+                nhanVien.PASSWORD = newPassword;
+
+                // Lưu thay đổi vào database
+                context.Entry(nhanVien).State = EntityState.Modified;
+                context.SaveChanges();
+
+                return "Đổi mật khẩu thành công!";
+            }
+        }
     }
 }

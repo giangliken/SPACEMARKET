@@ -206,32 +206,25 @@ namespace SpaceMarket
             Customer_Management_Load(sender, e);
         }
 
-        private void txtSearchMAKH_TextChanged(object sender, EventArgs e)
-        {
-            SearchCustomers();
-        }
-
-        private void txtSearchTenKH_TextChanged(object sender, EventArgs e)
-        {
-            SearchCustomers();
-        }
-
-
-
         private void SearchCustomers()
         {
-            //string maKhachHang = txtSearchMAKH.Text.Trim();
-            //string tenKhachHang = txtSearchTenKH.Text.Trim();
-
-            // Tạo đối tượng dịch vụ khách hàng
-            //KhachHangService khachHangService = new KhachHangService();
+            string maKhachHang = txtSearchMAKH.Text.Trim();
+            string tenKhachHang = txtSearchTenKH.Text.Trim();
 
             // Tìm kiếm khách hàng dựa trên mã hoặc tên
-            var results = khachHangService.SearchCustomers(txtSearchMAKH.Text, txtSearchTenKH.Text);
+            var results = khachHangService.SearchCustomers(maKhachHang, tenKhachHang);
 
             // Cập nhật DataGridView với kết quả tìm kiếm
             datadanhsachkhachhang.DataSource = results;
+
+            // Kiểm tra kết quả tìm kiếm
+            if (results == null || results.Count == 0)
+            {
+                MessageBox.Show("Không tìm thấy khách hàng nào!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
+
+
 
         private void txtSearchMAKH_Enter(object sender, EventArgs e)
         {
@@ -269,6 +262,75 @@ namespace SpaceMarket
                 txtSearchTenKH.Text = "Tìm kiếm theo tên";
                 txtSearchTenKH.ForeColor= Color.Silver;
             }
+            LoadData();
+        }
+
+        private void txtSearchMAKH_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtSearchTenKH_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void SearchByMaKH()
+        {
+            string maKhachHang = txtSearchMAKH.Text.Trim();
+
+            // Tìm kiếm khách hàng dựa trên mã
+            var results = khachHangService.SearchCustomers(maKhachHang, null);
+
+            // Kiểm tra kết quả tìm kiếm
+            if (results == null || results.Count == 0)
+            {
+                MessageBox.Show("Không tìm thấy khách hàng nào!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                // Cập nhật DataGridView với kết quả tìm kiếm
+                datadanhsachkhachhang.DataSource = results;
+            }
+        }
+
+        private void SearchByTenKH()
+        {
+            string tenKhachHang = txtSearchTenKH.Text.Trim();
+
+            // Tìm kiếm khách hàng dựa trên tên
+            var results = khachHangService.SearchCustomers(null, tenKhachHang);
+
+            // Kiểm tra kết quả tìm kiếm
+            if (results == null || results.Count == 0)
+            {
+                MessageBox.Show("Không tìm thấy khách hàng nào!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                // Cập nhật DataGridView với kết quả tìm kiếm
+                datadanhsachkhachhang.DataSource = results;
+            }
+        }
+
+        private void txtSearchMAKH_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SearchByMaKH();
+            }
+        }
+
+        private void txtSearchTenKH_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SearchByTenKH();
+            }
+        }
+
+        private void Customer_Management_MouseClick(object sender, MouseEventArgs e)
+        {
             LoadData();
         }
     }

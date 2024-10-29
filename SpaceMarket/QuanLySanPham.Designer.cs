@@ -421,6 +421,7 @@
             this.uiLabel9.Text = "Bấm vào biẻu tượng in để in danh sách sản phẩm hiện có";
             this.uiLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.uiLabel9.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.uiLabel9.Click += new System.EventHandler(this.uiLabel9_Click);
             // 
             // btnIn
             // 

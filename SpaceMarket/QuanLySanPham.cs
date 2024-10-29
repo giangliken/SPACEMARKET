@@ -25,6 +25,8 @@ namespace SpaceMarket
             btnThem.Visible = false; // Vô hiệu hóa button thêm
             btnSua.Visible = false;
             btnXoa.Visible = false;
+            btnIn.Visible = false;
+            uiLabel9.Visible = false;
         }
 
 
@@ -259,5 +261,11 @@ namespace SpaceMarket
             InSanPham inSanPham = new InSanPham();
             inSanPham.ShowDialog();
         }
+
+        private void uiLabel9_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

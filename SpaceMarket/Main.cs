@@ -69,7 +69,6 @@ namespace SpaceMarket
                 quảnLíToolStripMenuItem.Visible = false;
                 //bánHàngToolStripMenuItem.Visible = false;
                 sảnPhẩmToolStripMenuItem.Visible = false;
-                tiệnÍchToolStripMenuItem.Visible = false;
                 bảoMậtToolStripMenuItem.Visible = false;
                 kháchHàngToolStripMenuItem.Visible = false;
                 báoCáoToolStripMenuItem.Visible = false;
@@ -182,7 +181,33 @@ namespace SpaceMarket
 
         private void quảnLýGiaoHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            GiaoHang giaoHang = new GiaoHang();
+            giaoHang.ShowDialog();
+        }
 
+        private void đổiMậtKhẩuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var username = StaffService.Instance.GetCurrentUsername(MANV);
+
+            if (!string.IsNullOrEmpty(username))
+            {
+                // Tạo một instance của DoiMatKhau và truyền username vào
+                DoiMatKhau doiMatKhauForm = new DoiMatKhau(username);
+
+                // Mở form DoiMatKhauForm dưới dạng dialog
+                doiMatKhauForm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Không thể lấy thông tin username cho nhân viên này.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void traCứuThôngTinKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TraCuuKhachHang traCuuKhachHang = new TraCuuKhachHang();
+            traCuuKhachHang.ShowDialog();   
         }
     }
 }

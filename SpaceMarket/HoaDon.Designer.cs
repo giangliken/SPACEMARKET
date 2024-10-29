@@ -170,7 +170,7 @@
             this.dataChiTietHoaDon.EnableHeadersVisualStyles = false;
             this.dataChiTietHoaDon.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
             this.dataChiTietHoaDon.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            this.dataChiTietHoaDon.Location = new System.Drawing.Point(18, 274);
+            this.dataChiTietHoaDon.Location = new System.Drawing.Point(18, 276);
             this.dataChiTietHoaDon.Name = "dataChiTietHoaDon";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
