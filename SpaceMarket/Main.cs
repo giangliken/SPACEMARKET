@@ -214,5 +214,11 @@ namespace SpaceMarket
         {
 
         }
+
+        private void quảnLýNhàCungCấpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NhaCungCap nhaCungCap = new NhaCungCap();
+            nhaCungCap.ShowDialog();
+        }
     }
 }

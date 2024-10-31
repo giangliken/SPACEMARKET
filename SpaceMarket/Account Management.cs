@@ -53,8 +53,16 @@ namespace SpaceMarket
 
         private void txtpass_TextChanged(object sender, EventArgs e)
         {
-
+            // Kiểm tra nếu chiều dài văn bản vượt quá 50 ký tự
+            if (txtpass.Text.Length > 50)
+            {
+                MessageBox.Show("Mật khẩu tối đa chỉ được 50 ký tự.");
+                // Cắt chuỗi về 50 ký tự
+                txtpass.Text = txtpass.Text.Substring(0, 50);
+                txtpass.SelectionStart = txtpass.Text.Length; // Đặt con trỏ về cuối ô nhập
+            }
         }
+
 
         private void txtsearchtk_TextChanged(object sender, EventArgs e)
         {

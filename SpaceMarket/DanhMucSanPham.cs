@@ -131,6 +131,33 @@ namespace SpaceMarket
             ReloadData(); // Làm mới danh sách sau khi xóa
         }
 
+        private void TimKiem()
+        {
+            string tenDanhMuc = txtsearchdanhmuc.Text.Trim(); // Lấy tên danh mục từ textbox
+
+            if (string.IsNullOrEmpty(tenDanhMuc))
+            {
+                // Nếu ô tìm kiếm rỗng, hiển thị lại toàn bộ danh sách
+                ReloadData(); // Gọi hàm ReloadData để lấy lại tất cả danh mục
+                MessageBox.Show("Đã hiển thị lại tất cả danh mục!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                // Nếu có nhập tên, thực hiện tìm kiếm
+                var result = danhMucService.SearchByName(tenDanhMuc);
+
+                if (result.Count == 0)
+                {
+                    MessageBox.Show("Không tìm thấy danh mục nào!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    datagwdanhsachdanhmuc.DataSource = result; // Cập nhật DataGridView với danh sách tìm thấy
+                    MessageBox.Show("Tìm kiếm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
         private void btnsearchdanhmuc_Click(object sender, EventArgs e)
         {
             string tenDanhMuc = txtsearchdanhmuc.Text.Trim(); // Lấy tên danh mục từ textbox
@@ -156,6 +183,38 @@ namespace SpaceMarket
                     MessageBox.Show("Tìm kiếm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+
+        private void txtTenDanhMuc_TextChanged(object sender, EventArgs e)
+        {
+            // Lấy giá trị hiện tại trong txtTenDanhMuc
+            string input = txtTenDanhMuc.Text;
+
+            // Biểu thức chính quy để chỉ cho phép chữ cái (có dấu), khoảng trắng và không cho phép số hoặc ký tự đặc biệt
+            string pattern = @"^[\p{L}\s]*$"; // \p{L} cho phép tất cả các ký tự chữ cái
+
+            // Kiểm tra xem giá trị có phù hợp với biểu thức chính quy không
+            if (!System.Text.RegularExpressions.Regex.IsMatch(input, pattern))
+            {
+                MessageBox.Show("Tên danh mục chỉ được phép chứa chữ cái và khoảng trắng.");
+                // Chỉ giữ lại các ký tự hợp lệ
+                txtTenDanhMuc.Text = new string(input.Where(c => char.IsLetter(c) || char.IsWhiteSpace(c)).ToArray());
+                txtTenDanhMuc.SelectionStart = txtTenDanhMuc.Text.Length; // Đặt con trỏ về cuối ô nhập
+            }
+
+            // Giới hạn độ dài tối đa là 20 ký tự
+            if (txtTenDanhMuc.Text.Length > 20)
+            {
+                MessageBox.Show("Tên danh mục tối đa chỉ được 20 ký tự.");
+                // Cắt chuỗi về 20 ký tự
+                txtTenDanhMuc.Text = txtTenDanhMuc.Text.Substring(0, 20);
+                txtTenDanhMuc.SelectionStart = txtTenDanhMuc.Text.Length; // Đặt con trỏ về cuối ô nhập
+            }
+        }
+
+        private void txtsearchdanhmuc_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

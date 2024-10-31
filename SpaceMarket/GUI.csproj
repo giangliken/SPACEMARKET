@@ -170,6 +170,12 @@
     <Compile Include="Bao cao\InKhachHang.Designer.cs">
       <DependentUpon>InKhachHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bao cao\InNhaCungCap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bao cao\InNhaCungCap.Designer.cs">
+      <DependentUpon>InNhaCungCap.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bao cao\InNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +248,12 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="NhaCungCap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhaCungCap.Designer.cs">
+      <DependentUpon>NhaCungCap.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Progress Form.cs">
       <SubType>Form</SubType>
@@ -284,6 +296,9 @@
     <EmbeddedResource Include="Bao cao\InKhachHang.resx">
       <DependentUpon>InKhachHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Bao cao\InNhaCungCap.resx">
+      <DependentUpon>InNhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Bao cao\InNhanVien.resx">
       <DependentUpon>InNhanVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -303,6 +318,7 @@
     <EmbeddedResource Include="Bao cao\ReportKhachHang.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Bao cao\ReportNhaCungCap.rdlc" />
     <EmbeddedResource Include="Bao cao\ReportNhanVien.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -335,6 +351,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhaCungCap.resx">
+      <DependentUpon>NhaCungCap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Progress Form.resx">
       <DependentUpon>Progress Form.cs</DependentUpon>
