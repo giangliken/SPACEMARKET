@@ -21,9 +21,9 @@ namespace DAL.Database
         public virtual DbSet<LICHSUGIA> LICHSUGIA { get; set; }
         public virtual DbSet<NHACUNGCAP> NHACUNGCAP { get; set; }
         public virtual DbSet<NHANVIEN> NHANVIEN { get; set; }
+        public virtual DbSet<PHIEUCHIETKHAUTHUONGMAI> PHIEUCHIETKHAUTHUONGMAI { get; set; }
         public virtual DbSet<PHIEUGIAOHANG> PHIEUGIAOHANG { get; set; }
         public virtual DbSet<PHIEUQUATANG> PHIEUQUATANG { get; set; }
-        public virtual DbSet<PHIEUTRIETKHAUTHUONGMAI> PHIEUTRIETKHAUTHUONGMAI { get; set; }
         public virtual DbSet<SANPHAM> SANPHAM { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<THETHANHVIEN> THETHANHVIEN { get; set; }
@@ -165,9 +165,21 @@ namespace DAL.Database
                 .IsUnicode(false);
 
             modelBuilder.Entity<NHANVIEN>()
-                .HasMany(e => e.PHIEUTRIETKHAUTHUONGMAI)
+                .HasMany(e => e.PHIEUCHIETKHAUTHUONGMAI)
                 .WithRequired(e => e.NHANVIEN)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<PHIEUCHIETKHAUTHUONGMAI>()
+                .Property(e => e.MAPCKTM)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<PHIEUCHIETKHAUTHUONGMAI>()
+                .Property(e => e.GIATRITRIETKHAU)
+                .HasPrecision(18, 0);
+
+            modelBuilder.Entity<PHIEUCHIETKHAUTHUONGMAI>()
+                .Property(e => e.MANV)
+                .IsUnicode(false);
 
             modelBuilder.Entity<PHIEUGIAOHANG>()
                 .Property(e => e.MAPGH)
@@ -191,18 +203,6 @@ namespace DAL.Database
 
             modelBuilder.Entity<PHIEUQUATANG>()
                 .Property(e => e.MAHD)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<PHIEUTRIETKHAUTHUONGMAI>()
-                .Property(e => e.MAPCKTM)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<PHIEUTRIETKHAUTHUONGMAI>()
-                .Property(e => e.GIATRITRIETKHAU)
-                .HasPrecision(18, 0);
-
-            modelBuilder.Entity<PHIEUTRIETKHAUTHUONGMAI>()
-                .Property(e => e.MANV)
                 .IsUnicode(false);
 
             modelBuilder.Entity<SANPHAM>()

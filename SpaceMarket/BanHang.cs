@@ -19,6 +19,9 @@ namespace SpaceMarket
     public partial class BanHang : Form
     {
         public string MANV { get; set; }
+        public int tienkhachdua = 0;
+        public int tienkhachchuyenkhoan = 0;
+        public int tienthoi = 0;
         private readonly SaleService saleService = new SaleService();
         private readonly KhachHangService khachHangService = new KhachHangService();
         private readonly HoaDonService hoaDonService = new HoaDonService();
@@ -265,6 +268,7 @@ namespace SpaceMarket
 
                 var image = Base64ToImage(dataResult.data.qrDataURL.Replace("data:image/png;base64,", ""));
                 pictureBox2.Image = image;
+                tienkhachchuyenkhoan = TongCong;
             }
             else
             {
@@ -291,6 +295,32 @@ namespace SpaceMarket
         {
             if (dgvDanhSachSanPham != null && dgvDanhSachSanPham.Rows.Count > 0)
             {
+                int tienKhachDua;
+
+                // Kiểm tra xem giá trị trong txtTienKhachDua có thể chuyển đổi sang int không
+                if (int.TryParse(txtTienKhachDua.Text, out tienKhachDua))
+                {
+                    // Kiểm tra xem tiền khách đưa có nhỏ hơn tổng công không
+                    if (tienKhachDua < TongCong)
+                    {
+                        MessageBox.Show("Số tiền khách đưa không đủ để thanh toán. Vui lòng nhập lại mệnh giá!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtTienKhachDua.Focus(); // Đưa con trỏ về textbox để nhập lại
+                        txtTienKhachDua.SelectAll(); // Chọn tất cả văn bản trong textbox để nhập lại
+                        return; // Dừng thực hiện các bước tiếp theo
+                    }
+
+                    // Tính số tiền thối lại
+                    tienthoi = tienKhachDua - TongCong;
+                    MessageBox.Show("Thối lại khách: " + tienthoi.ToString(), "Tiền thối lại", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    //MessageBox.Show("Vui lòng nhập một số hợp lệ vào ô Tiền Khách Đưa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //txtTienKhachDua.Focus(); // Đưa con trỏ về textbox để nhập lại
+                    //txtTienKhachDua.SelectAll(); // Chọn tất cả văn bản trong textbox để nhập lại
+                    //return; // Dừng thực hiện các bước tiếp theo
+                }
+
                 string maKhachHang;
 
                 // Kiểm tra xem lblMaThe có trống hay không
@@ -305,9 +335,25 @@ namespace SpaceMarket
                     maKhachHang = khachHangService.GetCustomerIdByCardNumber(lblMaThe.Text);
                 }
 
-                // Gọi phương thức LuuHoaDon với các giá trị từ textbox
-                saleService.LuuHoaDon(txtSoHoaDon.Text, MANV, maKhachHang, "Chuyen tien", DateTime.Now, TongCong, discountUsed);
+                if(tienKhachDua > 0)
+                {
+                    // Gọi phương thức LuuHoaDon với các giá trị từ textbox
+                    saleService.LuuHoaDon(txtSoHoaDon.Text, MANV, maKhachHang, "Tien mat", DateTime.Now, TongCong, discountUsed);
 
+                }
+                else
+                {
+                    if (tienkhachchuyenkhoan > 0)
+                    {
+                        // Gọi phương thức LuuHoaDon với các giá trị từ textbox
+                        saleService.LuuHoaDon(txtSoHoaDon.Text, MANV, maKhachHang, "Chuyen tien", DateTime.Now, TongCong, discountUsed);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vui long chọn hình thức thanh toán!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
 
                 // Giả sử bạn đã có một danh sách các sản phẩm trong DataGridView
                 // và mỗi dòng chứa MASP, MAHD và SOLUONG.
@@ -344,6 +390,9 @@ namespace SpaceMarket
                 }
                 InHoaDon inHoaDon = new InHoaDon();
                 inHoaDon.MaHoaDon = txtSoHoaDon.Text;
+                inHoaDon.TienThoi = tienthoi;
+                inHoaDon.TienKhachDua = tienKhachDua;
+                inHoaDon.TienKhachChuyenKhoan = tienkhachchuyenkhoan;
                 inHoaDon.ShowDialog();
 
                 //Hỏi nhân viên có yêu cầu in phiếu giao hàng không
@@ -361,10 +410,13 @@ namespace SpaceMarket
                 // Giả sử bạn muốn làm trống dgvDanhSachSanPham
                 dgvDanhSachSanPham.DataSource = null; // Gán lại DataSource là null
                 dgvDanhSachSanPham.Rows.Clear(); // Xóa tất cả các dòng trong DataGridView
-
+                txtTienKhachDua.Text = string.Empty;
+                tienkhachchuyenkhoan = 0;
+                tienthoi = 0;
                 lblThanhTien.Text = string.Empty;
                 lblTongCong.Text = string.Empty;
-                pictureBox2.Image = null;
+                pictureBox2.Image = Image.FromFile("D:\\Tai Lieu Hoc Tap\\Lap Trinh Tren Moi Truong Windows\\Do an\\Image\\TOWKTEAM.png");
+
 
                 // Tải lại form để làm mới dữ liệu
                 BanHang_Load(sender, e);
@@ -766,6 +818,40 @@ namespace SpaceMarket
         {
             TraCuuKhachHang traCuuKhachHang = new TraCuuKhachHang();
             traCuuKhachHang.ShowDialog();
+        }
+
+        private void txtTienKhachDua_Leave(object sender, EventArgs e)
+        {
+            if(txtTienKhachDua.Text == string.Empty)
+            {
+                txtTienKhachDua.Text = "Nhập số tiền khách đưa";
+                txtTienKhachDua.ForeColor = Color.Silver;
+            }
+        }
+
+
+        private void txtTienKhachDua_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTienKhachDua_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Chỉ cho phép nhập các ký tự số và phím điều khiển (như Backspace)
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Ngăn không cho ký tự không hợp lệ xuất hiện
+            }
+        }
+
+
+        private void txtTienKhachDua_Enter(object sender, EventArgs e)
+        {
+            if (txtTienKhachDua.Text == "Nhập số tiền khách đưa")
+            {
+                txtTienKhachDua.Text = string.Empty;
+                txtTienKhachDua.ForeColor = Color.Black;
+            }
         }
     }
 }

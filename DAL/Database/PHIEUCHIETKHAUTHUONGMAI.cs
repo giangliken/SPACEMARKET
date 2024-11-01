@@ -6,11 +6,11 @@ namespace DAL.Database
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("PHIEUTRIETKHAUTHUONGMAI")]
-    public partial class PHIEUTRIETKHAUTHUONGMAI
+    [Table("PHIEUCHIETKHAUTHUONGMAI")]
+    public partial class PHIEUCHIETKHAUTHUONGMAI
     {
         [Key]
-        [StringLength(5)]
+        [StringLength(20)]
         public string MAPCKTM { get; set; }
 
         public DateTime NGAYINPHIEU { get; set; }

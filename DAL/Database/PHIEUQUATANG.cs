@@ -15,10 +15,8 @@ namespace DAL.Database
 
         public decimal PTGIAMGIA { get; set; }
 
-        [Column(TypeName = "smalldatetime")]
         public DateTime THOIGIANBATDAU { get; set; }
 
-        [Column(TypeName = "smalldatetime")]
         public DateTime THOIGIANKETTHUC { get; set; }
 
         [StringLength(50)]

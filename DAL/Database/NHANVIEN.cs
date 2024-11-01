@@ -13,7 +13,7 @@ namespace DAL.Database
         public NHANVIEN()
         {
             HOADON = new HashSet<HOADON>();
-            PHIEUTRIETKHAUTHUONGMAI = new HashSet<PHIEUTRIETKHAUTHUONGMAI>();
+            PHIEUCHIETKHAUTHUONGMAI = new HashSet<PHIEUCHIETKHAUTHUONGMAI>();
         }
 
         [Key]
@@ -54,6 +54,6 @@ namespace DAL.Database
         public virtual ICollection<HOADON> HOADON { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PHIEUTRIETKHAUTHUONGMAI> PHIEUTRIETKHAUTHUONGMAI { get; set; }
+        public virtual ICollection<PHIEUCHIETKHAUTHUONGMAI> PHIEUCHIETKHAUTHUONGMAI { get; set; }
     }
 }

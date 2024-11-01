@@ -15,7 +15,6 @@ namespace DAL.Database
 
         public DateTime NGAYCAP { get; set; }
 
-        [Column(TypeName = "smalldatetime")]
         public DateTime HANSUDUNG { get; set; }
 
         public decimal DIEMTICHLUY { get; set; }
