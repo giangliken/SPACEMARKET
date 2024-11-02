@@ -48,9 +48,15 @@
             this.txtsearchtk = new Sunny.UI.UITextBox();
             this.btnsearchtk = new System.Windows.Forms.PictureBox();
             this.uiLabel4 = new Sunny.UI.UILabel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datagwdanhsachtaikhoan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnsearchtk)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // uiContextMenuStrip1
@@ -141,43 +147,57 @@
             // btnThem
             // 
             this.btnThem.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnThem.FillColor = System.Drawing.Color.LightSeaGreen;
+            this.btnThem.FillColor = System.Drawing.Color.Transparent;
             this.btnThem.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.btnThem.ForeColor = System.Drawing.Color.Black;
+            this.btnThem.ForeDisableColor = System.Drawing.Color.Black;
+            this.btnThem.ForeHoverColor = System.Drawing.Color.Black;
             this.btnThem.Location = new System.Drawing.Point(45, 626);
             this.btnThem.MinimumSize = new System.Drawing.Size(1, 1);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(131, 35);
+            this.btnThem.Size = new System.Drawing.Size(141, 35);
             this.btnThem.Style = Sunny.UI.UIStyle.Custom;
             this.btnThem.TabIndex = 4;
             this.btnThem.Text = "Thêm mới";
+            this.btnThem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnThem.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnSua
             // 
             this.btnSua.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSua.FillColor = System.Drawing.Color.Transparent;
             this.btnSua.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.btnSua.Location = new System.Drawing.Point(241, 626);
+            this.btnSua.ForeColor = System.Drawing.Color.Black;
+            this.btnSua.ForeDisableColor = System.Drawing.Color.Black;
+            this.btnSua.ForeHoverColor = System.Drawing.Color.Black;
+            this.btnSua.Location = new System.Drawing.Point(250, 626);
             this.btnSua.MinimumSize = new System.Drawing.Size(1, 1);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(100, 35);
+            this.btnSua.Size = new System.Drawing.Size(87, 35);
+            this.btnSua.Style = Sunny.UI.UIStyle.Custom;
             this.btnSua.TabIndex = 5;
             this.btnSua.Text = "Sửa";
+            this.btnSua.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSua.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
             this.btnXoa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnXoa.FillColor = System.Drawing.Color.Red;
+            this.btnXoa.FillColor = System.Drawing.Color.Transparent;
             this.btnXoa.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.btnXoa.ForeColor = System.Drawing.Color.Black;
+            this.btnXoa.ForeDisableColor = System.Drawing.Color.Black;
+            this.btnXoa.ForeHoverColor = System.Drawing.Color.Black;
             this.btnXoa.Location = new System.Drawing.Point(403, 626);
             this.btnXoa.MinimumSize = new System.Drawing.Size(1, 1);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(100, 35);
+            this.btnXoa.Size = new System.Drawing.Size(88, 35);
             this.btnXoa.Style = Sunny.UI.UIStyle.Custom;
             this.btnXoa.TabIndex = 6;
             this.btnXoa.Text = "Xóa";
+            this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnXoa.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
@@ -278,11 +298,47 @@
             this.uiLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.uiLabel4.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(413, 631);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 51;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(261, 631);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 50;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(52, 630);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 49;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
             // Account_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.uiLabel4);
             this.Controls.Add(this.btnsearchtk);
             this.Controls.Add(this.txtsearchtk);
@@ -303,6 +359,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datagwdanhsachtaikhoan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnsearchtk)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -323,5 +382,8 @@
         private Sunny.UI.UITextBox txtsearchtk;
         private System.Windows.Forms.PictureBox btnsearchtk;
         private Sunny.UI.UILabel uiLabel4;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

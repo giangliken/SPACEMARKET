@@ -462,5 +462,20 @@ namespace SpaceMarket
                 }
             }
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            btnThem_Click(sender, e);
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            btnSua_Click(sender, e);
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            btnXoa_Click(sender, e);
+        }
     }
 }

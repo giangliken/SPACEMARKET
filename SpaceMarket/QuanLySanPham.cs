@@ -82,12 +82,35 @@ namespace SpaceMarket
 
         private void txtMaSanPham_TextChanged(object sender, EventArgs e)
         {
+            // Kiểm tra nếu chuỗi nhập vào không phải là số hoặc dài quá 13 ký tự
+            if (!System.Text.RegularExpressions.Regex.IsMatch(txtMaSanPham.Text, @"^\d{0,13}$"))
+            {
+                // Lưu lại vị trí con trỏ chuột
+                int cursorPosition = txtMaSanPham.SelectionStart - 1;
+
+                // Loại bỏ ký tự không hợp lệ vừa nhập vào
+                txtMaSanPham.Text = txtMaSanPham.Text.Remove(txtMaSanPham.Text.Length - 1);
+
+                // Đặt lại vị trí con trỏ chuột
+                txtMaSanPham.SelectionStart = cursorPosition > 0 ? cursorPosition : 0;
+            }
 
         }
 
         private void txtTenSanPham_TextChanged(object sender, EventArgs e)
         {
+            // Kiểm tra nếu độ dài của chuỗi trong TextBox lớn hơn 100
+            if (txtTenSanPham.Text.Length > 100)
+            {
+                // Lưu lại vị trí con trỏ chuột
+                int cursorPosition = txtTenSanPham.SelectionStart;
 
+                // Cắt chuỗi để chỉ giữ lại 100 ký tự đầu tiên
+                txtTenSanPham.Text = txtTenSanPham.Text.Substring(0, 100);
+
+                // Đặt lại vị trí con trỏ chuột
+                txtTenSanPham.SelectionStart = cursorPosition > txtTenSanPham.Text.Length ? txtTenSanPham.Text.Length : cursorPosition;
+            }
         }
 
         private void cbbNhaCungCap_SelectedIndexChanged(object sender, EventArgs e)
@@ -102,7 +125,18 @@ namespace SpaceMarket
 
         private void txtGia_TextChanged(object sender, EventArgs e)
         {
+            // Kiểm tra nếu chuỗi nhập vào không phải là số hoặc dài quá 18 ký tự
+            if (!System.Text.RegularExpressions.Regex.IsMatch(txtGia.Text, @"^\d{0,18}$"))
+            {
+                // Lưu lại vị trí con trỏ chuột
+                int cursorPosition = txtGia.SelectionStart - 1;
 
+                // Loại bỏ ký tự không hợp lệ vừa nhập vào
+                txtGia.Text = txtGia.Text.Remove(txtGia.Text.Length - 1);
+
+                // Đặt lại vị trí con trỏ chuột
+                txtGia.SelectionStart = cursorPosition > 0 ? cursorPosition : 0;
+            }
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -267,5 +301,19 @@ namespace SpaceMarket
 
         }
 
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            btnThem_Click(sender, e);
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            btnSua_Click(sender, e);
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            btnXoa_Click(sender, e);
+        }
     }
 }

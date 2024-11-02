@@ -522,10 +522,29 @@ namespace SpaceMarket
 
 
 
+        private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Kiểm tra nếu ký tự không phải là số hoặc là phím điều khiển (như Backspace)
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Ngăn không cho ký tự được nhập
+            }
+        }
 
         private void txtSoLuong_TextChanged(object sender, EventArgs e)
         {
+            // Kiểm tra nếu độ dài của chuỗi trong TextBox lớn hơn 4
+            if (txtSoLuong.Text.Length > 4)
+            {
+                // Lưu lại vị trí con trỏ chuột
+                int cursorPosition = txtSoLuong.SelectionStart;
 
+                // Cắt chuỗi để chỉ giữ lại 4 ký tự đầu tiên
+                txtSoLuong.Text = txtSoLuong.Text.Substring(0, 4);
+
+                // Đặt lại vị trí con trỏ chuột
+                txtSoLuong.SelectionStart = cursorPosition > txtSoLuong.Text.Length ? txtSoLuong.Text.Length : cursorPosition;
+            }
         }
 
         private void dgvDanhSachSanPham_CellClick(object sender, DataGridViewCellEventArgs e)

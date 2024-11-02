@@ -3,6 +3,7 @@ using DAL.Database;
 using SpaceMarket.Bao_cao;
 using System;
 using System.Drawing;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace SpaceMarket
@@ -45,12 +46,29 @@ namespace SpaceMarket
 
         private void txtMaKH_TextChanged(object sender, EventArgs e)
         {
+            // Kiểm tra nếu độ dài của chuỗi nhập vào lớn hơn 20 ký tự
+            if (txtMaKH.Text.Length > 20)
+            {
+                // Nếu quá 20 ký tự, cắt chuỗi về 20 ký tự
+                txtMaKH.Text = txtMaKH.Text.Substring(0, 20);
+                // Đưa con trỏ về cuối ô nhập liệu
+                txtMaKH.SelectionStart = txtMaKH.Text.Length;
+                MessageBox.Show("Mã khách hàng không được quá 20 ký tự!");
+            }
 
         }
 
         private void txtTenKH_TextChanged(object sender, EventArgs e)
         {
-
+            // Kiểm tra nếu độ dài của chuỗi nhập vào lớn hơn 100 ký tự
+            if (txtTenKH.Text.Length > 100)
+            {
+                // Nếu quá 100 ký tự, cắt chuỗi về 100 ký tự
+                txtTenKH.Text = txtTenKH.Text.Substring(0, 100);
+                // Đưa con trỏ về cuối ô nhập liệu
+                txtTenKH.SelectionStart = txtTenKH.Text.Length;
+                MessageBox.Show("Tên khách hàng không được quá 100 ký tự!");
+            }
         }
 
         private void dateTimePicker1_ValueChanged(object sender, DateTime value)
@@ -60,17 +78,41 @@ namespace SpaceMarket
 
         private void txtCCCD_TextChanged(object sender, EventArgs e)
         {
-
+            // Kiểm tra nếu độ dài của chuỗi nhập vào lớn hơn 12 ký tự
+            if (txtCCCD.Text.Length > 12)
+            {
+                // Nếu quá 12 ký tự, cắt chuỗi về 12 ký tự
+                txtCCCD.Text = txtCCCD.Text.Substring(0, 12);
+                // Đưa con trỏ về cuối ô nhập liệu
+                txtCCCD.SelectionStart = txtCCCD.Text.Length;
+                MessageBox.Show("CCCD không được quá 12 ký tự!");
+            }
         }
 
         private void txtDiaChi_TextChanged(object sender, EventArgs e)
         {
-
+            // Kiểm tra nếu độ dài của chuỗi nhập vào lớn hơn 200 ký tự
+            if (txtDiaChi.Text.Length > 200)
+            {
+                // Nếu quá 200 ký tự, cắt chuỗi về 200 ký tự
+                txtDiaChi.Text = txtDiaChi.Text.Substring(0, 200);
+                // Đưa con trỏ về cuối ô nhập liệu
+                txtDiaChi.SelectionStart = txtDiaChi.Text.Length;
+                MessageBox.Show("Địa chỉ không được quá 200 ký tự!");
+            }
         }
 
         private void txtSDT_TextChanged(object sender, EventArgs e)
         {
-
+            // Kiểm tra nếu độ dài của chuỗi nhập vào lớn hơn 11 ký tự
+            if (txtSDT.Text.Length > 11)
+            {
+                // Nếu quá 11 ký tự, cắt chuỗi về 11 ký tự
+                txtSDT.Text = txtSDT.Text.Substring(0, 11);
+                // Đưa con trỏ về cuối ô nhập liệu
+                txtSDT.SelectionStart = txtSDT.Text.Length;
+                MessageBox.Show("Số điện thoại không được quá 11 ký tự!");
+            }
         }
 
         private void txtEmail_TextChanged(object sender, EventArgs e)
@@ -190,7 +232,9 @@ namespace SpaceMarket
             if (datadanhsachkhachhang.SelectedRows.Count > 0)
             {
                 // Lấy mã khách hàng từ ô nhập liệu
-                string maKhachHang = txtMaKH.Text;
+                //string maKhachHang = txtMaKH.Text;
+                // Lấy mã khách hàng từ hàng được chọn
+                string maKhachHang = datadanhsachkhachhang.SelectedRows[0].Cells["MAKH"].Value.ToString();
 
                 // Gọi phương thức xóa trong KhachHangService
                 khachHangService.Delete(maKhachHang);
@@ -204,7 +248,9 @@ namespace SpaceMarket
             {
                 MessageBox.Show("Vui lòng chọn khách hàng để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            ClearFields();
             Customer_Management_Load(sender, e);
+           
         }
 
         private void SearchCustomers()
@@ -333,12 +379,95 @@ namespace SpaceMarket
         private void Customer_Management_MouseClick(object sender, MouseEventArgs e)
         {
             LoadData();
+            ClearFields();
+            txtMaKH.Text = khachHangService.GenerateCustomerID();
+
+
         }
 
         private void btnIn_Click(object sender, EventArgs e)
         {
             InKhachHang inKhachHang = new InKhachHang();
             inKhachHang.ShowDialog();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            btnSua_Click(sender, e);
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            btnThem_Click(sender, e);
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            btnXoa_Click(sender, e);
+        }
+
+        private void dateTimePicker1_ValueChanged_1(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dateTimePicker1_Leave(object sender, EventArgs e)
+        {
+            // Lấy ngày hiện tại
+            DateTime today = DateTime.Today;
+
+            // Kiểm tra nếu ngày được chọn lớn hơn ngày hiện tại
+            if (dateTimePicker1.Value > today)
+            {
+                // Nếu lớn hơn, đặt lại giá trị của DateTimePicker về ngày hiện tại
+                dateTimePicker1.Value = today;
+                MessageBox.Show("Ngày không được lớn hơn ngày hiện tại!");
+            }
+        }
+
+        private void txtCCCD_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Kiểm tra nếu ký tự nhập vào không phải là số và không phải phím xóa
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Không cho phép nhập ký tự khác
+            }
+        }
+
+        private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Kiểm tra nếu ký tự nhập vào không phải là số và không phải phím xóa
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Không cho phép nhập ký tự khác
+            }
+        }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            // Kiểm tra nếu độ dài của chuỗi nhập vào lớn hơn 200 ký tự
+            if (txtEmail.Text.Length > 200)
+            {
+                // Nếu quá 200 ký tự, cắt chuỗi về 200 ký tự
+                txtEmail.Text = txtEmail.Text.Substring(0, 200);
+                // Đưa con trỏ về cuối ô nhập liệu
+                txtEmail.SelectionStart = txtEmail.Text.Length;
+                MessageBox.Show("Địa chỉ email không được quá 200 ký tự!");
+            }
+
+            // Kiểm tra định dạng email
+            if (!IsValidEmail(txtEmail.Text))
+            {
+                MessageBox.Show("Địa chỉ email không hợp lệ!");
+            }
+        }
+
+        // Phương thức kiểm tra định dạng email
+        private bool IsValidEmail(string email)
+        {
+            // Sử dụng biểu thức chính quy để kiểm tra định dạng email
+            var emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return Regex.IsMatch(email, emailPattern);
         }
     }
 }

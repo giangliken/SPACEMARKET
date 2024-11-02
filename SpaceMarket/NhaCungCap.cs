@@ -35,27 +35,30 @@ namespace SpaceMarket
 
         private void txtTenNCC_TextChanged(object sender, EventArgs e)
         {
-            // Lấy giá trị hiện tại trong txtTenNCC
-            string input = txtTenNCC.Text;
-
-            // Biểu thức chính quy để chỉ cho phép chữ cái (A-Z, a-z) và khoảng trắng
-            string pattern = @"^[a-zA-Z\s]*$";
-
-            // Kiểm tra xem giá trị có phù hợp với biểu thức chính quy không
-            if (!System.Text.RegularExpressions.Regex.IsMatch(input, pattern))
+            // Giới hạn số ký tự không vượt quá 100
+            if (txtTenNCC.Text.Length > 100)
             {
-                // Nếu không, xóa ký tự không hợp lệ
-                MessageBox.Show("Tên nhà cung cấp chỉ được phép chứa chữ cái và khoảng trắng.");
-                // Chỉ giữ lại các ký tự hợp lệ
-                txtTenNCC.Text = new string(input.Where(c => char.IsLetter(c) || char.IsWhiteSpace(c)).ToArray());
-                txtTenNCC.SelectionStart = txtTenNCC.Text.Length; // Đặt con trỏ về cuối ô nhập
+                // Cắt chuỗi xuống còn 100 ký tự
+                txtTenNCC.Text = txtTenNCC.Text.Substring(0, 100);
+
+                // Đặt con trỏ nhập liệu ở cuối TextBox
+                txtTenNCC.SelectionStart = txtTenNCC.Text.Length;
             }
+
         }
 
 
         private void txtDiaChiNCC_TextChanged(object sender, EventArgs e)
         {
+            // Kiểm tra nếu chiều dài của chuỗi nhập vào lớn hơn 200
+            if (txtDiaChiNCC.Text.Length > 200)
+            {
+                // Cắt chuỗi xuống còn 200 ký tự
+                txtDiaChiNCC.Text = txtDiaChiNCC.Text.Substring(0, 200);
 
+                // Đặt con trỏ nhập liệu ở cuối TextBox
+                txtDiaChiNCC.SelectionStart = txtDiaChiNCC.Text.Length;
+            }
         }
 
         private void txtSDTNCC_TextChanged(object sender, EventArgs e)
@@ -159,6 +162,7 @@ namespace SpaceMarket
                 ClearTXT(); // Xóa các ô nhập liệu sau khi thêm
                 // Tạo mã mới cho ô txtMaNCC
                 txtMaNCC.Text = nhaCungCapService.GenerateNewMANCC();
+                LoadData();
             }
             else
             {
@@ -220,6 +224,54 @@ namespace SpaceMarket
         {
             ClearTXT();
             txtMaNCC.Text = nhaCungCapService.GenerateNewMANCC();
+        }
+
+        private void txtEmailNCC_Leave(object sender, EventArgs e)
+        {
+            // Giới hạn số ký tự không vượt quá 200
+            if (txtEmailNCC.Text.Length > 200)
+            {
+                // Cắt chuỗi xuống còn 200 ký tự
+                txtEmailNCC.Text = txtEmailNCC.Text.Substring(0, 200);
+
+                // Đặt con trỏ nhập liệu ở cuối TextBox
+                txtEmailNCC.SelectionStart = txtEmailNCC.Text.Length;
+            }
+
+            // Kiểm tra định dạng email
+            if (!IsValidEmail(txtEmailNCC.Text))
+            {
+                // Thông báo lỗi nếu định dạng không hợp lệ
+                // Có thể đổi màu chữ hoặc hiển thị thông báo
+                txtEmailNCC.BackColor = Color.LightCoral; // Ví dụ: đổi màu nền thành đỏ
+            }
+            else
+            {
+                // Đặt màu nền về bình thường nếu định dạng hợp lệ
+                txtEmailNCC.BackColor = Color.White;
+            }
+        }
+        // Phương thức kiểm tra định dạng email
+        private bool IsValidEmail(string email)
+        {
+            // Biểu thức chính quy để kiểm tra định dạng email
+            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return Regex.IsMatch(email, pattern);
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            btnThem_Click(sender, e);
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            btnSua_Click(sender, e);
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            btnXoa_Click(sender, e);
         }
     }
 }

@@ -98,5 +98,15 @@ namespace SpaceMarket
                 txtpass.ForeColor= Color.Silver;
             }
         }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            btnDangNhap_Click(sender, e);
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            btnBoQua_Click(sender, e);
+        }
     }
 }

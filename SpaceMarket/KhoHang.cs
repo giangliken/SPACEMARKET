@@ -213,12 +213,34 @@ namespace SpaceMarket
 
         private void txtTenKho_TextChanged(object sender, EventArgs e)
         {
+            // Kiểm tra nếu độ dài của chuỗi trong TextBox lớn hơn 100
+            if (txtTenKho.Text.Length > 100)
+            {
+                // Lưu lại vị trí con trỏ chuột
+                int cursorPosition = txtTenKho.SelectionStart;
 
+                // Cắt chuỗi để chỉ giữ lại 100 ký tự đầu tiên
+                txtTenKho.Text = txtTenKho.Text.Substring(0, 100);
+
+                // Đặt lại vị trí con trỏ chuột để tránh bị di chuyển
+                txtTenKho.SelectionStart = cursorPosition > txtTenKho.Text.Length ? txtTenKho.Text.Length : cursorPosition;
+            }
         }
 
         private void txtDiaChiKho_TextChanged(object sender, EventArgs e)
         {
+            // Giới hạn độ dài tối đa là 200 ký tự
+            if (txtDiaChiKho.Text.Length > 200)
+            {
+                // Lưu lại vị trí con trỏ chuột
+                int cursorPosition = txtDiaChiKho.SelectionStart;
 
+                // Cắt chuỗi để chỉ giữ lại 200 ký tự đầu tiên
+                txtDiaChiKho.Text = txtDiaChiKho.Text.Substring(0, 200);
+
+                // Đặt lại vị trí con trỏ chuột
+                txtDiaChiKho.SelectionStart = cursorPosition > txtDiaChiKho.Text.Length ? txtDiaChiKho.Text.Length : cursorPosition;
+            }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -411,6 +433,38 @@ namespace SpaceMarket
             }
         }
 
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            btnThem_Click(sender, e);
+        }
 
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            btnSua_Click(sender, e);
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            btnXoa_Click(sender, e);
+        }
+
+        private void tabPage2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSoLuongNhap_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Kiểm tra nếu ký tự nhập vào không phải là số và không phải phím xóa
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Không cho phép nhập ký tự khác
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            btnNhapKho_Click(sender, e);
+        }
     }
 }
