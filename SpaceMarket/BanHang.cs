@@ -25,6 +25,7 @@ namespace SpaceMarket
         private readonly SaleService saleService = new SaleService();
         private readonly KhachHangService khachHangService = new KhachHangService();
         private readonly HoaDonService hoaDonService = new HoaDonService();
+        private readonly PhieuQuaTangService phieuQuaTangService = new PhieuQuaTangService();
         public Image DisplayedImage { get; set; }
         public BanHang()
         {
@@ -403,8 +404,46 @@ namespace SpaceMarket
                     giaoHang.MaDonHang = txtSoHoaDon.Text;
                     giaoHang.ShowDialog();
                 }
+
+                if (TongCong >= 2000000)
+                {
+                    // Gọi phương thức để thêm phiếu quà tặng
+                    bool result = phieuQuaTangService.AddPhieuQuaTang(txtSoHoaDon.Text,10, "Dùng cho hóa đơn trên 2 triệu", "Mua tại các quầy");
+
+                    // Thông báo cho người dùng
+                    if (result)
+                    {
+                        InPhieuQuaTang inPhieuQuaTang = new InPhieuQuaTang();
+                        inPhieuQuaTang.maHD = txtSoHoaDon.Text;
+                        inPhieuQuaTang.ShowDialog();
+                    }
+                    else
+                    {
+                        //MessageBox.Show("Không đủ điều kiện để thêm phiếu quà tặng hoặc hóa đơn không tồn tại.");
+                    }
+                }
+                else if (TongCong >= 1000000 && TongCong < 2000000)
+                {
+                    // Gọi phương thức để thêm phiếu quà tặng
+                    bool result = phieuQuaTangService.AddPhieuQuaTang(txtSoHoaDon.Text, 5, "Dùng cho hóa đơn dưới 2 triệu", "Mua tại các quầy");
+
+                    // Thông báo cho người dùng
+                    if (result)
+                    {
+                        InPhieuQuaTang inPhieuQuaTang = new InPhieuQuaTang();
+                        inPhieuQuaTang.maHD = txtSoHoaDon.Text;
+                        inPhieuQuaTang.ShowDialog();
+                    }
+                    else
+                    {
+                        //MessageBox.Show("Không đủ điều kiện để thêm phiếu quà tặng hoặc hóa đơn không tồn tại.");
+                    }
+
+                }
+
                 // Thông báo thành công hoặc xử lý thêm nếu cần
                 MessageBox.Show("Hóa đơn đã được lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
                 pictureBox2.Image = Image.FromFile("D:\\Tai Lieu Hoc Tap\\Lap Trinh Tren Moi Truong Windows\\Do an\\Image\\TOWKTEAM.png");
 
                 // Giả sử bạn muốn làm trống dgvDanhSachSanPham
@@ -649,6 +688,19 @@ namespace SpaceMarket
             // Cập nhật giá trị TongCong
             TongCong = (int)(totalAmount - totalDiscount - discountFromTxt); // Lưu ý: phần thập phân sẽ bị mất
             lblTongCong.Text = TongCong.ToString("C2"); // Cập nhật lblTongCong mà không cần ép kiểu
+            if(TongCong >= 2000000)
+            {
+                lblUuDai.Text = "Khách hàng nhận được phiếu ưu đãi 10%";
+            }
+            else if (TongCong >= 1000000 && TongCong < 2000000)
+            {
+                lblUuDai.Text = "Khách hàng nhận được phiếu ưu đãi 5%";
+
+            }
+            else
+            {
+                lblUuDai.Text = "";
+            }
         }
 
 

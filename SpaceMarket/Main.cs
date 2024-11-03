@@ -220,5 +220,11 @@ namespace SpaceMarket
             NhaCungCap nhaCungCap = new NhaCungCap();
             nhaCungCap.ShowDialog();
         }
+
+        private void quảnLúPhiếuQuàTặngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PhieuQuaTang phieuQuaTang = new PhieuQuaTang();
+            phieuQuaTang.ShowDialog();
+        }
     }
 }

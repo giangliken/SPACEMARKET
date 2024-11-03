@@ -116,6 +116,7 @@
     <Compile Include="KhoHangService.cs" />
     <Compile Include="LoginService.cs" />
     <Compile Include="NhaCungCapService.cs" />
+    <Compile Include="PhieuQuaTangService.cs" />
     <Compile Include="ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SaleService.cs" />

@@ -188,6 +188,12 @@
     <Compile Include="Bao cao\InPhieuGiaoHang.Designer.cs">
       <DependentUpon>InPhieuGiaoHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bao cao\InPhieuQuaTang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bao cao\InPhieuQuaTang.Designer.cs">
+      <DependentUpon>InPhieuQuaTang.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bao cao\InSanPham.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,6 +260,12 @@
     <Compile Include="NhaCungCap.Designer.cs">
       <DependentUpon>NhaCungCap.cs</DependentUpon>
     </Compile>
+    <Compile Include="PhieuQuaTang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PhieuQuaTang.Designer.cs">
+      <DependentUpon>PhieuQuaTang.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Progress Form.cs">
       <SubType>Form</SubType>
@@ -305,6 +317,9 @@
     <EmbeddedResource Include="Bao cao\InPhieuGiaoHang.resx">
       <DependentUpon>InPhieuGiaoHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Bao cao\InPhieuQuaTang.resx">
+      <DependentUpon>InPhieuQuaTang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Bao cao\InSanPham.resx">
       <DependentUpon>InSanPham.cs</DependentUpon>
     </EmbeddedResource>
@@ -322,6 +337,7 @@
     <EmbeddedResource Include="Bao cao\ReportNhanVien.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Bao cao\ReportPhieuQuaTang.rdlc" />
     <EmbeddedResource Include="Bao cao\ReportSanPham.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -354,6 +370,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NhaCungCap.resx">
       <DependentUpon>NhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PhieuQuaTang.resx">
+      <DependentUpon>PhieuQuaTang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Progress Form.resx">
       <DependentUpon>Progress Form.cs</DependentUpon>

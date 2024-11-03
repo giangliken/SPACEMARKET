@@ -30,6 +30,7 @@ namespace SpaceMarket
             //Application.Run(new InSanPham());
             //Application.Run(new GiaoHang());
             //Application.Run(new NhaCungCap());
+            //Application.Run(new PhieuQuaTang());
 
             
         }

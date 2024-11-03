@@ -27,6 +27,9 @@ namespace SpaceMarket
             btnXoa.Visible = false;
             btnIn.Visible = false;
             uiLabel9.Visible = false;
+            pictureBox2.Visible = false;
+            pictureBox3.Visible = false;
+            pictureBox4.Visible = false;
         }
 
 

@@ -22,6 +22,7 @@ namespace SpaceMarket
         public GiaoHang()
         {
             InitializeComponent();
+            this.KeyPreview = true; // Cho phép form bắt sự kiện phím
         }
 
         private void GiaoHang_Load(object sender, EventArgs e)
@@ -225,17 +226,52 @@ namespace SpaceMarket
 
         private void txtDiaChiGiao_TextChanged(object sender, EventArgs e)
         {
+            // Kiểm tra nếu độ dài của chuỗi nhập vào lớn hơn 200 ký tự
+            if (txtDiaChiGiao.Text.Length > 200)
+            {
+                MessageBox.Show("Địa chỉ giao không được quá 200 ký tự.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                // Cắt chuỗi chỉ còn 200 ký tự
+                txtDiaChiGiao.Text = txtDiaChiGiao.Text.Substring(0, 200);
+
+                // Đặt con trỏ chuột ở cuối chuỗi
+                txtDiaChiGiao.SelectionStart = txtDiaChiGiao.Text.Length;
+            }
 
         }
 
         private void txtSDT_TextChanged(object sender, EventArgs e)
         {
+            // Lưu lại vị trí con trỏ hiện tại
+            int cursorPosition = txtSDT.SelectionStart;
 
+            // Chỉ giữ lại các ký tự là số
+            txtSDT.Text = new string(txtSDT.Text.Where(char.IsDigit).ToArray());
+
+            // Kiểm tra nếu độ dài của chuỗi nhập vào lớn hơn 11 ký tự
+            if (txtSDT.Text.Length > 11)
+            {
+                MessageBox.Show("Số điện thoại không được quá 11 số.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtSDT.Text = txtSDT.Text.Substring(0, 11);
+            }
+
+            // Đặt lại vị trí con trỏ chuột sau khi cập nhật chuỗi
+            txtSDT.SelectionStart = Math.Min(cursorPosition, txtSDT.Text.Length);
         }
 
         private void txtMoTa_TextChanged(object sender, EventArgs e)
         {
+            // Kiểm tra nếu độ dài của chuỗi nhập vào lớn hơn 200 ký tự
+            if (txtMoTa.Text.Length > 200)
+            {
+                MessageBox.Show("Mô tả không được quá 200 ký tự.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
+                // Cắt chuỗi chỉ còn 200 ký tự
+                txtMoTa.Text = txtMoTa.Text.Substring(0, 200);
+
+                // Đặt con trỏ chuột ở cuối chuỗi
+                txtMoTa.SelectionStart = txtMoTa.Text.Length;
+            }
         }
 
         private void DgvDanhSachPhieuGiaoHang_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -258,6 +294,32 @@ namespace SpaceMarket
                 {
                     dateTimePicker1.Value = Convert.ToDateTime(row.Cells["NGAYDUKIENGH"].Value);
                 }
+            }
+        }
+
+        private void dateTimePicker1_Leave(object sender, EventArgs e)
+        {
+            DateTime selectedDate = dateTimePicker1.Value;
+            DateTime currentDate = DateTime.Today;
+
+            if (selectedDate < currentDate)
+            {
+                MessageBox.Show("Không thể chọn ngày trong quá khứ. Vui lòng chọn ngày hiện tại hoặc tương lai.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dateTimePicker1.Value = currentDate;
+            }
+        }
+
+        private void GiaoHang_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Kiểm tra nếu phím Esc được nhấn
+            if (e.KeyCode == Keys.Escape)
+            {
+                btnHuyPhieu_Click(sender, e);
+            }
+            // Kiểm tra nếu phím F10 được nhấn
+            else if (e.KeyCode == Keys.F10)
+            {
+                btnLuuPhieu_Click((sender, e), e);
             }
         }
     }
