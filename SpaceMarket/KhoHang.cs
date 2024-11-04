@@ -466,5 +466,27 @@ namespace SpaceMarket
         {
             btnNhapKho_Click(sender, e);
         }
+
+        private void uiCheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (uiCheckBox1.Checked)
+            {
+                // Lọc dữ liệu
+                var filteredData = khoHangService.LayDanhSachChiTietKhoHang()
+                                   .Where(p => p.SOLUONGTON <= 50)
+                                   .ToList();
+
+                // Clear and update DataGridView
+                dataDanhSachNhapKho.DataSource = null;
+                dataDanhSachNhapKho.DataSource = filteredData;
+            }
+            else
+            {
+                // Reset data source to full list
+                dataDanhSachNhapKho.DataSource = null;
+                dataDanhSachNhapKho.DataSource = khoHangService.LayDanhSachChiTietKhoHang();
+            }
+        }
+
     }
 }
