@@ -46,7 +46,7 @@ namespace SpaceMarket
             if (cv != null)
             {
                 Main main = new Main();
-                main.SetUserRole(cv.MaQuyenHan);
+                main.SetUserRole(cv.ChucVu);
                 main.MANV = cv.Id;
                 main.Show();
                 this.Hide();
@@ -177,7 +177,7 @@ namespace SpaceMarket
                     if (cv != null)
                     {
                         Main main = new Main();
-                        main.SetUserRole(cv.MaQuyenHan);
+                        main.SetUserRole(cv.ChucVu);
                         main.MANV = cv.Id;
                         main.Show();
                         this.Hide();
