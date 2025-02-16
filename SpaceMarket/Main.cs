@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Google.Apis.Auth.OAuth2;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -61,9 +62,10 @@ namespace SpaceMarket
 
         }
 
-        public void SetUserRole(string chucVu)
+        public void SetUserRole(string maQuyenHan)
         {
-            if (chucVu == "Nhân Viên")
+            //mã quyền hạn dành cho nhân viên
+            if (maQuyenHan == "100002")
             {
                 //HệThốngToolStripMenuItem.Visible = false;
                 quảnLíToolStripMenuItem.Visible = false;
@@ -76,6 +78,19 @@ namespace SpaceMarket
 
 
             }
+            else if (maQuyenHan != "100002" &&  maQuyenHan != "100001"){
+                MessageBox.Show("Bạn chưa được phân quyền để xử dụng hệ thống này!. Hãy liên hệ với quản trị viên kiểm tra lại thông tin!","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                HệThốngToolStripMenuItem.Visible = false;
+                quảnLíToolStripMenuItem.Visible = false;
+                bánHàngToolStripMenuItem.Visible = false;
+                sảnPhẩmToolStripMenuItem.Visible = false;
+                bảoMậtToolStripMenuItem.Visible = false;
+                kháchHàngToolStripMenuItem.Visible = false;
+                báoCáoToolStripMenuItem.Visible = false;
+                hỗTrợToolStripMenuItem.Visible = true;
+                
+            }
+
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -165,7 +180,7 @@ namespace SpaceMarket
             if (staff != null)
             {
                 formInDoanhThu.TENNV = staff.TENNV;
-                formInDoanhThu.CHUCVU = staff.CV;
+                formInDoanhThu.CHUCVU = staff.MAQUYENHAN;
                 formInDoanhThu.NGAYSINH = staff.NGAYSINH;
             }
             formInDoanhThu.ShowDialog();

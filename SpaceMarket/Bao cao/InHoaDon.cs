@@ -31,7 +31,7 @@ namespace SpaceMarket.Bao_cao
             //MessageBox.Show("Tien Khach Dua: " + TienKhachDua + "Tien Thoi: " + TienThoi + "Tien Khach CK: "+ TienKhachChuyenKhoan);
             //Model1 context = new Model1();
             List<ReportCHITIETHOADON> ListCHITIETHOADON = traCuuHoaDonService.GetReportCTHD(MaHoaDon);
-            reportCHITIETHOADON.LocalReport.ReportPath = "D:\\Tai Lieu Hoc Tap\\Lap Trinh Tren Moi Truong Windows\\Do an\\SPACEMARKET\\SpaceMarket\\Bao cao\\ReportHoaDon.rdlc";
+            reportCHITIETHOADON.LocalReport.ReportPath = "Bao cao\\ReportHoaDon.rdlc";
             //MaHoaDon = "2024100017";
             var source = new ReportDataSource("ReportCHITIETHOADON", ListCHITIETHOADON);
             //Làm mới dữ liệu

@@ -54,7 +54,7 @@ namespace SpaceMarket.Bao_cao
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource);
 
             // Thiết lập đường dẫn tới file RDLC
-            this.reportViewer1.LocalReport.ReportPath = @"D:\Tai Lieu Hoc Tap\Lap Trinh Tren Moi Truong Windows\Do an\SpaceMarket\SpaceMarket\Bao cao\ReportPhieuQuaTang.rdlc";
+            this.reportViewer1.LocalReport.ReportPath = @"Bao cao\ReportPhieuQuaTang.rdlc";
 
             // Refresh để hiển thị báo cáo
             this.reportViewer1.RefreshReport();

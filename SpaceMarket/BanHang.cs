@@ -444,7 +444,7 @@ namespace SpaceMarket
                 // Thông báo thành công hoặc xử lý thêm nếu cần
                 MessageBox.Show("Hóa đơn đã được lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 
-                pictureBox2.Image = Image.FromFile("D:\\Tai Lieu Hoc Tap\\Lap Trinh Tren Moi Truong Windows\\Do an\\Image\\TOWKTEAM.png");
+                pictureBox2.Image = Image.FromFile("D:\\Tai Lieu Hoc Tap\\HP - DA HOAN THANH\\Lap Trinh Tren Moi Truong Windows\\Do an\\Image\\TOWKTEAM.png");
 
                 // Giả sử bạn muốn làm trống dgvDanhSachSanPham
                 dgvDanhSachSanPham.DataSource = null; // Gán lại DataSource là null
@@ -454,7 +454,7 @@ namespace SpaceMarket
                 tienthoi = 0;
                 lblThanhTien.Text = string.Empty;
                 lblTongCong.Text = string.Empty;
-                pictureBox2.Image = Image.FromFile("D:\\Tai Lieu Hoc Tap\\Lap Trinh Tren Moi Truong Windows\\Do an\\Image\\TOWKTEAM.png");
+                pictureBox2.Image = Image.FromFile("D:\\Tai Lieu Hoc Tap\\HP - DA HOAN THANH\\Lap Trinh Tren Moi Truong Windows\\Do an\\Image\\TOWKTEAM.png");
 
 
                 // Tải lại form để làm mới dữ liệu
@@ -789,6 +789,9 @@ namespace SpaceMarket
                     lblThanhTien.Text = string.Empty;
                     lblTongCong.Text = string.Empty;
                     TongCong = 0;
+                    tienthoi = 0;
+                    tienkhachdua = 0;
+                    tienkhachchuyenkhoan = 0;
                     //pictureBox2.Image = null;
                     // Đặt hình ảnh mặc định cho PictureBox từ file
                     pictureBox2.Image = Image.FromFile("D:\\Tai Lieu Hoc Tap\\Lap Trinh Tren Moi Truong Windows\\Do an\\Image\\TOWKTEAM.png");

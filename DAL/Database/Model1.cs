@@ -24,6 +24,7 @@ namespace DAL.Database
         public virtual DbSet<PHIEUCHIETKHAUTHUONGMAI> PHIEUCHIETKHAUTHUONGMAI { get; set; }
         public virtual DbSet<PHIEUGIAOHANG> PHIEUGIAOHANG { get; set; }
         public virtual DbSet<PHIEUQUATANG> PHIEUQUATANG { get; set; }
+        public virtual DbSet<QUYENHAN> QUYENHAN { get; set; }
         public virtual DbSet<SANPHAM> SANPHAM { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<THETHANHVIEN> THETHANHVIEN { get; set; }
@@ -149,6 +150,10 @@ namespace DAL.Database
                 .IsUnicode(false);
 
             modelBuilder.Entity<NHANVIEN>()
+                .Property(e => e.MAQUYENHAN)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<NHANVIEN>()
                 .Property(e => e.SDTNV)
                 .IsUnicode(false);
 
@@ -203,6 +208,10 @@ namespace DAL.Database
 
             modelBuilder.Entity<PHIEUQUATANG>()
                 .Property(e => e.MAHD)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<QUYENHAN>()
+                .Property(e => e.MAQUYENHAN)
                 .IsUnicode(false);
 
             modelBuilder.Entity<SANPHAM>()

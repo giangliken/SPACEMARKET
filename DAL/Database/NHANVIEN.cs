@@ -32,8 +32,8 @@ namespace DAL.Database
         public DateTime NGAYSINH { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string CV { get; set; }
+        [StringLength(10)]
+        public string MAQUYENHAN { get; set; }
 
         [Required]
         [StringLength(20)]
@@ -55,5 +55,7 @@ namespace DAL.Database
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHIEUCHIETKHAUTHUONGMAI> PHIEUCHIETKHAUTHUONGMAI { get; set; }
+        public virtual QUYENHAN QUYENHAN { get; set; }
+
     }
 }

@@ -37,7 +37,7 @@ namespace SpaceMarket
                 this.reportViewer1.LocalReport.DataSources.Add(reportDataSource);
 
                 // Thiết lập nguồn cho báo cáo
-                this.reportViewer1.LocalReport.ReportPath = @"D:\\Tai Lieu Hoc Tap\\Lap Trinh Tren Moi Truong Windows\\Do an\\SpaceMarket\\SpaceMarket\\Bao cao\\ReportDoanhThu.rdlc";
+                this.reportViewer1.LocalReport.ReportPath = @"Bao cao\\ReportDoanhThu.rdlc";
 
                 // Thiết lập tham số MANV
                 ReportParameter[] parameters = new ReportParameter[]
@@ -56,6 +56,11 @@ namespace SpaceMarket
             {
                 MessageBox.Show("Không có dữ liệu hóa đơn để hiển thị.");
             }
+        }
+
+        private void reportViewer1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

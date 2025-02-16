@@ -44,11 +44,14 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.btn_LoginWithGoogle = new System.Windows.Forms.Button();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -113,7 +116,7 @@
             this.btnDangNhap.AutoSize = true;
             this.btnDangNhap.BackColor = System.Drawing.SystemColors.Control;
             this.btnDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnDangNhap.Location = new System.Drawing.Point(383, 539);
+            this.btnDangNhap.Location = new System.Drawing.Point(443, 523);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(218, 43);
             this.btnDangNhap.TabIndex = 3;
@@ -127,7 +130,7 @@
             this.btnBoQua.AutoSize = true;
             this.btnBoQua.BackColor = System.Drawing.SystemColors.Control;
             this.btnBoQua.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnBoQua.Location = new System.Drawing.Point(756, 539);
+            this.btnBoQua.Location = new System.Drawing.Point(712, 523);
             this.btnBoQua.Name = "btnBoQua";
             this.btnBoQua.Size = new System.Drawing.Size(176, 43);
             this.btnBoQua.TabIndex = 4;
@@ -209,7 +212,7 @@
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(396, 543);
+            this.pictureBox4.Location = new System.Drawing.Point(456, 527);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(35, 35);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -221,13 +224,39 @@
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(769, 543);
+            this.pictureBox5.Location = new System.Drawing.Point(725, 527);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(35, 35);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 16;
             this.pictureBox5.TabStop = false;
             this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
+            // 
+            // btn_LoginWithGoogle
+            // 
+            this.btn_LoginWithGoogle.AutoSize = true;
+            this.btn_LoginWithGoogle.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_LoginWithGoogle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btn_LoginWithGoogle.Location = new System.Drawing.Point(890, 582);
+            this.btn_LoginWithGoogle.Name = "btn_LoginWithGoogle";
+            this.btn_LoginWithGoogle.Size = new System.Drawing.Size(347, 43);
+            this.btn_LoginWithGoogle.TabIndex = 18;
+            this.btn_LoginWithGoogle.Text = "Đăng nhập với Google";
+            this.btn_LoginWithGoogle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_LoginWithGoogle.UseVisualStyleBackColor = false;
+            this.btn_LoginWithGoogle.Click += new System.EventHandler(this.btn_LoginWithGoogle_Click_1);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(902, 586);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 19;
+            this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
             // 
             // Login
             // 
@@ -238,6 +267,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.Controls.Add(this.pictureBox6);
+            this.Controls.Add(this.btn_LoginWithGoogle);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
@@ -263,6 +294,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -284,6 +316,8 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Button btn_LoginWithGoogle;
+        private System.Windows.Forms.PictureBox pictureBox6;
     }
 }
 

@@ -30,7 +30,7 @@ namespace SpaceMarket
                 this.reportViewer1.LocalReport.DataSources.Add(reportDataSource);
 
                 // Thiết lập nguồn cho báo cáo
-                this.reportViewer1.LocalReport.ReportPath = @"D:\Tai Lieu Hoc Tap\Lap Trinh Tren Moi Truong Windows\Do an\SpaceMarket\SpaceMarket\Bao cao\ReportNhanVien.rdlc";
+                this.reportViewer1.LocalReport.ReportPath = @"Bao cao\ReportNhanVien.rdlc";
                 
 
                 this.reportViewer1.RefreshReport();

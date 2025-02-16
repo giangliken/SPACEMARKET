@@ -92,7 +92,7 @@ namespace BLL
                 {
                     MANV = manv,
                     TENNV = tennv,
-                    CV = cv,
+                    MAQUYENHAN = cv,
                     EMAILNV = email,
                     SDTNV = sdt,
                     CCCD = cccd, // Thêm CCCD vào nhanVien
@@ -175,7 +175,7 @@ namespace BLL
 
             // Cập nhật thông tin nhân viên
             nhanVien.TENNV = tennv;
-            nhanVien.CV = cv;
+            nhanVien.MAQUYENHAN = cv;
             nhanVien.SDTNV = sdt;
             nhanVien.EMAILNV = email;
             nhanVien.CCCD = cccd;
