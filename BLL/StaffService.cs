@@ -267,14 +267,35 @@ namespace BLL
                 return username;
             }
         }
+        //public NHANVIEN GetStaffByUsername(string username)
+        //{
+        //    using (var context = new Model1())
+        //    {
+        //        return context.NHANVIEN.FirstOrDefault(x => x.USERNAME == username);
+        //    }
+        //}
+
+
         public NHANVIEN GetStaffByUsername(string username)
         {
             using (var context = new Model1())
             {
-                return context.NHANVIEN.FirstOrDefault(x => x.USERNAME == username);
+                var nhanVien = context.NHANVIEN
+                   .Join(context.QUYENHAN,
+                        nv => nv.MAQUYENHAN,
+                        qh => qh.MAQUYENHAN,
+                        (nv, qh) => new { NV = nv, QH = qh })
+                   .FirstOrDefault(nv => nv.NV.USERNAME == username);
+
+                if (nhanVien != null)
+                {
+                    var tenQuyenHan = nhanVien.QH.TENQUYENHAN;
+                    // sử dụng tenQuyenHan như mong muốn
+                }
+
+                return nhanVien.NV;
             }
         }
-
         //Đổi mật khẩu của nhân viên
         public string ChangePassword(string username, string oldPassword, string newPassword)
         {

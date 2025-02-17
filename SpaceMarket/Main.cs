@@ -180,7 +180,7 @@ namespace SpaceMarket
             if (staff != null)
             {
                 formInDoanhThu.TENNV = staff.TENNV;
-                formInDoanhThu.CHUCVU = staff.MAQUYENHAN;
+                formInDoanhThu.CHUCVU = staff.QUYENHAN.TENQUYENHAN;
                 formInDoanhThu.NGAYSINH = staff.NGAYSINH;
             }
             formInDoanhThu.ShowDialog();
