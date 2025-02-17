@@ -35,6 +35,8 @@ namespace SpaceMarket
                 ReportDataSource reportDataSource = new ReportDataSource("ReportDOANHTHU", doanhThu);
                 this.reportViewer1.LocalReport.DataSources.Clear();
                 this.reportViewer1.LocalReport.DataSources.Add(reportDataSource);
+                
+
 
                 // Thiết lập nguồn cho báo cáo
                 this.reportViewer1.LocalReport.ReportPath = @"Bao cao\\ReportDoanhThu.rdlc";
