@@ -276,6 +276,7 @@ namespace BLL
         //}
 
 
+        //trả về đối tượng nhân viên theo username
         public NHANVIEN GetStaffByUsername(string username)
         {
             using (var context = new Model1())

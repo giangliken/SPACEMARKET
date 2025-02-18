@@ -210,10 +210,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\FrameWork\VietQRPaymentAPI\VietQRPaymentAPI\VietQRPaymentAPI.csproj">
-      <Project>{c5944551-4570-4bbe-9b0e-b87e85263e09}</Project>
-      <Name>VietQRPaymentAPI</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{2d08af20-6f87-46d5-a9de-29294d27706c}</Project>
       <Name>DAL</Name>

@@ -794,7 +794,19 @@ namespace SpaceMarket
                     tienkhachchuyenkhoan = 0;
                     //pictureBox2.Image = null;
                     // Đặt hình ảnh mặc định cho PictureBox từ file
-                    pictureBox2.Image = Image.FromFile("D:\\Tai Lieu Hoc Tap\\Lap Trinh Tren Moi Truong Windows\\Do an\\Image\\TOWKTEAM.png");
+                    //pictureBox2.Image = Image.FromFile("..\\Do an\\Image\\TOWKTEAM.png");
+                    string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Image\TOWKTEAM.png");
+                    imagePath = Path.GetFullPath(imagePath); // Chuyển thành đường dẫn tuyệt đối
+
+                    if (File.Exists(imagePath))
+                    {
+                        pictureBox2.Image = Image.FromFile(imagePath);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy tệp: " + imagePath);
+                    }
+
                 }
             }
         }

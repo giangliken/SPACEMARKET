@@ -495,10 +495,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\FrameWork\VietQRPaymentAPI\VietQRPaymentAPI\VietQRPaymentAPI.csproj">
-      <Project>{c5944551-4570-4bbe-9b0e-b87e85263e09}</Project>
-      <Name>VietQRPaymentAPI</Name>
-    </ProjectReference>
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{fd829a99-83a0-40ef-9723-a7a34c4ac3fa}</Project>
       <Name>BLL</Name>

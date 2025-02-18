@@ -80,7 +80,7 @@ namespace SpaceMarket
             }
             else if (maQuyenHan != "100002" &&  maQuyenHan != "100001"){
                 MessageBox.Show("Bạn chưa được phân quyền để xử dụng hệ thống này!. Hãy liên hệ với quản trị viên kiểm tra lại thông tin!","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                HệThốngToolStripMenuItem.Visible = false;
+                HệThốngToolStripMenuItem.Visible = true;
                 quảnLíToolStripMenuItem.Visible = false;
                 bánHàngToolStripMenuItem.Visible = false;
                 sảnPhẩmToolStripMenuItem.Visible = false;
@@ -96,11 +96,11 @@ namespace SpaceMarket
         private void Main_Load(object sender, EventArgs e)
         {
 
-            Progress_Form progress = new Progress_Form();
-            progress.StartPosition = FormStartPosition.Manual;
-            progress.BackColor = this.BackColor;
-            progress.Location = new Point(this.Location.X + (this.Width - progress.Width) / 2, this.Location.Y + (this.Height - progress.Height) / 2);
-            progress.ShowDialog();
+            //Progress_Form progress = new Progress_Form();
+            //progress.StartPosition = FormStartPosition.Manual;
+            //progress.BackColor = this.BackColor;
+            //progress.Location = new Point(this.Location.X + (this.Width - progress.Width) / 2, this.Location.Y + (this.Height - progress.Height) / 2);
+            //progress.ShowDialog();
         }
 
 
