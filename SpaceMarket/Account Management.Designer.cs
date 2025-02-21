@@ -297,6 +297,7 @@
     "ục đích an toàn cho cơ sở dữ liệu, tránh nhầm lẫn!!!";
             this.uiLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.uiLabel4.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.uiLabel4.Click += new System.EventHandler(this.uiLabel4_Click);
             // 
             // pictureBox4
             // 

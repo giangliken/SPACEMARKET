@@ -204,5 +204,10 @@ namespace SpaceMarket
         {
             btnXoa_Click(sender, e);    
         }
+
+        private void uiLabel4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -17,17 +17,8 @@ namespace BLL
         Model1 context = new Model1();
         public StaffService() { }
 
+
         //Hàm lấy danh sách Nhân viên từ database
-        //public List<NHANVIEN> GetAll()
-        //{
-        //    using (var context = new Model1())
-        //    {
-        //        return context.NHANVIEN.ToList(); // Đảm bảo dữ liệu mới nhất được lấy từ cơ sở dữ liệu
-        //    }
-        //}
-
-
-
         public List<NHANVIENS> GetAll()
         {
             using (var context = new Model1())
@@ -43,12 +34,14 @@ namespace BLL
                                      TENQUYENHAN = qh.TENQUYENHAN,
                                      SDTNV = nv.SDTNV,
                                      EMAILNV = nv.EMAILNV,
+                                     USERNAME = nv.USERNAME,
+                                     PASSWORD = nv.PASSWORD,
+
                                  }).ToList();
 
                 return nhanViens.ToList();
             }
         }
-
 
         //Hàm lấy danh sách chức vụ từ table QUYENHAN
         public List<QUYENHAN> GetTenQuyenHan()
@@ -507,6 +500,8 @@ namespace BLL
         public string SDTNV {  get; set; }
         public string EMAILNV { get; set; }
 
+        public string USERNAME {  get; set; }
+        public string PASSWORD { get; set; } = string.Empty;
     }
 }
 
