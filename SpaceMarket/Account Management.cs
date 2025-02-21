@@ -53,14 +53,14 @@ namespace SpaceMarket
 
         private void txtpass_TextChanged(object sender, EventArgs e)
         {
-            // Kiểm tra nếu chiều dài văn bản vượt quá 50 ký tự
-            if (txtpass.Text.Length > 50)
-            {
-                MessageBox.Show("Mật khẩu tối đa chỉ được 50 ký tự.");
-                // Cắt chuỗi về 50 ký tự
-                txtpass.Text = txtpass.Text.Substring(0, 50);
-                txtpass.SelectionStart = txtpass.Text.Length; // Đặt con trỏ về cuối ô nhập
-            }
+            //// Kiểm tra nếu chiều dài văn bản vượt quá 50 ký tự
+            //if (txtpass.Text.Length > 50)
+            //{
+            //    MessageBox.Show("Mật khẩu tối đa chỉ được 50 ký tự.");
+            //    // Cắt chuỗi về 50 ký tự
+            //    txtpass.Text = txtpass.Text.Substring(0, 50);
+            //    txtpass.SelectionStart = txtpass.Text.Length; // Đặt con trỏ về cuối ô nhập
+            //}
         }
 
 
@@ -128,7 +128,7 @@ namespace SpaceMarket
             int rowIndex = datagwdanhsachtaikhoan.CurrentCell.RowIndex;
             string username = datagwdanhsachtaikhoan.Rows[rowIndex].Cells["USERNAME"].Value.ToString();
 
-            string result = staffService.UpdateAccount(username, txtpass.Text);
+            string result = staffService.UpdateAccount(username, staffService.Sha256Encrypt(txtpass.Text));
 
             // Làm mới DataGridView
             ReloadData();

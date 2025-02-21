@@ -39,6 +39,7 @@
             this.reportCHITIETHOADON.ServerReport.BearerToken = null;
             this.reportCHITIETHOADON.Size = new System.Drawing.Size(940, 629);
             this.reportCHITIETHOADON.TabIndex = 0;
+            this.reportCHITIETHOADON.Load += new System.EventHandler(this.reportCHITIETHOADON_Load);
             // 
             // InHoaDon
             // 

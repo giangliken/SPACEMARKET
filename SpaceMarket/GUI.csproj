@@ -369,6 +369,11 @@
     <Compile Include="QuanLySanPham.Designer.cs">
       <DependentUpon>QuanLySanPham.cs</DependentUpon>
     </Compile>
+    <Compile Include="SPACEMARKET_SYSTEMDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SPACEMARKET_SYSTEMDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Staff Management.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -484,6 +489,7 @@
       <DependentUpon>TraCuuKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\BLL.NHANVIENS.datasource" />
     <None Include="Properties\DataSources\DAL.Database.CHITIETHOADON.datasource" />
     <None Include="Properties\DataSources\DAL.Database.DANHMUC.datasource" />
     <None Include="Properties\DataSources\DAL.Database.HOADON.datasource" />
@@ -499,6 +505,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SPACEMARKET_SYSTEMDataSet.xsc">
+      <DependentUpon>SPACEMARKET_SYSTEMDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SPACEMARKET_SYSTEMDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SPACEMARKET_SYSTEMDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SPACEMARKET_SYSTEMDataSet.xss">
+      <DependentUpon>SPACEMARKET_SYSTEMDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

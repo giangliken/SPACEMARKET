@@ -57,5 +57,10 @@ namespace SpaceMarket.Bao_cao
 
             this.reportCHITIETHOADON.RefreshReport();
         }
+
+        private void reportCHITIETHOADON_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -9,20 +9,23 @@
       </ConnectionProperties>
       <rd:DataSourceID>31b412c5-9ce4-4300-841c-f86c47f5b22f</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="BLL">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>bfeceaa8-9b04-4802-b72d-c270f94744f2</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="DSNhanVien">
       <Query>
-        <DataSourceName>DALDatabase</DataSourceName>
+        <DataSourceName>BLL</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
         <Field Name="CCCD">
           <DataField>CCCD</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="CV">
-          <DataField>CV</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="EMAILNV">
@@ -37,10 +40,6 @@
           <DataField>NGAYSINH</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="PASSWORD">
-          <DataField>PASSWORD</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="SDTNV">
           <DataField>SDTNV</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -49,15 +48,15 @@
           <DataField>TENNV</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="USERNAME">
-          <DataField>USERNAME</DataField>
+        <Field Name="TENQUYENHAN">
+          <DataField>TENQUYENHAN</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>DAL.Database</rd:DataSetName>
-        <rd:TableName>NHANVIEN</rd:TableName>
-        <rd:ObjectDataSourceType>DAL.Database.NHANVIEN, DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:DataSetName>BLL</rd:DataSetName>
+        <rd:TableName>NHANVIENS</rd:TableName>
+        <rd:ObjectDataSourceType>BLL.NHANVIENS, BLL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -511,14 +510,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="CV">
+                        <Textbox Name="TENQUYENHAN">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!CV.Value</Value>
+                                  <Value>=Fields!TENQUYENHAN.Value</Value>
                                   <Style>
                                     <FontFamily>times New Roman</FontFamily>
                                   </Style>
@@ -527,7 +526,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>CV</rd:DefaultName>
+                          <rd:DefaultName>TENQUYENHAN</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -570,7 +569,7 @@
             <Top>5.73617cm</Top>
             <Left>1.46801cm</Left>
             <Height>1.2cm</Height>
-            <Width>26.03017cm</Width>
+            <Width>26.03015cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>

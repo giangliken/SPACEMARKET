@@ -18,11 +18,34 @@ namespace BLL
         public StaffService() { }
 
         //Hàm lấy danh sách Nhân viên từ database
-        public List<NHANVIEN> GetAll()
+        //public List<NHANVIEN> GetAll()
+        //{
+        //    using (var context = new Model1())
+        //    {
+        //        return context.NHANVIEN.ToList(); // Đảm bảo dữ liệu mới nhất được lấy từ cơ sở dữ liệu
+        //    }
+        //}
+
+
+
+        public List<NHANVIENS> GetAll()
         {
             using (var context = new Model1())
             {
-                return context.NHANVIEN.ToList(); // Đảm bảo dữ liệu mới nhất được lấy từ cơ sở dữ liệu
+                var nhanViens = (from nv in context.NHANVIEN
+                                 join qh in context.QUYENHAN on nv.MAQUYENHAN equals qh.MAQUYENHAN
+                                 select new NHANVIENS
+                                 {
+                                     MANV = nv.MANV,
+                                     TENNV = nv.TENNV,
+                                     CCCD = nv.CCCD,
+                                     NGAYSINH = nv.NGAYSINH,
+                                     TENQUYENHAN = qh.TENQUYENHAN,
+                                     SDTNV = nv.SDTNV,
+                                     EMAILNV = nv.EMAILNV,
+                                 }).ToList();
+
+                return nhanViens.ToList();
             }
         }
 
@@ -232,7 +255,7 @@ namespace BLL
         }
 
         //Hàm mã hóa mật khẩu
-        private string Sha256Encrypt(string text)
+        public string Sha256Encrypt(string text)
         {
             using (SHA256 sha256 = SHA256.Create())
             {
@@ -473,4 +496,18 @@ namespace BLL
             }
         }
     }
+
+    public class NHANVIENS
+    {
+        public string MANV { get; set; }
+        public string TENNV { get; set; }
+        public string CCCD { get; set; }
+        public DateTime NGAYSINH { get; set; }
+        public string TENQUYENHAN {  get; set; }
+        public string SDTNV {  get; set; }
+        public string EMAILNV { get; set; }
+
+    }
 }
+
+

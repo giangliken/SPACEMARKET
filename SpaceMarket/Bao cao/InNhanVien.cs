@@ -40,6 +40,10 @@ namespace SpaceMarket
                 MessageBox.Show("Không có dữ liệu hóa đơn để hiển thị.");
             }
         }
-        
+
+        private void reportViewer1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
