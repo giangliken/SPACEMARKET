@@ -13,6 +13,8 @@ using JWT;
 using JWT.Algorithms;
 using JWT.Serializers;
 using System.Collections.Generic;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace BLL
 {
@@ -27,8 +29,9 @@ namespace BLL
                     // Tìm tài khoản theo username
                     var taiKhoan = context.NHANVIEN.FirstOrDefault(x => x.USERNAME == username);
 
+
                     // Kiểm tra nếu tài khoản tồn tại và mật khẩu trùng khớp
-                    if (taiKhoan != null && taiKhoan.PASSWORD == password)
+                    if (taiKhoan != null && taiKhoan.PASSWORD == Sha256Encrypt(password))
                     {
                         // Trả về đối tượng NhanVien với thông tin cần thiết
                         return new NhanVien
@@ -44,6 +47,21 @@ namespace BLL
             catch (Exception ex)
             {
                 throw new Exception("Lỗi khi kiểm tra đăng nhập: " + ex.Message);
+            }
+        }
+
+        //Hàm mã hóa mật khẩu
+        private string Sha256Encrypt(string text)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(text));
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
             }
         }
 

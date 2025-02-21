@@ -47,7 +47,7 @@ namespace DAL.Database
         public string USERNAME { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [StringLength(255)]
         public string PASSWORD { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

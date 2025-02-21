@@ -2,9 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,6 +26,15 @@ namespace BLL
             }
         }
 
+
+        //Hàm lấy danh sách chức vụ từ table QUYENHAN
+        public List<QUYENHAN> GetTenQuyenHan()
+        {
+            using (var context = new Model1())
+            {
+                return context.QUYENHAN.ToList();
+            }
+        }
 
         //Hàm tìm kiếm nhân viên theo Mã NV, Họ tên, CCCD
         public List<NHANVIEN> SearchStaff(string maNV, string tenNV, string cccd)
@@ -55,6 +66,63 @@ namespace BLL
         }
 
         //Hàm thêm nhân viên mới
+        //public string AddStaff(string tennv, string cv, string sdt, string email, string cccd, DateTime ngaysinh)
+        //{
+        //    using (Model1 context = new Model1())
+        //    {
+        //        // Kiểm tra Email và SDT đã có trong database
+        //        var emailExist = context.NHANVIEN.Any(x => x.EMAILNV == email);
+        //        var sdtExist = context.NHANVIEN.Any(x => x.SDTNV == sdt);
+
+        //        if (emailExist)
+        //        {
+        //            return "Email đã có trong database!";
+        //        }
+
+        //        if (sdtExist)
+        //        {
+        //            return "Số điện thoại đã có trong database!";
+        //        }
+
+        //        // Tạo mã nhân viên mới
+        //        string manv = "SPACE0407";
+        //        var maxManv = context.NHANVIEN.Max(x => x.MANV);
+        //        if (maxManv != null)
+        //        {
+        //            manv = maxManv.Substring(0, 8) + (int.Parse(maxManv.Substring(8)) + 1).ToString("D2");
+        //        }
+
+        //        // Tạo tên đăng nhập mới
+        //        string username = manv;
+
+        //        // Tạo mật khẩu mới
+        //        string password = GeneratePassword(tennv); // Tạo một phương thức GeneratePassword riêng
+
+        //        //Hàm mã hóa mật khẩu
+        //        //string mahoa_password = Sha256Encrypt(password);
+
+        //        // Tạo mới một đối tượng NHANVIEN
+        //        NHANVIEN nhanVien = new NHANVIEN
+        //        {
+        //            MANV = manv,
+        //            TENNV = tennv,
+        //            MAQUYENHAN = cv,
+        //            EMAILNV = email,
+        //            SDTNV = sdt,
+        //            CCCD = cccd, // Thêm CCCD vào nhanVien
+        //            NGAYSINH = ngaysinh, // Thêm ngày sinh
+        //            USERNAME = username,
+        //            PASSWORD = password
+        //        };
+
+        //        // Thêm nhân viên mới vào bảng NHANVIEN
+        //        context.NHANVIEN.Add(nhanVien);
+        //        context.SaveChanges();
+
+        //        return "Thêm nhân viên mới thành công!";
+        //    }
+        //}
+
         public string AddStaff(string tennv, string cv, string sdt, string email, string cccd, DateTime ngaysinh)
         {
             using (Model1 context = new Model1())
@@ -73,6 +141,14 @@ namespace BLL
                     return "Số điện thoại đã có trong database!";
                 }
 
+                // Kiểm tra giá trị cv
+                var quyenhans = context.QUYENHAN.ToList();
+                var quyenhansCV = quyenhans.FirstOrDefault(x => x.MAQUYENHAN == cv);
+                if (quyenhansCV == null)
+                {
+                    return "Giá trị cv không tồn tại trong bảng QUYENHAN";
+                }
+
                 // Tạo mã nhân viên mới
                 string manv = "SPACE0407";
                 var maxManv = context.NHANVIEN.Max(x => x.MANV);
@@ -86,7 +162,9 @@ namespace BLL
 
                 // Tạo mật khẩu mới
                 string password = GeneratePassword(tennv); // Tạo một phương thức GeneratePassword riêng
+                //string password = Sha256Encrypt("Hello"); // Tạo một phương thức GeneratePassword riêng
 
+     
                 // Tạo mới một đối tượng NHANVIEN
                 NHANVIEN nhanVien = new NHANVIEN
                 {
@@ -98,16 +176,33 @@ namespace BLL
                     CCCD = cccd, // Thêm CCCD vào nhanVien
                     NGAYSINH = ngaysinh, // Thêm ngày sinh
                     USERNAME = username,
-                    PASSWORD = password
+                    PASSWORD = Sha256Encrypt(password),
                 };
 
                 // Thêm nhân viên mới vào bảng NHANVIEN
-                context.NHANVIEN.Add(nhanVien);
-                context.SaveChanges();
+                try
+                {
+                    context.NHANVIEN.Add(nhanVien);
+                    context.SaveChanges();
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    // Đọc thuộc tính EntityValidationErrors
+                    foreach (var error in ex.EntityValidationErrors)
+                    {
+                        Console.WriteLine($"Error: {error.Entry.Entity.GetType().Name}");
+                        foreach (var propertyError in error.ValidationErrors)
+                        {
+                            Console.WriteLine($"Property: {propertyError.PropertyName}, Error: {propertyError.ErrorMessage}");
+                        }
+                    }
+                    return "Lỗi khi thêm nhân viên mới!";
+                }
 
                 return "Thêm nhân viên mới thành công!";
             }
         }
+
 
         // Hàm tạo mật khẩu cho nhân viên
         private string GeneratePassword(string fullName)
@@ -130,8 +225,27 @@ namespace BLL
                 password = (hoTen[0].Substring(0, 1) + hoTen[0]).ToLower();
             }
 
+            
+         
+
             return password;
         }
+
+        //Hàm mã hóa mật khẩu
+        private string Sha256Encrypt(string text)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(text));
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
+        }
+
 
         // Phương thức loại bỏ dấu
         private string RemoveDiacritics(string text)
@@ -298,10 +412,12 @@ namespace BLL
             }
         }
         //Đổi mật khẩu của nhân viên
-        public string ChangePassword(string username, string oldPassword, string newPassword)
+        public string ChangePassword(string username, string old_pass, string new_pass)
         {
             using (var context = new Model1())
             {
+                string oldPassword = Sha256Encrypt(old_pass);
+                string newPassword = Sha256Encrypt(new_pass);
                 // Tìm nhân viên theo username
                 var nhanVien = context.NHANVIEN.FirstOrDefault(nv => nv.USERNAME == username);
 
@@ -310,7 +426,7 @@ namespace BLL
                 {
                     return "Nhân viên không tồn tại!";
                 }
-
+                
                 // Kiểm tra mật khẩu cũ
                 if (nhanVien.PASSWORD != oldPassword)
                 {
