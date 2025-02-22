@@ -56,7 +56,7 @@ namespace SpaceMarket.Bao_cao
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource);
 
             // Thiết lập đường dẫn tới file RDLC
-            this.reportViewer1.LocalReport.ReportPath = @"Bao cao\ReportGiaoHang.rdlc";
+            this.reportViewer1.LocalReport.ReportPath = @"Bao cao\\ReportGiaoHang.rdlc";
 
             // Lấy tên nhân viên và khách hàng từ MAHD
             string tenNV = staffService.GetStaffNameByInvoiceId(phieuGiaoHang.MAHD);

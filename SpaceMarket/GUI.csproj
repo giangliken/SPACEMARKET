@@ -411,7 +411,9 @@
     <EmbeddedResource Include="Bao cao\InSanPham.resx">
       <DependentUpon>InSanPham.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Bao cao\ReportGiaoHang.rdlc" />
+    <EmbeddedResource Include="Bao cao\ReportGiaoHang.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Bao cao\ReportHoaDon.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>

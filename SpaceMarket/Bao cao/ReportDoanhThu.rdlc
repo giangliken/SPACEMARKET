@@ -231,7 +231,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Ngày Lặp Hóa Đơn</Value>
+                                  <Value>Ngày Lập Hóa Đơn</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -442,7 +442,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!NGAYLAP.Value</Value>
+                                  <Value>=Format(Fields!NGAYLAP.Value, "HH:mm") + " " + Format(Fields!NGAYLAP.Value, "dd/MM/yyyy")</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                   </Style>
