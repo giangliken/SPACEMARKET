@@ -39,6 +39,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.uiTabControl1 = new Sunny.UI.UITabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -79,7 +84,23 @@
             this.SOLUONGTON = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uiLabel6 = new Sunny.UI.UILabel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.btnXuaKho = new Sunny.UI.UIButton();
+            this.txtSoLuongXuat = new Sunny.UI.UITextBox();
+            this.cmbHangXuat = new Sunny.UI.UIComboBox();
+            this.cmbKhoXuat = new Sunny.UI.UIComboBox();
+            this.uiLabel11 = new Sunny.UI.UILabel();
+            this.uiLabel12 = new Sunny.UI.UILabel();
+            this.uiLabel13 = new Sunny.UI.UILabel();
+            this.uiLabel14 = new Sunny.UI.UILabel();
+            this.dataDanhSachXuatKho = new Sunny.UI.UIDataGridView();
+            this.uiLabel15 = new Sunny.UI.UILabel();
+            this.cmbKhoDaNhap = new Sunny.UI.UIComboBox();
+            this.uiLabel16 = new Sunny.UI.UILabel();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MASANPHAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SOLUONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uiTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -90,6 +111,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDanhSachNhapKho)).BeginInit();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataDanhSachXuatKho)).BeginInit();
             this.SuspendLayout();
             // 
             // uiTabControl1
@@ -498,7 +521,7 @@
             this.uiCheckBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uiCheckBox1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiCheckBox1.Name = "uiCheckBox1";
-            this.uiCheckBox1.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.uiCheckBox1.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
             this.uiCheckBox1.Size = new System.Drawing.Size(496, 36);
             this.uiCheckBox1.TabIndex = 57;
             this.uiCheckBox1.Text = "Hiển thị các sản phẩm gần hết hàng";
@@ -629,6 +652,7 @@
             this.uiLabel7.Text = "Thông tin nhập kho";
             this.uiLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.uiLabel7.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.uiLabel7.Click += new System.EventHandler(this.uiLabel7_Click);
             // 
             // dataDanhSachNhapKho
             // 
@@ -723,7 +747,19 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.button1);
+            this.tabPage3.Controls.Add(this.cmbKhoDaNhap);
+            this.tabPage3.Controls.Add(this.uiLabel16);
+            this.tabPage3.Controls.Add(this.uiLabel15);
+            this.tabPage3.Controls.Add(this.pictureBox5);
+            this.tabPage3.Controls.Add(this.btnXuaKho);
+            this.tabPage3.Controls.Add(this.txtSoLuongXuat);
+            this.tabPage3.Controls.Add(this.cmbHangXuat);
+            this.tabPage3.Controls.Add(this.cmbKhoXuat);
+            this.tabPage3.Controls.Add(this.uiLabel11);
+            this.tabPage3.Controls.Add(this.uiLabel12);
+            this.tabPage3.Controls.Add(this.uiLabel13);
+            this.tabPage3.Controls.Add(this.uiLabel14);
+            this.tabPage3.Controls.Add(this.dataDanhSachXuatKho);
             this.tabPage3.ForeColor = System.Drawing.Color.Black;
             this.tabPage3.Location = new System.Drawing.Point(0, 40);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -733,20 +769,251 @@
             this.tabPage3.Text = "XUẤT KHO";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // pictureBox5
             // 
-            this.button1.Location = new System.Drawing.Point(432, 133);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(296, 547);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(28, 31);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 67;
+            this.pictureBox5.TabStop = false;
+            // 
+            // btnXuaKho
+            // 
+            this.btnXuaKho.BackColor = System.Drawing.SystemColors.Control;
+            this.btnXuaKho.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnXuaKho.FillColor = System.Drawing.Color.Transparent;
+            this.btnXuaKho.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.btnXuaKho.ForeColor = System.Drawing.Color.Black;
+            this.btnXuaKho.ForeDisableColor = System.Drawing.Color.Black;
+            this.btnXuaKho.ForeHoverColor = System.Drawing.Color.Black;
+            this.btnXuaKho.Location = new System.Drawing.Point(288, 540);
+            this.btnXuaKho.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnXuaKho.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btnXuaKho.Name = "btnXuaKho";
+            this.btnXuaKho.Size = new System.Drawing.Size(171, 44);
+            this.btnXuaKho.Style = Sunny.UI.UIStyle.Custom;
+            this.btnXuaKho.TabIndex = 66;
+            this.btnXuaKho.Text = "Xuất kho";
+            this.btnXuaKho.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnXuaKho.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // txtSoLuongXuat
+            // 
+            this.txtSoLuongXuat.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSoLuongXuat.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSoLuongXuat.Location = new System.Drawing.Point(254, 398);
+            this.txtSoLuongXuat.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.txtSoLuongXuat.MinimumSize = new System.Drawing.Size(1, 20);
+            this.txtSoLuongXuat.Name = "txtSoLuongXuat";
+            this.txtSoLuongXuat.ShowText = false;
+            this.txtSoLuongXuat.Size = new System.Drawing.Size(464, 45);
+            this.txtSoLuongXuat.TabIndex = 65;
+            this.txtSoLuongXuat.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtSoLuongXuat.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // cmbHangXuat
+            // 
+            this.cmbHangXuat.DataSource = null;
+            this.cmbHangXuat.FillColor = System.Drawing.Color.White;
+            this.cmbHangXuat.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbHangXuat.Location = new System.Drawing.Point(254, 329);
+            this.cmbHangXuat.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.cmbHangXuat.MinimumSize = new System.Drawing.Size(71, 0);
+            this.cmbHangXuat.Name = "cmbHangXuat";
+            this.cmbHangXuat.Padding = new System.Windows.Forms.Padding(0, 0, 34, 2);
+            this.cmbHangXuat.Size = new System.Drawing.Size(464, 45);
+            this.cmbHangXuat.TabIndex = 64;
+            this.cmbHangXuat.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmbHangXuat.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // cmbKhoXuat
+            // 
+            this.cmbKhoXuat.DataSource = null;
+            this.cmbKhoXuat.FillColor = System.Drawing.Color.White;
+            this.cmbKhoXuat.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbKhoXuat.Location = new System.Drawing.Point(254, 190);
+            this.cmbKhoXuat.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.cmbKhoXuat.MinimumSize = new System.Drawing.Size(71, 0);
+            this.cmbKhoXuat.Name = "cmbKhoXuat";
+            this.cmbKhoXuat.Padding = new System.Windows.Forms.Padding(0, 0, 34, 2);
+            this.cmbKhoXuat.Size = new System.Drawing.Size(464, 45);
+            this.cmbKhoXuat.TabIndex = 63;
+            this.cmbKhoXuat.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmbKhoXuat.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiLabel11
+            // 
+            this.uiLabel11.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiLabel11.Location = new System.Drawing.Point(29, 398);
+            this.uiLabel11.Name = "uiLabel11";
+            this.uiLabel11.Size = new System.Drawing.Size(269, 45);
+            this.uiLabel11.TabIndex = 62;
+            this.uiLabel11.Text = "Số lượng";
+            this.uiLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel11.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiLabel12
+            // 
+            this.uiLabel12.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiLabel12.Location = new System.Drawing.Point(29, 329);
+            this.uiLabel12.Name = "uiLabel12";
+            this.uiLabel12.Size = new System.Drawing.Size(207, 45);
+            this.uiLabel12.TabIndex = 61;
+            this.uiLabel12.Text = "Hàng cần xuất";
+            this.uiLabel12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel12.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiLabel13
+            // 
+            this.uiLabel13.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiLabel13.Location = new System.Drawing.Point(29, 190);
+            this.uiLabel13.Name = "uiLabel13";
+            this.uiLabel13.Size = new System.Drawing.Size(207, 45);
+            this.uiLabel13.TabIndex = 60;
+            this.uiLabel13.Text = "Kho xuất";
+            this.uiLabel13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel13.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiLabel14
+            // 
+            this.uiLabel14.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiLabel14.Location = new System.Drawing.Point(11, 120);
+            this.uiLabel14.Name = "uiLabel14";
+            this.uiLabel14.Size = new System.Drawing.Size(297, 51);
+            this.uiLabel14.TabIndex = 59;
+            this.uiLabel14.Text = "Thông tin xuất kho";
+            this.uiLabel14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel14.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // dataDanhSachXuatKho
+            // 
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.dataDanhSachXuatKho.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            this.dataDanhSachXuatKho.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataDanhSachXuatKho.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dataDanhSachXuatKho.BackgroundColor = System.Drawing.Color.White;
+            this.dataDanhSachXuatKho.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataDanhSachXuatKho.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.dataDanhSachXuatKho.ColumnHeadersHeight = 32;
+            this.dataDanhSachXuatKho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataDanhSachXuatKho.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.STT,
+            this.dataGridViewTextBoxColumn2,
+            this.MASANPHAM,
+            this.SOLUONG});
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataDanhSachXuatKho.DefaultCellStyle = dataGridViewCellStyle13;
+            this.dataDanhSachXuatKho.EnableHeadersVisualStyles = false;
+            this.dataDanhSachXuatKho.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.dataDanhSachXuatKho.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            this.dataDanhSachXuatKho.Location = new System.Drawing.Point(725, 120);
+            this.dataDanhSachXuatKho.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dataDanhSachXuatKho.Name = "dataDanhSachXuatKho";
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataDanhSachXuatKho.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            this.dataDanhSachXuatKho.RowHeadersWidth = 51;
+            this.dataDanhSachXuatKho.RowHeight = 0;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.dataDanhSachXuatKho.RowsDefaultCellStyle = dataGridViewCellStyle15;
+            this.dataDanhSachXuatKho.RowTemplate.Height = 24;
+            this.dataDanhSachXuatKho.SelectedIndex = -1;
+            this.dataDanhSachXuatKho.ShowGridLine = false;
+            this.dataDanhSachXuatKho.ShowRect = false;
+            this.dataDanhSachXuatKho.Size = new System.Drawing.Size(922, 640);
+            this.dataDanhSachXuatKho.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.dataDanhSachXuatKho.TabIndex = 58;
+            this.dataDanhSachXuatKho.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiLabel15
+            // 
+            this.uiLabel15.Font = new System.Drawing.Font("Segoe UI", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiLabel15.Location = new System.Drawing.Point(556, 0);
+            this.uiLabel15.Name = "uiLabel15";
+            this.uiLabel15.Size = new System.Drawing.Size(533, 82);
+            this.uiLabel15.TabIndex = 69;
+            this.uiLabel15.Text = "Xuất Kho";
+            this.uiLabel15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uiLabel15.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // cmbKhoDaNhap
+            // 
+            this.cmbKhoDaNhap.DataSource = null;
+            this.cmbKhoDaNhap.FillColor = System.Drawing.Color.White;
+            this.cmbKhoDaNhap.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbKhoDaNhap.Location = new System.Drawing.Point(254, 258);
+            this.cmbKhoDaNhap.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.cmbKhoDaNhap.MinimumSize = new System.Drawing.Size(71, 0);
+            this.cmbKhoDaNhap.Name = "cmbKhoDaNhap";
+            this.cmbKhoDaNhap.Padding = new System.Windows.Forms.Padding(0, 0, 34, 2);
+            this.cmbKhoDaNhap.Size = new System.Drawing.Size(464, 45);
+            this.cmbKhoDaNhap.TabIndex = 71;
+            this.cmbKhoDaNhap.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmbKhoDaNhap.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // uiLabel16
+            // 
+            this.uiLabel16.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiLabel16.Location = new System.Drawing.Point(29, 258);
+            this.uiLabel16.Name = "uiLabel16";
+            this.uiLabel16.Size = new System.Drawing.Size(207, 45);
+            this.uiLabel16.TabIndex = 70;
+            this.uiLabel16.Text = "Kho đã nhập";
+            this.uiLabel16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.uiLabel16.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
+            // STT
+            // 
+            this.STT.HeaderText = "STT";
+            this.STT.MinimumWidth = 8;
+            this.STT.Name = "STT";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "TENSANPHAMNHAP";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Tên sản phẩm";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // MASANPHAM
+            // 
+            this.MASANPHAM.HeaderText = "Mã sản phẩm";
+            this.MASANPHAM.MinimumWidth = 8;
+            this.MASANPHAM.Name = "MASANPHAM";
+            // 
+            // SOLUONG
+            // 
+            this.SOLUONG.HeaderText = "Số Lượng";
+            this.SOLUONG.MinimumWidth = 8;
+            this.SOLUONG.Name = "SOLUONG";
             // 
             // KhoHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1686, 908);
+            this.ClientSize = new System.Drawing.Size(1708, 908);
             this.Controls.Add(this.uiTabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -763,6 +1030,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDanhSachNhapKho)).EndInit();
             this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataDanhSachXuatKho)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -809,6 +1078,22 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Sunny.UI.UICheckBox uiCheckBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private Sunny.UI.UIButton btnXuaKho;
+        private Sunny.UI.UITextBox txtSoLuongXuat;
+        private Sunny.UI.UIComboBox cmbHangXuat;
+        private Sunny.UI.UIComboBox cmbKhoXuat;
+        private Sunny.UI.UILabel uiLabel11;
+        private Sunny.UI.UILabel uiLabel12;
+        private Sunny.UI.UILabel uiLabel13;
+        private Sunny.UI.UILabel uiLabel14;
+        private Sunny.UI.UIDataGridView dataDanhSachXuatKho;
+        private Sunny.UI.UILabel uiLabel15;
+        private Sunny.UI.UIComboBox cmbKhoDaNhap;
+        private Sunny.UI.UILabel uiLabel16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MASANPHAM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SOLUONG;
     }
 }
