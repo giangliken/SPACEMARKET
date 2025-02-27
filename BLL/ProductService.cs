@@ -47,6 +47,7 @@ namespace BLL
             }
         }
 
+
         //Hàm thêm sản phẩm 
         public bool AddProduct(string masp, string mancc, string madm, string tensp, decimal giaban)
         {
@@ -172,7 +173,7 @@ namespace BLL
                 try
                 {
                     // Tạo một đối tượng LICHSUGIA mới
-                    var priceHistory = new LICHSUGIA()
+                    var priceHistory = new LICHSUGIA
                     {
                         MASP = masp,
                         GIACU = oldPrice,
@@ -192,6 +193,38 @@ namespace BLL
                 }
             }
         }
+        public List<LICHSUGIAS> GetAllLichSu()
+        {
+            using (Model1 context = new Model1())
+            {
+                var lichsugia = from lg in context.LICHSUGIA
+                                select new LICHSUGIAS
+                                {
+                                    MASP = lg.MASP,
+                                    GIACU = lg.GIACU,
+                                    GIAMOI = lg.GIAMOI,
+                                    NGAYTHAYDOI = lg.NGAYTHAYDOI
+                                };
+                return lichsugia.ToList();
+            }
+        }
+
+        public List<LICHSUGIAS> SearchLichSu(string keyword)
+        {
+            using (Model1 context = new Model1())
+            {
+                var lichsugia = from lg in context.LICHSUGIA
+                                where lg.MASP.Contains(keyword) || lg.GIACU.ToString().Contains(keyword) || lg.GIAMOI.ToString().Contains(keyword) || lg.NGAYTHAYDOI.ToString().Contains(keyword)
+                                select new LICHSUGIAS
+                                {
+                                    MASP = lg.MASP,
+                                    GIACU = lg.GIACU,
+                                    GIAMOI = lg.GIAMOI,
+                                    NGAYTHAYDOI = lg.NGAYTHAYDOI
+                                };
+                return lichsugia.ToList();
+            }
+        }
 
 
 
@@ -204,7 +237,15 @@ namespace BLL
         public string DM { get; set; }
         public decimal GIA { get; set; }
     }
+    public class LICHSUGIAS
+    {
+        public string MASP { get; set; }
+        public decimal GIACU { get; set; }
+        public decimal GIAMOI { get; set; }
+        public DateTime NGAYTHAYDOI { get; set; }
+    }
+
 
 }
 
-    
+
