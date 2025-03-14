@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Sunny.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -22,11 +24,13 @@ namespace SpaceMarket
             txtgiacu.ReadOnly = true;
         }
 
+
+
         private void ThayDoiGia_Load(object sender, EventArgs e)
         {
             datagwdanhsachsanpham.DataSource = productService.GetAll();
-            datagwdanhsachsanpham.Columns["NCC"].Visible = false;
-            datagwdanhsachsanpham.Columns["DM"].Visible = false;
+            //datagwdanhsachsanpham.Columns["NCC"].Visible = false;
+            //datagwdanhsachsanpham.Columns["DM"].Visible = false;
 
 
             datagwdanhsachlichsugia.DataSource = productService.GetAllLichSu();
@@ -48,11 +52,20 @@ namespace SpaceMarket
 
                 string masp = datagwdanhsachsanpham.Rows[rowIndex].Cells["MASP"].Value.ToString();
                 string tensp = datagwdanhsachsanpham.Rows[rowIndex].Cells["TENSP"].Value.ToString();
+                string tenncc = datagwdanhsachsanpham.Rows[rowIndex].Cells["NCC"].Value.ToString();
+                string tendm = datagwdanhsachsanpham.Rows[rowIndex].Cells["DM"].Value.ToString();
                 string gia = datagwdanhsachsanpham.Rows[rowIndex].Cells["GIA"].Value.ToString();
                 // Đổ dữ liệu ngược vào các ô nhập liệu
                 txtma.Text = masp;
                 txtten.Text = tensp;
                 txtgiacu.Text = gia;
+
+                string mancc = productService.GetMaNCCByTen(tenncc);
+                string madm = productService.GetMaDMByTen(tendm);
+
+                // Lưu MANCC và MADM vào các biến tạm (khai báo private trong form)
+                this.selectedMancc = mancc;
+                this.selectedMadm = madm;
                 //txtm.Text = manv; // Đảm bảo bạn có txtMaNV để hiển thị Mã NV
                 //txtFullName.Text = tennv;
                 //txtChucVu.Text = cv;
@@ -62,6 +75,10 @@ namespace SpaceMarket
                 //dtpNgaySinh.Value = ngaysinh; // Đổ ngày sinh vào DateTimePicker
             }
         }
+        // Khai báo các biến tạm trong class ThayDoiGia
+        private string selectedMancc;
+        private string selectedMadm;
+
 
         private void txtma_TextChanged(object sender, EventArgs e)
         {
@@ -85,12 +102,12 @@ namespace SpaceMarket
             string tensp = txtten.Text;
             decimal giaban;
 
-            // Tìm kiếm sản phẩm theo từ khóa
-            var sanpham = productService.SearchProducts(masp).FirstOrDefault();
+            //// Tìm kiếm sản phẩm theo từ khóa
+            //var sanpham = productService.SearchProducts(masp).FirstOrDefault();
 
-            // Lấy giá trị của mancc và madm
-            string mancc = sanpham.NCC;
-            string madm = sanpham.DM;
+            //// Lấy giá trị của mancc và madm
+            //string mancc = sanpham.NCC;
+            //string madm = sanpham.DM;
 
             // Kiểm tra nếu giá bán nhập vào hợp lệ
             if (!decimal.TryParse(txtgiamoi.Text, out giaban))
@@ -100,7 +117,7 @@ namespace SpaceMarket
             }
 
             // Gọi phương thức UpdateProduct để sửa sản phẩm
-            bool result = productService.UpdateProduct(masp, mancc, madm, tensp, giaban);
+            bool result = productService.UpdateProduct(masp, selectedMancc, selectedMadm, tensp, giaban);
 
             // Hiển thị thông báo kết quả
             if (result)
@@ -111,7 +128,8 @@ namespace SpaceMarket
             }
             else
             {
-                MessageBox.Show("MASP: " + masp + "\nMANCC: " + mancc + "\nMADM: " + madm + "\nTENSP: " + tensp + "\nGIABAN: " + giaban);
+
+                MessageBox.Show("MASP: " + masp + "\ntenNCC: " + selectedMancc + "\ntenDM: " + selectedMadm + "\nTENSP: " + tensp + "\nGIABAN: " + giaban);
 
                 MessageBox.Show("Sửa sản phẩm thất bại!");
             }
@@ -121,8 +139,7 @@ namespace SpaceMarket
         {
             // Gọi phương thức GetAll để lấy danh sách sản phẩm và đổ vào DataGridView
             datagwdanhsachsanpham.DataSource = productService.GetAll();
-            datagwdanhsachsanpham.Columns["NCC"].Visible = false;
-            datagwdanhsachsanpham.Columns["DM"].Visible = false;
+
 
             datagwdanhsachlichsugia.DataSource = productService.GetAllLichSu();
 

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BLL
 {
@@ -37,7 +38,7 @@ namespace BLL
             }
             
         }
-
+        
         //Lấy danh sách danh mục
         public List<DANHMUC> GetDM()
         {
@@ -89,21 +90,27 @@ namespace BLL
 
                     if (product == null)
                     {
+                        MessageBox.Show("Không tìm thấy sản phẩm!");
                         return false; // Không tìm thấy sản phẩm
                     }
 
                     // Ghi nhận lịch sử giá nếu giá có thay đổi
                     if (product.GIABAN != giaban)
                     {
-                        RecordPriceChange(masp, product.GIABAN, giaban);
+                        bool recordSuccess = RecordPriceChange(masp, product.GIABAN, giaban);
+                        if (!recordSuccess)
+                        {
+                            MessageBox.Show("Ghi lịch sử giá thất bại!"); // Thông báo lỗi
+                            return false;
+                        }
                     }
 
+                   
                     // Cập nhật thông tin sản phẩm
                     product.MANCC = mancc;
                     product.MADM = madm;
                     product.TENSP = tensp;
                     product.GIABAN = giaban;
-
                     // Lưu thay đổi
                     context.SaveChanges();
                     return true; // Sửa thành công
@@ -226,6 +233,25 @@ namespace BLL
             }
         }
 
+        // Lấy MANCC từ TENNCC
+        public string GetMaNCCByTen(string tenncc)
+        {
+            using (Model1 context = new Model1())
+            {
+                var ncc = context.NHACUNGCAP.FirstOrDefault(n => n.TENNCC == tenncc);
+                return ncc?.MANCC; // Trả về null nếu không tìm thấy
+            }
+        }
+
+        // Lấy MADM từ TENDM
+        public string GetMaDMByTen(string tendm)
+        {
+            using (Model1 context = new Model1())
+            {
+                var dm = context.DANHMUC.FirstOrDefault(d => d.TENDM == tendm);
+                return dm?.MADM; // Trả về null nếu không tìm thấy
+            }
+        }
 
 
     }
