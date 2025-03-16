@@ -165,6 +165,25 @@ namespace BLL
             }
         }
 
+        public List<XUATKHO> LayDanhSachXuatKho()
+        {
+            using (Model1 context = new Model1())
+            {
+                var query = from ct in context.CHITIETKHOHANG
+                            join sp in context.SANPHAM on ct.MASP equals sp.MASP
+                            join kh in context.KHOHANG on ct.MAKHO equals kh.MAKHO
+                            select new XUATKHO
+                            {
+                                //  MAKHO = ct.MAKHO,
+                                TENSP = sp.TENSP,
+                                MASP = ct.MASP,
+                                SOLUONGTON = ct.SLTON,
+                                TENKHO = kh.TENKHO
+                            };
+                return query.ToList();
+            }
+        }
+
         //Lấy danh sách tên kho
         public List<KHOHANG> LayDanhSachKhoHang()
         {
@@ -224,7 +243,7 @@ namespace BLL
         public string MAKHO { get; set; }
         public string TENKHO { get; set; }
         public string DIACHIKHO { get; set; }
-    }
+    }   
 
     public class NHAPKHO
     {
@@ -232,5 +251,14 @@ namespace BLL
         public string TENSANPHAMNHAP { get; set; }
         public int SOLUONGTON { get; set; }
     }
+    public class XUATKHO
+    {
+        public string TENSP { get; set; }
+        public string MASP { get; set; }
+        public int SOLUONGTON { get; set; }
+       
+        public string TENKHO { get; set; } // Thêm nếu cần hiển thị tên kho
+    }
+
 
 }

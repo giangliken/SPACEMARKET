@@ -146,13 +146,19 @@ namespace SpaceMarket
             dataDanhSachNhapKho.DataSource = khoHangService.LayDanhSachChiTietKhoHang();
         }
 
+        private void LoadDanhSachXuatKho()
+        {
+            dataDanhSachXuatKho.DataSource = khoHangService.LayDanhSachXuatKho();
+        }
+
         private void KhoHang_Load(object sender, EventArgs e)
         {
             LoadDanhSachKhoHang();
+            LoadDanhSachXuatKho();
             txtMakho.Text = khoHangService.GenerateNewMaKho();
             //Tab Nhap kho
             LoadDanhSachChiTietKhoHang();
-
+            
             cbbKhoCanNhap.DataSource = khoHangService.LayDanhSachKhoHang();
             cbbKhoCanNhap.DisplayMember = "TENKHO";
             cbbKhoCanNhap.ValueMember = "MAKHO";
@@ -161,6 +167,17 @@ namespace SpaceMarket
             cbbHangCanNhap.DisplayMember = "TENSP";
             cbbHangCanNhap.ValueMember = "MASP";
 
+            cmbKhoXuat.DataSource = khoHangService.LayDanhSachKhoHang();
+            cmbKhoXuat.DisplayMember = "TENKHO"; // Hiển thị tên kho
+            cmbKhoXuat.ValueMember = "MAKHO";    // Giá trị thực là mã kho
+
+            cmbKhoDaNhap.DataSource = khoHangService.LayDanhSachKhoHang();
+            cmbKhoDaNhap.DisplayMember = "TENKHO";
+            cmbKhoDaNhap.ValueMember = "MAKHO";
+
+            cmbHangXuat.DataSource = khoHangService.LayDanhSachSanPham();
+            cmbHangXuat.DisplayMember = "TENSP"; // Hiển thị tên sản phẩm
+            cmbHangXuat.ValueMember = "MASP";    // Giá trị thực là mã sản phẩm
 
         }
 
@@ -489,6 +506,58 @@ namespace SpaceMarket
         }
 
         private void uiLabel7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbKhoXuat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbKhoDaNhap_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbHangXuat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSoLuongXuat_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataDanhSachXuatKho_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            
+            if (e.RowIndex >= 0) 
+            {
+                
+                var selectedRow = dataDanhSachXuatKho.Rows[e.RowIndex];
+
+                string tenSP = selectedRow.Cells[1].Value.ToString();
+                string tenKHO = selectedRow.Cells[4].Value.ToString();   
+                cmbHangXuat.Text = tenSP;
+                cmbKhoDaNhap.Text =tenKHO;  
+               
+            }
+        }
+
+        private void btnXuaKho_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataDanhSachNhapKho_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
